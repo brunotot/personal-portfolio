@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@100&display=swap");
+
+:root {
+	--clr-blue-900: #6d6dbc;
+	--clr-blue-800: #242d3b;
+	--clr-blue-700: #201e50;
+	--clr-blue-600: #5789ad;
+	--clr-blue-500: #8394ae;
+	--clr-blue-400: #919fbc;
+	--clr-blue-300: #dcf2ff;
+
+	--clr-text-200: #2f313d;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	font-family: "Chakra Petch", sans-serif;
+}
+
+body,
+html {
+	margin: 0;
+	padding: 0;
+}
+
+.font-chakra,
+.font-chakra *,
+.font-chakra *::before,
+.font-chakra *::after {
+	font-family: "Chakra Petch", sans-serif;
+}
+
+.font-jost,
+.font-jost *,
+.font-jost *::before,
+.font-jost *::after {
+	font-family: "Jost", sans-serif;
+}
+
+.card-shadow {
+	box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12),
+		0px 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+#experience,
+#projects {
+	background: rgb(238, 243, 255);
+	background: linear-gradient(
+		45deg,
+		rgba(238, 243, 255, 1) 0%,
+		rgba(255, 255, 255, 1) 100%
+	);
+}
+
+.bg-header-biography-group {
+	background-image: linear-gradient(
+		270deg,
+		hsl(218deg 100% 90%) 0%,
+		hsl(210deg 100% 91%) 8%,
+		hsl(203deg 99% 93%) 17%,
+		hsl(197deg 100% 96%) 25%,
+		hsl(192deg 97% 96%) 33%,
+		hsl(187deg 95% 97%) 42%,
+		hsl(180deg 100% 98%) 50%,
+		hsl(187deg 95% 97%) 58%,
+		hsl(192deg 97% 96%) 67%,
+		hsl(197deg 100% 96%) 75%,
+		hsl(203deg 99% 93%) 83%,
+		hsl(210deg 100% 91%) 92%,
+		hsl(218deg 100% 90%) 100%
+	);
+}
+
+@media screen and (min-width: 769px) {
+	[data-text-direction="left"] {
+		writing-mode: vertical-lr;
+		transform: scale(-1, -1);
+	}
+	[data-text-direction="right"] {
+		writing-mode: vertical-lr;
+		transform: scale(-1, -1);
+	}
+}
