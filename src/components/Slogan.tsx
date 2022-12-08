@@ -1,4 +1,4 @@
-const SLOGAN = import.meta.env.VITE_SLOGAN;
+const SLOGAN = "Eat, sleep, build incredible web apps, repeat.";
 
 export default function Slogan() {
 	return (

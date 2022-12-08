@@ -1,5 +1,5 @@
-const GITHUB_PROFILE_BASE_URL = import.meta.env.VITE_GITHUB_PROFILE_BASE_URL;
-const API_BASE_URI = import.meta.env.VITE_API_BASE_URL;
+const GITHUB_PROFILE_BASE_URL = "https://github.com/brunotot";
+const API_BASE_URI = "https://api.github.com/repos/brunotot";
 const TOKEN = import.meta.env.VITE_GH_TOKEN;
 const DEFAULT_HEADERS: HeadersInit = {
 	Authorization: `Bearer ${TOKEN}`,
