@@ -1,3 +1,5 @@
+import Tassel from "../ui/Tassel";
+
 export type EducationCardProps = {
 	dateFrom: string;
 	dateTo: string;

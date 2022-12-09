@@ -1,0 +1,23 @@
+:root {
+	--translate-letter-width: 0.5rem;
+	--translate-letter-speed-seconds: 0.1;
+	--translate-letter-speed: 0.1s;
+	--translate-shadow-width: 0.4rem;
+}
+
+.wavy-text {
+	position: relative;
+}
+
+.wavy-text[data-use-shadow="true"] {
+	-webkit-box-reflect: below
+		calc((-1 * var(--translate-letter-width)) + var(--translate-shadow-width))
+		linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+}
+
+.wavy-text span {
+	position: relative;
+	display: inline-block;
+	animation-iteration-count: infinite;
+	animation-delay: calc(var(--translate-letter-speed) * var(--i));
+}

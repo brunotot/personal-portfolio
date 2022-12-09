@@ -2,7 +2,7 @@ import { TitleColorWeight, TitleDirection } from "./Gallery";
 
 export type SectionTitleProps = {
 	direction?: TitleDirection;
-	children: string;
+	children: any;
 	colorWeight?: TitleColorWeight;
 };
 

@@ -22,7 +22,7 @@ export default function Biography() {
 				<p className="font-jost tracking-wide bio-subheading text-lg mt-2">
 					with a passion for building web apps and automatization
 				</p>
-				<p className="bio-description text-sm mt-9 md:max-w-xl">
+				<p className="bio-description text-md mt-9 md:max-w-xl">
 					Software development attracted me after finishing High school and only
 					proceeded to fall in love with it at Zagreb University of Applied
 					Sciences. I focus in delivering high quality web apps and reusable

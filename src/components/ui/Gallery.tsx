@@ -1,12 +1,14 @@
 import { ReactNode } from "react";
 import SectionTitle from "./SectionTitle";
+import WavyText from "./WavyText";
 
 export type TitleDirection = "middle" | "left" | "right";
 
 export type TitleColorWeight = 300 | 400 | 500 | 600 | 700 | 800 | 900;
 
 export type GalleryProps = {
-	gap?: number;
+	gapX?: number;
+	gapY?: number;
 	useChildWrapper?: boolean;
 	id?: string;
 	title?: string;
@@ -23,15 +25,15 @@ export default function Gallery(props: GalleryProps) {
 		title,
 		children,
 		useChildWrapper = true,
-		gap = 8,
+		gapX = 8,
+		gapY = 8,
 		titleDirection = "middle",
 		className = "",
 		titleColorWeight = 800,
 	} = props;
 	const childrenNormalized = Array.isArray(children) ? children : [children];
 	const cardsContainerClassName =
-		props.cardsContainerClassName ??
-		`w-full flex flex-wrap justify-center gap-${gap}`;
+		props.cardsContainerClassName ?? `w-full flex flex-wrap justify-center`;
 
 	const flexDirectionClass =
 		titleDirection === "right"
@@ -47,10 +49,10 @@ export default function Gallery(props: GalleryProps) {
 		>
 			{title && (
 				<SectionTitle colorWeight={titleColorWeight} direction={titleDirection}>
-					{title}
+					<WavyText colors="rainbow" text={title} useShadow={false} />
 				</SectionTitle>
 			)}
-			<div className={cardsContainerClassName}>
+			<div className={`gap-x-${gapX} gap-y-${gapY} ${cardsContainerClassName}`}>
 				{childrenNormalized.map((node, index) =>
 					useChildWrapper ? (
 						<div

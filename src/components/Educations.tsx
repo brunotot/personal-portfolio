@@ -9,6 +9,8 @@ export default function Educations() {
 			titleDirection="right"
 			titleColorWeight={300}
 			className="bg-[var(--clr-blue-900)]"
+			cardsContainerClassName="w-full flex flex-wrap justify-around"
+			gapY={16}
 			useChildWrapper={false}
 		>
 			<EducationFragment

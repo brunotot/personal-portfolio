@@ -6,7 +6,7 @@ export default function EnvelopeSvg({ className }: EnvelopeProps) {
 	return (
 		<svg
 			className={className}
-			width="429"
+			style={{ width: "50vw" }}
 			height="415"
 			viewBox="0 0 429 415"
 			fill="none"

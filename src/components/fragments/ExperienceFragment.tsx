@@ -28,7 +28,7 @@ export default function ExperienceFragment(props: ExperienceCardProps) {
 
 	return (
 		<>
-			<div className="flex justify-between">
+			<div className="flex justify-between gap-8">
 				<p className="font-bold text-lg text-[var(--clr-blue-500)]">
 					{dateFrom} - {dateTo ? dateTo : "Present"}
 				</p>
