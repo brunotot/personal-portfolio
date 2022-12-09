@@ -5,7 +5,8 @@ export default function Projects() {
 	return (
 		<Gallery
 			id="projects"
-			gap={16}
+			gapX={16}
+			gapY={16}
 			title="Projects"
 			titleDirection="left"
 			useChildWrapper={false}
