@@ -8,9 +8,9 @@ import {
 import { yupResolver } from "@hookform/resolvers/yup";
 import { createContext } from "react";
 
-export type FormProps<T> = {
+export type FormProps = {
 	schema: AnyObjectSchema;
-	onSubmit: (data: T) => void;
+	onSubmit: (data: any) => void;
 	className?: string;
 	children: any;
 };
@@ -23,7 +23,7 @@ export type FormContextType = {
 
 export const FormContext = createContext<FormContextType>(null as any);
 
-export default function Form<T>(props: FormProps<T>) {
+export default function Form(props: FormProps) {
 	const { schema, onSubmit, children, className } = props;
 
 	const {
@@ -31,7 +31,7 @@ export default function Form<T>(props: FormProps<T>) {
 		handleSubmit,
 		formState: { errors },
 		watch,
-	} = useForm<T>({
+	} = useForm({
 		resolver: yupResolver(schema),
 	});
 
