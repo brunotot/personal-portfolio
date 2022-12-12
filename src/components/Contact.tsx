@@ -11,7 +11,7 @@ export default function Contact() {
 				Contact me
 			</p>
 			<ContactForm />
-			<div className="flex flex-col md:flex-row flex-wrap gap-x-12 gap-y-2 pl-8">
+			<div className="flex flex-col md:flex-row flex-wrap gap-x-12 gap-y-2 pl-0 md:pl-8">
 				<Link
 					href="https://www.linkedin.com/in/btot/"
 					text="Bruno Tot"
