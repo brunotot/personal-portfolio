@@ -14,6 +14,7 @@
 		"@fortawesome/free-solid-svg-icons": "^6.2.0",
 		"@fortawesome/react-fontawesome": "^0.2.0",
 		"@hookform/resolvers": "^2.9.10",
+		"aos": "^2.3.4",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-hook-form": "^7.40.0",
@@ -22,6 +23,7 @@
 		"yup": "^0.32.11"
 	},
 	"devDependencies": {
+		"@types/aos": "^3.0.4",
 		"@types/react": "^18.0.24",
 		"@types/react-dom": "^18.0.8",
 		"@vitejs/plugin-react": "^2.2.0",

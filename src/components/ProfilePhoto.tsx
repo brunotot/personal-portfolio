@@ -3,7 +3,7 @@ import profileDesktop from "./../assets/img/profile-desktop.png";
 
 export default function ProfilePhoto() {
 	return (
-		<div>
+		<div data-aos="fade-right">
 			<picture>
 				<source media="(min-width:769px)" srcSet={profileDesktop} />
 				<img

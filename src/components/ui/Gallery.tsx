@@ -56,6 +56,7 @@ export default function Gallery(props: GalleryProps) {
 				{childrenNormalized.map((node, index) =>
 					useChildWrapper ? (
 						<div
+							data-aos="zoom-in"
 							key={index}
 							className="bg-white flex basis-full md:basis-[calc(50%-1rem)] xl:basis-[calc(33%-2rem)] flex-col p-4 rounded border card-shadow"
 						>

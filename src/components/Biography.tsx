@@ -13,16 +13,28 @@ export default function Biography() {
 				<ProfilePhoto />
 			</div>
 			<div className="w-full my-0 mx-auto text-center md:text-left md:w-1/2 p-4 pb-12 md:pb-4">
-				<p className="bio-name text-3xl md:text-4xl font-extralight">
+				<p
+					className="bio-name text-3xl md:text-4xl font-extralight"
+					data-aos="fade-right"
+				>
 					I'm Bruno
 				</p>
-				<p className="font-jost tracking-wide bio-heading font-bold text-3xl md:text-5xl mt-4">
+				<p
+					className="font-jost tracking-wide bio-heading font-bold text-3xl md:text-5xl mt-4"
+					data-aos="fade-left"
+				>
 					Fullstack Web Developer
 				</p>
-				<p className="font-jost tracking-wide bio-subheading text-lg mt-2">
+				<p
+					className="font-jost tracking-wide bio-subheading text-lg mt-2"
+					data-aos="fade-right"
+				>
 					with a passion for building web apps and automatization
 				</p>
-				<p className="bio-description text-md mt-9 md:max-w-xl">
+				<p
+					className="bio-description text-md mt-9 md:max-w-xl"
+					data-aos="fade-left"
+				>
 					Software development attracted me after finishing High school and only
 					proceeded to fall in love with it at Zagreb University of Applied
 					Sciences. I focus in delivering high quality web apps and reusable
