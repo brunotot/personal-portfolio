@@ -10,6 +10,7 @@ export default function Projects() {
 			title="Projects"
 			titleDirection="left"
 			useChildWrapper={false}
+			cardsContainerClassName="flex flex-col justify-center gap-8"
 		>
 			<ProjectFragment
 				shadowRgb="206, 114, 254"

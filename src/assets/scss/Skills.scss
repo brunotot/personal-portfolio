@@ -2,10 +2,20 @@
 @import "slick-carousel/slick/slick-theme.css";
 
 .skills {
+	--text-size-base: 3.75cqw;
+	--text-size-20: calc(var(--text-size-base) * 1);
+	--text-size-24: calc(var(--text-size-base) * 1.2);
+	--text-size-32: calc(var(--text-size-base) * 1.6);
+	--text-size-36: calc(var(--text-size-base) * 1.8);
+	--text-size-40: calc(var(--text-size-base) * 2);
+	--text-size-48: calc(var(--text-size-base) * 2.4);
+	--text-size-64: calc(var(--text-size-base) * 3.2);
+	--text-size-96: calc(var(--text-size-base) * 4.8);
+
 	position: relative;
 	height: 25rem;
 	max-width: 700px;
-	min-width: 40%;
+	min-width: 50%;
 	container-type: inline-size;
 
 	& > .skill {
@@ -21,133 +31,133 @@
 	left: 0;
 	top: 8%;
 	writing-mode: vertical-lr;
-	font-size: 48px;
+	font-size: var(--text-size-48);
 }
 
 .skill[data-skill="Scrum"] {
 	left: 1%;
 	top: 68%;
 	writing-mode: vertical-lr;
-	font-size: 40px;
+	font-size: var(--text-size-40);
 }
 
 .skill[data-skill="JIRA"] {
-	font-size: 40px;
+	font-size: var(--text-size-40);
 	top: 4%;
 	left: 17%;
 }
 
 .skill[data-skill="jQuery"] {
-	font-size: 40px;
+	font-size: var(--text-size-40);
 	top: 26%;
 	left: 14%;
 	writing-mode: vertical-lr;
 }
 
 .skill[data-skill="Git"] {
-	font-size: 32px;
+	font-size: var(--text-size-32);
 	top: 60%;
 	left: 17%;
 }
 
 .skill[data-skill="Angular"] {
-	font-size: 48px;
+	font-size: var(--text-size-48);
 	top: 72%;
 	left: 15%;
 }
 
 .skill[data-skill="Jenkins"] {
-	font-size: 24px;
+	font-size: var(--text-size-24);
 	top: 88%;
 	left: 16%;
 }
 
 .skill[data-skill="MyBatis"] {
-	font-size: 24px;
+	font-size: var(--text-size-24);
 	top: 7%;
 	left: 34%;
 }
 
 .skill[data-skill="IntelliJ IDEA"] {
-	font-size: 24px;
+	font-size: var(--text-size-24);
 	top: 9%;
 	left: 52%;
 }
 
 .skill[data-skill="SQL"] {
-	font-size: 24px;
+	font-size: var(--text-size-24);
 	top: 24%;
 	left: 27%;
 }
 
 .skill[data-skill="Bootstrap 5"] {
-	font-size: 32px;
+	font-size: var(--text-size-32);
 	top: 7%;
 	left: 77%;
 }
 
 .skill[data-skill="Spring Boot"] {
-	font-size: 64px;
+	font-size: var(--text-size-64);
 	top: 15%;
 	left: 37%;
 }
 
 .skill[data-skill="Java"] {
-	font-size: 96px;
-	top: 28%;
+	font-size: var(--text-size-96);
+	top: 26%;
 	left: 29%;
 }
 
 .skill[data-skill="HTML5"] {
-	font-size: 36px;
+	font-size: var(--text-size-36);
 	top: 59%;
 	left: 29%;
 }
 
 .skill[data-skill="Agile"] {
-	font-size: 40px;
+	font-size: var(--text-size-40);
 	top: 38%;
 	left: 60%;
 }
 
 .skill[data-skill="TypeScript"] {
-	font-size: 48px;
+	font-size: var(--text-size-48);
 	top: 54%;
 	left: 55%;
 }
 
 .skill[data-skill="CSS3"] {
-	font-size: 36px;
+	font-size: var(--text-size-36);
 	top: 73%;
 	left: 50%;
 }
 
 .skill[data-skill="React"] {
-	font-size: 24px;
+	font-size: var(--text-size-24);
 	top: 75%;
 	left: 69%;
 }
 
 .skill[data-skill="Web scraping"] {
-	font-size: 20px;
+	font-size: var(--text-size-20);
 	top: 38%;
 	left: 80%;
 }
 
 .skill[data-skill="Automatization"] {
-	font-size: 20px;
+	font-size: var(--text-size-20);
 	top: 47%;
 	left: 79%;
 }
 
 .skill[data-skill="NodeJS"] {
-	font-size: 20px;
+	font-size: var(--text-size-20);
 	top: 87.5%;
 	left: 35%;
 }
 
 .skill[data-skill="Testing"] {
-	font-size: 20px;
+	font-size: var(--text-size-20);
 	top: 87%;
 	left: 52%;
 }
@@ -159,4 +169,16 @@ svg.star-svg {
 .slick-prev:before,
 .slick-next:before {
 	color: var(--clr-blue-600) !important;
+}
+
+.slick-dots {
+	position: static;
+}
+
+span:has(.skill-rating) {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 0.75rem;
 }

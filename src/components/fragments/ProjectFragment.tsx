@@ -38,7 +38,7 @@ export default function ProjectFragment(props: ProjectProps) {
 		<div
 			data-aos="zoom-in"
 			style={{ "--clr-shadow": shadowRgb } as React.CSSProperties}
-			className={`flex basis-full md:basis-[calc(50%-2rem)] xl:basis-[calc(33%-4rem)] flex-col p-4 rounded border ${styles["project"]}`}
+			className={`flex flex-col p-4 rounded border ${styles["project"]}`}
 		>
 			<p className="font-bold text-3xl mb-2">{title}</p>
 			<p className="text-md text-slate-500 mt-auto mb-6">

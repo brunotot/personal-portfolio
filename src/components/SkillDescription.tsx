@@ -113,7 +113,7 @@ export default function SkillDescription(props: SkillDescriptionProps) {
 	);
 
 	return (
-		<div className="flex p-4 justify-center items-center flex-col gap-4 rounded border border-4 border-[var(--clr-blue-600)]">
+		<div className="flex p-4 justify-center items-center flex-col gap-4 rounded border border-2 border-[var(--clr-blue-600)]">
 			<p className="whitespace-nowrap font-bold text-3xl">{title}</p>
 			<Rating
 				allowFraction
@@ -122,6 +122,8 @@ export default function SkillDescription(props: SkillDescriptionProps) {
 				tooltipDefaultText="To learn in the future"
 				initialValue={proficiency}
 				tooltipArray={TOOLTIP_ARRAY}
+				tooltipStyle={{ margin: "0" }}
+				className="skill-rating"
 			/>
 			<p>{skillDescription}</p>
 		</div>

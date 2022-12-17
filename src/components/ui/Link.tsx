@@ -15,9 +15,9 @@ export default function Link(props: LinkProps) {
 		target = "_blank",
 		type = "basic",
 		icon,
+		text,
 		className = "flex flex-nowrap gap-3 items-center justify-center",
 	} = props;
-	const text = props.text ?? href;
 	const hrefPrefix =
 		type === "basic" ? "" : type === "tel" ? "tel:" : "mailto:";
 	return (
@@ -27,7 +27,7 @@ export default function Link(props: LinkProps) {
 			href={`${hrefPrefix}${href}`}
 		>
 			{icon && <span>{icon}</span>}
-			<span>{text}</span>
+			{text && <span>{text}</span>}
 		</a>
 	);
 }

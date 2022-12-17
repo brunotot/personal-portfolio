@@ -4,7 +4,9 @@ import {
 	faLinkedin,
 	faStackOverflow,
 	faGithub,
+	faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
+import Link from "./ui/Link";
 
 export default function Biography() {
 	return (
@@ -45,9 +47,18 @@ export default function Biography() {
 					Outside developer walls I play chess and save the world :)
 				</p>
 				<div className="flex gap-3 mt-5 justify-center md:justify-start">
-					<FontAwesomeIcon icon={faLinkedin} size="2x" />
-					<FontAwesomeIcon icon={faStackOverflow} size="2x" />
-					<FontAwesomeIcon icon={faGithub} size="2x" />
+					<Link
+						href="https://www.linkedin.com/in/btot/"
+						icon={<FontAwesomeIcon size="2x" icon={faLinkedinIn} />}
+					/>
+					<Link
+						href="https://stackoverflow.com/users/14260355/brunot"
+						icon={<FontAwesomeIcon size="2x" icon={faStackOverflow} />}
+					/>
+					<Link
+						href="https://github.com/brunotot/"
+						icon={<FontAwesomeIcon size="2x" icon={faGithub} />}
+					/>
 				</div>
 			</div>
 		</div>

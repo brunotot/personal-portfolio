@@ -43,29 +43,35 @@ export default function Gallery(props: GalleryProps) {
 			: "";
 
 	return (
-		<div
-			className={`px-8 py-16 flex ${className} ${flexDirectionClass}`}
-			id={id}
-		>
-			{title && (
-				<SectionTitle colorWeight={titleColorWeight} direction={titleDirection}>
-					<WavyText colors="rainbow" text={title} useShadow={false} />
-				</SectionTitle>
-			)}
-			<div className={`gap-x-${gapX} gap-y-${gapY} ${cardsContainerClassName}`}>
-				{childrenNormalized.map((node, index) =>
-					useChildWrapper ? (
-						<div
-							data-aos="zoom-in"
-							key={index}
-							className="bg-white flex basis-full md:basis-[calc(50%-1rem)] xl:basis-[calc(33%-2rem)] flex-col p-4 rounded border card-shadow"
-						>
-							{node}
-						</div>
-					) : (
-						node
-					)
+		<div id={id} className={className}>
+			<div
+				className={`container mx-auto justify-center px-8 py-16 flex ${flexDirectionClass}`}
+			>
+				{title && (
+					<SectionTitle
+						colorWeight={titleColorWeight}
+						direction={titleDirection}
+					>
+						<WavyText colors="rainbow" text={title} useShadow={false} />
+					</SectionTitle>
 				)}
+				<div
+					className={`gap-x-${gapX} gap-y-${gapY} ${cardsContainerClassName}`}
+				>
+					{childrenNormalized.map((node, index) =>
+						useChildWrapper ? (
+							<div
+								data-aos="zoom-in"
+								key={index}
+								className="bg-white flex basis-full md:basis-[calc(50%-1rem)] xl:basis-[calc(33%-2rem)] flex-col p-4 rounded border card-shadow"
+							>
+								{node}
+							</div>
+						) : (
+							node
+						)
+					)}
+				</div>
 			</div>
 		</div>
 	);
