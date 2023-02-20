@@ -4,10 +4,11 @@ export type NavLinkProps = {
 	href?: string;
 	style?: React.CSSProperties;
 	className?: string;
+	download?: boolean;
 };
 
 export default function NavLink(props: NavLinkProps) {
-	const { children, section, href, style, className } = props;
+	const { children, section, href, style, className, download = false } = props;
 
 	return (
 		<a
@@ -15,6 +16,7 @@ export default function NavLink(props: NavLinkProps) {
 				"uppercase font-jost text-[var(--clr-blue-700)]" +
 				(className ? ` ${className}` : "")
 			}
+			download={download}
 			style={style}
 			href={href ? href : `#${section}`}
 		>

@@ -2,6 +2,7 @@ import Logo from "../Logo";
 import NavLink from "../ui/NavLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import cv from "./../../assets/pdf/BrunoTotCV.pdf";
 
 export default function Header() {
 	return (
@@ -25,7 +26,12 @@ export default function Header() {
 					<NavLink section="projects">Projects</NavLink>
 					<NavLink section="skills">Skills</NavLink>
 					<NavLink section="contact">Contact</NavLink>
-					<NavLink className="whitespace-nowrap" section="download-cv">
+					<NavLink
+						className="whitespace-nowrap"
+						href={cv}
+						section="download-cv"
+						download={true}
+					>
 						Download CV <FontAwesomeIcon icon={faDownload} />
 					</NavLink>
 				</div>
