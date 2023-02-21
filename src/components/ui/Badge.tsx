@@ -1,13 +1,32 @@
-export type BadgeProps = {
-	text: string;
-};
+import { Avatar, Chip } from "@mui/material";
+import ImageService, { ImageNameType } from "../../services/ImageService";
 
-export default function Badge(props: BadgeProps) {
-	const text = props.text;
+export type BadgeProps =
+	| {
+			text: string;
+			avatar?: ImageNameType;
+	  }
+	| {
+			avatar: ImageNameType;
+			text: never;
+	  };
 
+export default function Badge({ text: textUnsanitized, avatar }: BadgeProps) {
+	const text = textUnsanitized
+		? textUnsanitized
+		: avatar
+		? ImageService[avatar]
+			? ImageService[avatar].name
+			: avatar
+		: avatar;
 	return (
-		<span className="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-gray-200 text-gray-700 rounded-full">
-			{text}
-		</span>
+		<Chip
+			avatar={
+				avatar && ImageService[avatar] ? (
+					<Avatar src={ImageService[avatar].src} />
+				) : undefined
+			}
+			label={text}
+		/>
 	);
 }

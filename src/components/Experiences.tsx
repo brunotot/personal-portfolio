@@ -12,34 +12,6 @@ export default function Experiences() {
 			cardsContainerClassName="flex flex-col justify-center gap-8"
 		>
 			<ExperienceFragment
-				dateFrom="2021"
-				companyName="Notch"
-				companyCity="Zagreb"
-				companyCountry="Croatia"
-				companyLogoSrc={notchLogo}
-				jobTitle="Fullstack Software Developer"
-				jobSkills={[
-					"JavaScript",
-					"Spring Boot",
-					"Java",
-					"jQuery",
-					"SASS",
-					"Cascading Style Sheets (CSS)",
-					"HTML5",
-					"SQL",
-					"Thymeleaf",
-					"Bootstrap",
-					"GitLab",
-					"MyBatis",
-					"JIRA",
-					"Microsoft Visual Studio Code",
-					"IntelliJ IDEA",
-				]}
-				jobDescription="Developing Science Information System application in a team of 8. 
-Developed strong skills including Vanilla JavaScript, jQuery, Thymeleaf, MyBatis and Java Spring Boot. My position was an all-rounder with having both front-end and back-end features to implement including debugging and bugfixing."
-			/>
-
-			<ExperienceFragment
 				dateFrom="2019"
 				dateTo="2020"
 				companyName="Amplexor"
@@ -48,20 +20,46 @@ Developed strong skills including Vanilla JavaScript, jQuery, Thymeleaf, MyBatis
 				companyLogoSrc={amplexorLogo}
 				jobTitle="Junior Java Software Developer"
 				jobSkills={[
-					"JavaScript",
-					"Java",
-					"Cascading Style Sheets (CSS)",
-					"HTML5",
-					"SQL",
-					"Bootstrap",
-					"JIRA",
-					"Eclipse",
-					"JavaServer Pages (JSP)",
-					"Tomcat",
-					"DQL",
+					"javascript",
+					"java",
+					"css",
+					"html",
+					"sql",
+					"bootstrap",
+					"jira",
+					"eclipse",
+					"jsp",
+					"tomcat",
 				]}
 				jobDescription="Developing Life Sciences Solutions application in a team of 5. 
 				Mainly worked on backend with code analysis and bugfixing. Developed skills of source control in CVS with tasks management in Jira."
+			/>
+			<ExperienceFragment
+				dateFrom="2021"
+				companyName="Notch"
+				companyCity="Zagreb"
+				companyCountry="Croatia"
+				companyLogoSrc={notchLogo}
+				jobTitle="Fullstack Software Developer"
+				jobSkills={[
+					"javascript",
+					"springboot",
+					"java",
+					"sass",
+					"css",
+					"html",
+					"sql",
+					"bootstrap",
+					"jira",
+					"vsc",
+					"intellij",
+					"jquery",
+					"thymeleaf",
+					"gitlab",
+					"mybatis",
+				]}
+				jobDescription="Developing Science Information System application in a team of 8. 
+Developed strong skills including Vanilla JavaScript, jQuery, Thymeleaf, MyBatis and Java Spring Boot. My position was an all-rounder with having both front-end and back-end features to implement including debugging and bugfixing."
 			/>
 		</Gallery>
 	);

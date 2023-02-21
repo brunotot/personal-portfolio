@@ -1,4 +1,3 @@
-import Logo from "../Logo";
 import NavLink from "../ui/NavLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";

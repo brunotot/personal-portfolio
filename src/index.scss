@@ -17,6 +17,10 @@ html {
 	scroll-behavior: smooth;
 }
 
+.\@container {
+	container-type: inline-size;
+}
+
 *,
 *::before,
 *::after {

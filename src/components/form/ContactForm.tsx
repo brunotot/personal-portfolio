@@ -1,8 +1,8 @@
 import * as yup from "yup";
 import Form from "./Form";
-import InputText from "../input/InputText";
-import SendButtonSvg from "../svg/SendButtonSvg";
-import EnvelopeSvg from "../svg/EnvelopeSvg";
+import { Button } from "@mui/material";
+import SendIcon from "@mui/icons-material/Send";
+import TextField from "../input/TextField";
 
 export interface IContactType {
 	name: string;
@@ -30,34 +30,46 @@ export default function ContactForm() {
 			schema={schema}
 		>
 			<div className="flex w-full gap-4 flex-col md:flex-row">
-				<InputText name="name" placeholder="John Doe" label="Name" />
-				<InputText
-					name="email"
+				<TextField
+					fullWidth
+					type="text"
+					label="Name"
+					variant="filled"
+					placeholder="John Doe"
+				/>
+				<TextField
+					fullWidth
 					type="email"
-					placeholder="john.doe@mail.com"
 					label="Email"
+					variant="filled"
+					placeholder="john.doe@mail.com"
 				/>
 			</div>
-			<InputText
-				name="subject"
-				placeholder="Collaboration wanted ..."
+			<TextField
+				fullWidth
+				type="text"
 				label="Subject"
+				variant="filled"
+				placeholder="Collaboration wanted ..."
 			/>
-			<InputText
-				name="message"
-				type="textarea"
-				placeholder="I need ..."
+			<TextField
+				fullWidth
+				type="text"
 				label="Message"
+				variant="filled"
+				placeholder="I need ..."
+				multiline
+				rows={4}
 			/>
 
-			<EnvelopeSvg className="absolute pointer-events-none top-24" />
-
-			<button
+			<Button
 				type="submit"
-				className="mt-2 hover:rounded hover:outline hover:outline-1 hover:outline-offset-8"
+				variant="contained"
+				endIcon={<SendIcon />}
+				size="large"
 			>
-				<SendButtonSvg />
-			</button>
+				Send
+			</Button>
 		</Form>
 	);
 }

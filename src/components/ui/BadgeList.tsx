@@ -1,7 +1,8 @@
+import { ImageNameType } from "../../services/ImageService";
 import Badge from "./Badge";
 
 export type SkillsProps = {
-	data: string[];
+	data: ImageNameType[];
 	className?: string;
 };
 
@@ -17,8 +18,8 @@ export default function BadgeList(props: SkillsProps) {
 		<>
 			{data.length > 0 && (
 				<div className={`${className} flex flex-wrap gap-2`}>
-					{data.map((text) => (
-						<Badge key={text} text={text} />
+					{data.map((avatar) => (
+						<Badge key={avatar} avatar={avatar} text={""} />
 					))}
 				</div>
 			)}

@@ -1,3 +1,4 @@
+import { ImageNameType } from "../../services/ImageService";
 import CompanyLogo from "../CompanyLogo";
 import BadgeList from "../ui/BadgeList";
 
@@ -10,7 +11,7 @@ export type ExperienceCardProps = {
 	companyLogoSrc?: string;
 	jobTitle: string;
 	jobDescription: string;
-	jobSkills?: string[];
+	jobSkills?: ImageNameType[];
 };
 
 export default function ExperienceFragment(props: ExperienceCardProps) {
