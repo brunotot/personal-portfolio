@@ -2,7 +2,7 @@ import * as yup from "yup";
 import Form from "./Form";
 import { Button } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
-import TextField from "../input/TextField";
+import TextField from "./TextField";
 
 export interface IContactType {
 	name: string;

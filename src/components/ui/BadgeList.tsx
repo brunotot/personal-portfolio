@@ -2,9 +2,11 @@ import { ImageNameType } from "../../services/ImageService";
 import Badge from "./Badge";
 
 export type SkillsProps = {
+	// TODO
 	//data: ImageNameType[];
 	data: string[];
 	className?: string;
+	variant?: "outlined" | "filled";
 };
 
 function unique<T>(array: T[]) {
@@ -12,7 +14,7 @@ function unique<T>(array: T[]) {
 }
 
 export default function BadgeList(props: SkillsProps) {
-	const { className = "" } = props;
+	const { className = "", variant } = props;
 	const data = unique(props.data).sort();
 
 	return (
@@ -20,7 +22,12 @@ export default function BadgeList(props: SkillsProps) {
 			{data.length > 0 && (
 				<div className={`${className} flex flex-wrap gap-2`}>
 					{data.map((avatar) => (
-						<Badge key={avatar} avatar={avatar as any} text={""} />
+						<Badge
+							key={avatar}
+							avatar={avatar as any}
+							text={""}
+							variant={variant}
+						/>
 					))}
 				</div>
 			)}

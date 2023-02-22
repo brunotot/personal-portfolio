@@ -13,7 +13,7 @@ export default function NavLink(props: NavLinkProps) {
 	return (
 		<a
 			className={
-				"uppercase font-jost text-[var(--clr-blue-700)]" +
+				"uppercase font-jost text-slate-200" +
 				(className ? ` ${className}` : "")
 			}
 			download={download}

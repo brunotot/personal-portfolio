@@ -5,13 +5,19 @@ export type BadgeProps =
 	| {
 			text: string;
 			avatar?: ImageNameType;
+			variant?: "outlined" | "filled";
 	  }
 	| {
 			avatar: ImageNameType;
 			text: never;
+			variant?: "outlined" | "filled";
 	  };
 
-export default function Badge({ text: textUnsanitized, avatar }: BadgeProps) {
+export default function Badge({
+	text: textUnsanitized,
+	avatar,
+	variant,
+}: BadgeProps) {
 	const text = textUnsanitized
 		? textUnsanitized
 		: avatar
@@ -21,6 +27,8 @@ export default function Badge({ text: textUnsanitized, avatar }: BadgeProps) {
 		: avatar;
 	return (
 		<Chip
+			style={{ color: "white" }}
+			variant={variant}
 			avatar={
 				avatar && ImageService[avatar] ? (
 					<Avatar src={ImageService[avatar].src} />

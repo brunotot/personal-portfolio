@@ -1,4 +1,4 @@
-import Hr from "./Hr";
+import Hr from "./HorizontalLine";
 import TechCard, { TechCardProps } from "./TechCard";
 
 export type TechCardGroupProps = {
