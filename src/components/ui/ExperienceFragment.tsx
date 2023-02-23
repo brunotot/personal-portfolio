@@ -12,6 +12,7 @@ export type ExperienceCardProps = {
 	jobTitle: string;
 	jobDescription: string;
 	jobSkills?: ImageNameType[];
+	aos?: string;
 };
 
 export default function ExperienceFragment(props: ExperienceCardProps) {
@@ -25,10 +26,14 @@ export default function ExperienceFragment(props: ExperienceCardProps) {
 		jobDescription,
 		companyLogoSrc,
 		jobSkills = [],
+		aos,
 	} = props;
 
 	return (
-		<div className="gap-4 bg-gray-700 text-gray-300 flex basis-full md:basis-[calc(50%-1rem)] xl:basis-[calc(33%-2rem)] flex-col p-4 rounded card-shadow border border-slate-400">
+		<div
+			data-aos={aos}
+			className="gap-4 bg-gray-700 text-gray-300 flex basis-full md:basis-[calc(50%-1rem)] xl:basis-[calc(33%-2rem)] flex-col p-4 rounded card-shadow border border-cyan-400"
+		>
 			<div className="flex flex-wrap justify-between gap-x-4">
 				<p className="whitespace-nowrap font-bold text-lg text-slate-400">
 					{dateFrom} - {dateTo ? dateTo : "Present"}

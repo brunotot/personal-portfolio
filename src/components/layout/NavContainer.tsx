@@ -15,7 +15,7 @@ export type NavContainerProps = {
 };
 
 export default function NavContainer(props: NavContainerProps) {
-	const { drawerWidth = 240, children } = props;
+	const { drawerWidth = 200, children } = props;
 
 	const [mobileOpen, setMobileOpen] = useState(false);
 	const handleDrawerToggle = () => setMobileOpen((prevState) => !prevState);
@@ -29,7 +29,6 @@ export default function NavContainer(props: NavContainerProps) {
 	const mobileDrawer = (
 		<Box component="nav">
 			<Drawer
-				container={window.document.body}
 				variant="temporary"
 				open={mobileOpen}
 				onClose={handleDrawerToggle}

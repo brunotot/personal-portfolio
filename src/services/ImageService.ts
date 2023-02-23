@@ -28,6 +28,8 @@ import jquery from "./../assets/svg/jquery.svg";
 import thymeleaf from "./../assets/svg/thymeleaf.svg";
 import gitlab from "./../assets/svg/gitlab.svg";
 import mybatis from "./../assets/svg/mybatis.svg";
+import linkedin from "./../assets/svg/linkedin.svg";
+import stackoverflow from "./../assets/svg/stackoverflow.svg";
 
 export type ImageObjectType = {
 	src: string;
@@ -66,6 +68,8 @@ export type ImageServiceType = {
 	thymeleaf: ImageObjectType;
 	gitlab: ImageObjectType;
 	mybatis: ImageObjectType;
+	linkedin: ImageObjectType;
+	stackoverflow: ImageObjectType;
 };
 
 const ImageService: ImageServiceType = {
@@ -111,6 +115,12 @@ const ImageService: ImageServiceType = {
 	thymeleaf: { src: thymeleaf, name: "Thymeleaf", shortName: "Thymeleaf" },
 	gitlab: { src: gitlab, name: "GitLab", shortName: "GitLab" },
 	mybatis: { src: mybatis, name: "MyBatis", shortName: "MyBatis" },
+	linkedin: { src: linkedin, name: "LinkedIn", shortName: "LinkedIn" },
+	stackoverflow: {
+		src: stackoverflow,
+		name: "StackOverflow",
+		shortName: "StackOverflow",
+	},
 };
 
 export type ImageNameType = keyof typeof ImageService;

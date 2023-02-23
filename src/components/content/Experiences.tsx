@@ -11,6 +11,7 @@ export default function Experiences() {
 			containerClassName="bg-slate-500 text-slate-200"
 		>
 			<ExperienceFragment
+				aos="zoom-in"
 				dateFrom="2019"
 				dateTo="2020"
 				companyName="Amplexor"
@@ -34,6 +35,7 @@ export default function Experiences() {
 				Mainly worked on backend with code analysis and bugfixing. Developed skills of source control in CVS with tasks management in Jira."
 			/>
 			<ExperienceFragment
+				aos="zoom-in"
 				dateFrom="2021"
 				companyName="Notch"
 				companyCity="Zagreb"

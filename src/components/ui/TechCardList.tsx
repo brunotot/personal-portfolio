@@ -6,7 +6,7 @@ export type TechCardListProps = {
 
 export default function TechCardList({ groups }: TechCardListProps) {
 	return (
-		<div className="p-8">
+		<div className="p-0 md:p-8">
 			{groups.map((groupProps) => (
 				<TechCardGroup key={groupProps.name} {...groupProps} />
 			))}

@@ -1,33 +1,32 @@
 export type LinkProps = {
-	text?: string;
 	href: string;
 	target?: React.HTMLAttributeAnchorTarget;
 	type?: LinkType;
-	icon?: JSX.Element;
+	classNameAppend?: string;
 	className?: string;
+	children: React.ReactNode;
 };
 
 export type LinkType = "tel" | "mail" | "basic";
 
 export default function Link(props: LinkProps) {
 	const {
-		href,
+		className = "flex gap-2 items-center justify-center font-jost font-medium",
+		classNameAppend = "",
 		target = "_blank",
 		type = "basic",
-		icon,
-		text,
-		className = "flex flex-nowrap gap-3 items-center justify-center",
+		href,
+		children,
 	} = props;
 	const hrefPrefix =
 		type === "basic" ? "" : type === "tel" ? "tel:" : "mailto:";
 	return (
 		<a
-			className={`font-jost font-medium ${className}`}
+			className={`${className} ${classNameAppend}`}
 			target={target}
 			href={`${hrefPrefix}${href}`}
 		>
-			{icon && <span>{icon}</span>}
-			{text && <span>{text}</span>}
+			{children}
 		</a>
 	);
 }

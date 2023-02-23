@@ -11,6 +11,7 @@ export default function Educations() {
 			containerClassName="bg-slate-700 text-slate-200"
 		>
 			<ExperienceFragment
+				aos="zoom-in"
 				dateFrom="2013"
 				dateTo="2017"
 				companyName="Technical School Ruđer Bošković"
@@ -22,6 +23,7 @@ export default function Educations() {
 				jobDescription=""
 			/>
 			<ExperienceFragment
+				aos="zoom-in"
 				dateFrom="2018"
 				dateTo="2021"
 				companyName="Zagreb University of Applied Sciences"
