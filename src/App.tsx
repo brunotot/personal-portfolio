@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Footer from "./components/layout/Footer";
 import NavContainer from "./components/layout/NavContainer";
 import Biography from "./components/content/Biography";
@@ -8,13 +7,11 @@ import Educations from "./components/content/Educations";
 import Contact from "./components/content/Contact";
 import Projects from "./components/content/Projects";
 import Skills from "./components/content/Skills";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import ThemeSwitcher from "./components/ui/ThemePicker";
+import useAos from "./hooks/useAos";
 
 function App() {
-	useEffect(() => {
-		AOS.init();
-	}, []);
+	useAos();
 
 	return (
 		<NavContainer>

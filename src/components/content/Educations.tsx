@@ -8,7 +8,7 @@ export default function Educations() {
 		<Section
 			id="education"
 			title="Education"
-			containerClassName="bg-slate-700 text-slate-200"
+			containerClassName="bg-secondary-darker text-secondary-light"
 		>
 			<ExperienceFragment
 				aos="zoom-in"

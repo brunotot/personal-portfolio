@@ -13,7 +13,7 @@ export default function AddressBar(props: AddressBarProps) {
 	const { url } = props;
 
 	return (
-		<div className="outline outline-2 outline-slate-400 flex absolute w-full items-center rounded-tl-lg rounded-tr-lg bg-slate-200 p-3 gap-2">
+		<div className="outline outline-2 outline-secondary-base flex absolute w-full items-center rounded-tl-lg rounded-tr-lg bg-secondary-light p-3 gap-2">
 			<div className="w-4 h-4 rounded-full bg-red-400"></div>
 			<div className="w-4 h-4 rounded-full bg-yellow-400"></div>
 			<div className="w-4 h-4 rounded-full bg-green-400"></div>

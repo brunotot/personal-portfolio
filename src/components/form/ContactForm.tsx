@@ -66,6 +66,7 @@ export default function ContactForm() {
 				type="submit"
 				variant="contained"
 				endIcon={<SendIcon />}
+				className="!bg-primary-base !text-tertiary-darker"
 				size="large"
 			>
 				Send

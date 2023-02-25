@@ -8,7 +8,7 @@ export default function Experiences() {
 		<Section
 			id="experience"
 			title="Experience"
-			containerClassName="bg-slate-500 text-slate-200"
+			containerClassName="bg-secondary-dark text-secondary-light"
 		>
 			<ExperienceFragment
 				aos="zoom-in"

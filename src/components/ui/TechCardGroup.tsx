@@ -12,7 +12,7 @@ export default function TechCardGroup({ name, cards }: TechCardGroupProps) {
 			<Hr text={name} />
 			<div className="flex flex-wrap justify-center px-0 py-8 md:p-8 gap-4">
 				{cards.map((cardProps) => (
-					<TechCard key={cardProps.title} {...cardProps} />
+					<TechCard key={cardProps.type} {...cardProps} />
 				))}
 			</div>
 		</div>

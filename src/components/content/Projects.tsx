@@ -6,7 +6,7 @@ export default function Projects() {
 		<Section
 			id="projects"
 			title="Projects"
-			containerClassName="bg-slate-600 text-slate-200"
+			containerClassName="bg-secondary-dark text-secondary-light"
 		>
 			<ProjectFragment
 				shadowRgb="206, 114, 254"

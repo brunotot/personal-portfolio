@@ -15,6 +15,7 @@ export default function Image(props: ImageProps) {
 			src={ImageService[name].src}
 			width={width}
 			height={height}
+			alt={ImageService[name].name}
 		/>
 	);
 }

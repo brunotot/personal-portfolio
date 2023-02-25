@@ -5,15 +5,25 @@ export type NavLinkProps = {
 	style?: React.CSSProperties;
 	className?: string;
 	download?: boolean;
+	innerRef?: React.LegacyRef<HTMLAnchorElement>;
 };
 
 export default function NavLink(props: NavLinkProps) {
-	const { children, section, href, style, className, download = false } = props;
+	const {
+		innerRef: ref,
+		children,
+		section,
+		href,
+		style,
+		className,
+		download = false,
+	} = props;
 
 	return (
 		<a
+			ref={ref}
 			className={
-				"uppercase font-jost text-slate-200" +
+				"uppercase font-jost text-tertiary-light transition-colors" +
 				(className ? ` ${className}` : "")
 			}
 			download={download}

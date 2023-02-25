@@ -34,7 +34,8 @@ import stackoverflow from "./../assets/svg/stackoverflow.svg";
 export type ImageObjectType = {
 	src: string;
 	name: string;
-	shortName: string;
+	acro: string;
+	web: string;
 };
 
 export type ImageServiceType = {
@@ -73,53 +74,197 @@ export type ImageServiceType = {
 };
 
 const ImageService: ImageServiceType = {
-	tailwind: { src: tailwind, name: "TailwindCSS", shortName: "TailwindCSS" },
-	jenkins: { src: jenkins, name: "Jenkins", shortName: "Jenkins" },
-	sass: { src: sass, name: "SASS", shortName: "SASS" },
-	react: { src: react, name: "React", shortName: "React" },
-	heroku: { src: heroku, name: "Heroku", shortName: "Heroku" },
-	jira: { src: jira, name: "JIRA", shortName: "JIRA" },
-	sonarqube: { src: sonarqube, name: "SonarQube", shortName: "SonarQube" },
-	typescript: { src: typescript, name: "TypeScript", shortName: "TS" },
+	tailwind: {
+		src: tailwind,
+		name: "TailwindCSS",
+		acro: "TailwindCSS",
+		web: "https://tailwindcss.com/",
+	},
+	jenkins: {
+		src: jenkins,
+		name: "Jenkins",
+		acro: "Jenkins",
+		web: "https://www.jenkins.io/",
+	},
+	sass: {
+		src: sass,
+		name: "SASS",
+		acro: "SASS",
+		web: "https://sass-lang.com/",
+	},
+	react: {
+		src: react,
+		name: "React",
+		acro: "React",
+		web: "https://reactjs.org/",
+	},
+	heroku: {
+		src: heroku,
+		name: "Heroku",
+		acro: "Heroku",
+		web: "https://www.heroku.com/home",
+	},
+	jira: {
+		src: jira,
+		name: "JIRA",
+		acro: "JIRA",
+		web: "https://www.atlassian.com/software/jira",
+	},
+	sonarqube: {
+		src: sonarqube,
+		name: "SonarQube",
+		acro: "SonarQube",
+		web: "https://www.sonarsource.com/products/sonarqube/",
+	},
+	typescript: {
+		src: typescript,
+		name: "TypeScript",
+		acro: "TS",
+		web: "https://www.typescriptlang.org/",
+	},
 	springboot: {
 		src: springboot,
 		name: "Spring Boot",
-		shortName: "Spring Boot",
+		acro: "Spring Boot",
+		web: "https://spring.io/",
 	},
-	gradle: { src: gradle, name: "Gradle", shortName: "Gradle" },
-	java: { src: java, name: "Java", shortName: "Java" },
-	npm: { src: npm, name: "NPM", shortName: "NPM" },
-	mongodb: { src: mongodb, name: "MongoDB", shortName: "MongoDB" },
-	mui: { src: mui, name: "MaterialUI", shortName: "MUI" },
-	git: { src: git, name: "Git", shortName: "Git" },
-	github: { src: github, name: "GitHub", shortName: "GH" },
-	javascript: { src: javascript, name: "JavaScript", shortName: "JS" },
-	css: { src: css, name: "CSS3", shortName: "CSS" },
-	html: { src: html, name: "HTML5", shortName: "HTML" },
-	sql: { src: sql, name: "SQL", shortName: "SQL" },
-	bootstrap: { src: bootstrap, name: "Bootstrap5", shortName: "Bootstrap" },
-	eclipse: { src: eclipse, name: "Eclipse", shortName: "Eclipse" },
-	jsp: { src: jsp, name: "JSP", shortName: "JSP" },
-	tomcat: { src: tomcat, name: "Tomcat", shortName: "Tomcat" },
-	vsc: { src: vsc, name: "Visual Studio Code", shortName: "VSC" },
+	gradle: {
+		src: gradle,
+		name: "Gradle",
+		acro: "Gradle",
+		web: "https://gradle.org/",
+	},
+	java: {
+		src: java,
+		name: "Java",
+		acro: "Java",
+		web: "https://www.java.com/en/",
+	},
+	npm: {
+		src: npm,
+		name: "NPM",
+		acro: "NPM",
+		web: "https://www.npmjs.com/",
+	},
+	mongodb: {
+		src: mongodb,
+		name: "MongoDB",
+		acro: "MongoDB",
+		web: "https://www.mongodb.com/",
+	},
+	mui: {
+		src: mui,
+		name: "MaterialUI",
+		acro: "MUI",
+		web: "https://mui.com/",
+	},
+	git: {
+		src: git,
+		name: "Git",
+		acro: "Git",
+		web: "https://git-scm.com/",
+	},
+	github: {
+		src: github,
+		name: "GitHub",
+		acro: "GH",
+		web: "https://github.com/brunotot",
+	},
+	javascript: {
+		src: javascript,
+		name: "JavaScript",
+		acro: "JS",
+		web: "https://www.javascript.com/",
+	},
+	css: {
+		src: css,
+		name: "CSS3",
+		acro: "CSS",
+		web: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+	},
+	html: {
+		src: html,
+		name: "HTML5",
+		acro: "HTML",
+		web: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+	},
+	sql: {
+		src: sql,
+		name: "SQL",
+		acro: "SQL",
+		web: "https://www.w3schools.com/sql/",
+	},
+	bootstrap: {
+		src: bootstrap,
+		name: "Bootstrap5",
+		acro: "Bootstrap",
+		web: "https://getbootstrap.com/",
+	},
+	eclipse: {
+		src: eclipse,
+		name: "Eclipse",
+		acro: "Eclipse",
+		web: "https://www.eclipse.org/downloads/",
+	},
+	jsp: {
+		src: jsp,
+		name: "JSP",
+		acro: "JSP",
+		web: "https://www.oracle.com/java/technologies/jspt.html",
+	},
+	tomcat: {
+		src: tomcat,
+		name: "Tomcat",
+		acro: "Tomcat",
+		web: "https://tomcat.apache.org/",
+	},
+	vsc: {
+		src: vsc,
+		name: "Visual Studio Code",
+		acro: "VSC",
+		web: "https://code.visualstudio.com/",
+	},
 	intellij: {
 		src: intellij,
 		name: "IntelliJ IDEA",
-		shortName: "IntelliJ IDEA",
+		acro: "IntelliJ IDEA",
+		web: "",
 	},
 	jquery: {
 		src: jquery,
 		name: "jQuery",
-		shortName: "jQuery",
+		acro: "jQuery",
+		web: "",
 	},
-	thymeleaf: { src: thymeleaf, name: "Thymeleaf", shortName: "Thymeleaf" },
-	gitlab: { src: gitlab, name: "GitLab", shortName: "GitLab" },
-	mybatis: { src: mybatis, name: "MyBatis", shortName: "MyBatis" },
-	linkedin: { src: linkedin, name: "LinkedIn", shortName: "LinkedIn" },
+	thymeleaf: {
+		src: thymeleaf,
+		name: "Thymeleaf",
+		acro: "Thymeleaf",
+		web: "https://www.thymeleaf.org/",
+	},
+	gitlab: {
+		src: gitlab,
+		name: "GitLab",
+		acro: "GitLab",
+		web: "https://about.gitlab.com/",
+	},
+	mybatis: {
+		src: mybatis,
+		name: "MyBatis",
+		acro: "MyBatis",
+		web: "https://mybatis.org/mybatis-3/",
+	},
+	linkedin: {
+		src: linkedin,
+		name: "LinkedIn",
+		acro: "LinkedIn",
+		web: "https://www.linkedin.com/in/btot/",
+	},
 	stackoverflow: {
 		src: stackoverflow,
 		name: "StackOverflow",
-		shortName: "StackOverflow",
+		acro: "StackOverflow",
+		web: "https://stackoverflow.com/users/14260355/brunot",
 	},
 };
 

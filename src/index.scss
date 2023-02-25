@@ -1,3 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--color-cyan: rgb(103 232 249);
+	--color-red: #e13969;
+	--color-green: #49beaa;
+	--color-brown: #beb7a4;
+}
+
+.profile-image {
+	-webkit-filter: drop-shadow(5px 0px 3px var(--color-primary-base))
+		drop-shadow(-5px -2px 3px var(--color-primary-base));
+	filter: drop-shadow(5px 0px 3px var(--color-primary-base))
+		drop-shadow(-5px -2px 3px var(--color-primary-base));
+}
+
+@layer base {
+	body:has(.color-picker input[type="radio"]#cyan:checked) {
+		--color-primary-light: rgb(236 254 255);
+		--color-primary-base: rgb(103 232 249);
+		--color-primary-dark: rgb(6 182 212);
+		--color-primary-darker: rgb(8 145 178);
+
+		--color-secondary-light: rgb(226 232 240);
+		--color-secondary-base: rgb(148 163 184);
+		--color-secondary-dark: rgb(100 116 139);
+		--color-secondary-darker: rgb(51 65 85);
+
+		--color-tertiary-light: rgb(209 213 219);
+		--color-tertiary-base: rgb(156 163 175);
+		--color-tertiary-dark: rgb(55 65 81);
+		--color-tertiary-darker: rgb(31 41 55);
+	}
+
+	body:has(.color-picker input[type="radio"]#red:checked) {
+		--color-primary-light: #ed7f9e;
+		--color-primary-base: #e13969;
+		--color-primary-dark: #a62b4b;
+		--color-primary-darker: #6c1d2e;
+
+		--color-secondary-light: #3f4753;
+		--color-secondary-base: #1b232c;
+		--color-secondary-dark: #11151a;
+		--color-secondary-darker: #070a0e;
+
+		--color-tertiary-light: #96bee9;
+		--color-tertiary-base: #2d7dd2;
+		--color-tertiary-dark: #1b4b7e;
+		--color-tertiary-darker: #0d253f;
+	}
+
+	body:has(.color-picker input[type="radio"]#brown:checked) {
+		--color-primary-light: #d2cfc2;
+		--color-primary-base: #f6d06a;
+		--color-primary-dark: #a29d83;
+		--color-primary-darker: #777055;
+
+		--color-secondary-light: #9b94ba;
+		--color-secondary-base: #7d82b8;
+		--color-secondary-dark: #5c5a94;
+		--color-secondary-darker: #3d3b5e;
+
+		--color-tertiary-light: #fffffb;
+		--color-tertiary-base: #fffffc;
+		--color-tertiary-dark: #f1f1dc;
+		--color-tertiary-darker: #5c5c4c;
+	}
+
+	body:has(.color-picker input[type="radio"]#green:checked) {
+		--color-primary-light: #83d2cb;
+		--color-primary-base: #49beaa;
+		--color-primary-dark: #2d8e85;
+		--color-primary-darker: #1d675f;
+
+		--color-secondary-light: #f5a6a8;
+		--color-secondary-base: #ef767a;
+		--color-secondary-dark: #a95051;
+		--color-secondary-darker: #6c2d33;
+
+		--color-tertiary-light: #6d88a6;
+		--color-tertiary-base: #456990;
+		--color-tertiary-dark: #2c475d;
+		--color-tertiary-darker: #1b2c3d;
+	}
+}
+
 *,
 *::before,
 *::after {
@@ -19,6 +107,16 @@ html {
 	container-type: inline-size;
 }
 
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
 .company-name {
 	font-size: clamp(1.5rem, 2.2cqi, 2.125rem);
 }
@@ -27,14 +125,14 @@ html {
 .font-chakra *,
 .font-chakra *::before,
 .font-chakra *::after {
-	font-family: "Chakra Petch", sans-serif;
+	font-family: "Chakra Petch", sans-serif !important;
 }
 
 .font-jost,
 .font-jost *,
 .font-jost *::before,
 .font-jost *::after {
-	font-family: "Jost", sans-serif;
+	font-family: "Jost", sans-serif !important;
 }
 
 .card-shadow {

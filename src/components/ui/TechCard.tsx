@@ -1,24 +1,29 @@
+import ImageService, { ImageNameType } from "../../services/ImageService";
+
 export type TechCardProps = {
-	logo: string;
-	title: string;
+	type: ImageNameType;
 	description: string;
-	href: string;
 };
 
 export default function TechCard(props: TechCardProps) {
-	const { logo, title, description, href } = props;
+	const { description, type } = props;
+	const { name, src, web } = ImageService[type];
 	return (
 		<div
 			data-aos="zoom-in"
-			className="transition-transform duration-300 md:aspect-[1.25/1] px-8 py-6 md:w-80 rounded bg-gray-700 font-jost border border-cyan-400 text-center flex flex-col"
+			className="transition-transform duration-300 md:aspect-[1.25/1] px-8 py-6 md:w-80 rounded bg-tertiary-darker font-jost border border-primary-darker text-center flex flex-col"
 		>
 			<div className="w-full flex justify-center mb-3">
-				<img src={logo} className="object-contain aspect-square w-[64px]" />
+				<img src={src} className="object-contain aspect-square w-[64px]" />
 			</div>
-			<a href={href} className="text-gray-300 text-xl mb-1" target="_blank">
-				{title}
+			<a
+				href={web}
+				className="text-tertiary-light text-xl mb-1"
+				target="_blank"
+			>
+				{name}
 			</a>
-			<p className="text-gray-400 flex-1">{description}</p>
+			<p className="text-tertiary-base flex-1">{description}</p>
 		</div>
 	);
 }

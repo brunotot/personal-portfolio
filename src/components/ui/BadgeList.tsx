@@ -1,33 +1,20 @@
 import { ImageNameType } from "../../services/ImageService";
-import Badge from "./Badge";
+import Badge, { BadgeVariant } from "./Badge";
 
 export type SkillsProps = {
-	// TODO
-	//data: ImageNameType[];
-	data: string[];
+	data: ImageNameType[];
 	className?: string;
-	variant?: "outlined" | "filled";
+	variant?: BadgeVariant;
 };
 
-function unique<T>(array: T[]) {
-	return array.filter((item, i, arr) => arr.indexOf(item) === i);
-}
-
 export default function BadgeList(props: SkillsProps) {
-	const { className = "", variant } = props;
-	const data = unique(props.data).sort();
-
+	const { data, className = "", variant } = props;
 	return (
 		<>
 			{data.length > 0 && (
 				<div className={`${className} flex flex-wrap gap-2`}>
-					{data.map((avatar) => (
-						<Badge
-							key={avatar}
-							avatar={avatar as any}
-							text={""}
-							variant={variant}
-						/>
+					{data.map((type) => (
+						<Badge key={type} type={type} variant={variant} />
 					))}
 				</div>
 			)}

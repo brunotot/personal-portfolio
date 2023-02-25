@@ -1,0 +1,47 @@
+.color-picker,
+.color-picker > fieldset {
+	border-radius: 1rem;
+}
+
+.color-picker {
+	margin: 0 0 0 auto;
+}
+
+.color-picker > fieldset {
+	border: 0;
+	display: flex;
+	gap: 1.25rem;
+	width: fit-content;
+	padding: 0.75rem 1rem;
+	margin-inline: auto;
+}
+
+.color-picker input[type="radio"] {
+	appearance: none;
+	width: 1.5rem;
+	height: 1.5rem;
+	outline: 3px solid var(--radio-color, currentColor);
+	outline-offset: 3px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.color-picker input[type="radio"]:checked {
+	background-color: var(--radio-color);
+}
+
+.color-picker input[type="radio"]#brown {
+	--radio-color: var(--color-brown);
+}
+
+.color-picker input[type="radio"]#green {
+	--radio-color: var(--color-green);
+}
+
+.color-picker input[type="radio"]#red {
+	--radio-color: var(--color-red);
+}
+
+.color-picker input[type="radio"]#cyan {
+	--radio-color: var(--color-cyan);
+}
