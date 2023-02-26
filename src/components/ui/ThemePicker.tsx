@@ -1,5 +1,5 @@
 import useLocalStorage from "../../hooks/useLocalStorage";
-import "./../../assets/scss/ThemePicker.scss";
+import "./../../assets/scss/themepicker.scss";
 
 export type Theme = "cyan" | "green" | "red" | "brown";
 export type ThemeOptionProps = { theme: Theme };

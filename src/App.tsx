@@ -7,25 +7,29 @@ import Educations from "./components/content/Educations";
 import Contact from "./components/content/Contact";
 import Projects from "./components/content/Projects";
 import Skills from "./components/content/Skills";
-import ThemeSwitcher from "./components/ui/ThemePicker";
 import useAos from "./hooks/useAos";
+import ToastContainer from "./components/ui/ToastContainer";
+import "./assets/scss/scrollbar.scss";
 
 function App() {
 	useAos();
 
 	return (
-		<NavContainer>
-			<div className="flex flex-col w-full">
-				<Biography />
-				<Slogan />
-				<Experiences />
-				<Educations />
-				<Projects />
-				<Skills />
-				<Contact />
-				<Footer />
-			</div>
-		</NavContainer>
+		<>
+			<NavContainer>
+				<div className="flex flex-col w-full">
+					<Biography />
+					<Slogan />
+					<Experiences />
+					<Educations />
+					<Projects />
+					<Skills />
+					<Contact />
+					<Footer />
+				</div>
+			</NavContainer>
+			<ToastContainer />
+		</>
 	);
 }
 

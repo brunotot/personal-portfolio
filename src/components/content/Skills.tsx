@@ -2,6 +2,9 @@ import TechCardList from "../ui/TechCardList";
 import Section from "./../ui/Section";
 import { TechCardGroupProps } from "./../ui/TechCardGroup";
 
+const PLACEHOLDER =
+	"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.";
+
 const TECH_CARD_GROUPS: TechCardGroupProps[] = [
 	{
 		name: "Backend",
@@ -9,17 +12,17 @@ const TECH_CARD_GROUPS: TechCardGroupProps[] = [
 			{
 				type: "java",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"I use Java 17+ as my primary backend language. I also like to use it when coding web scrapers and crawlers.",
 			},
 			{
 				type: "gradle",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"I use Gradle as my primary Java build tool. It is excellent at building production-ready code.",
 			},
 			{
 				type: "springboot",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"I use Spring Boot 3 as my primary backend server container.",
 			},
 		],
 	},
@@ -29,17 +32,17 @@ const TECH_CARD_GROUPS: TechCardGroupProps[] = [
 			{
 				type: "react",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"I use React 18+ as my primary frontend framework and live in its environment since 2022.",
 			},
 			{
 				type: "typescript",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"When it comes to JavaScript, I always use TypeScript to ensure type safety and clean code aesthetics.",
 			},
 			{
 				type: "npm",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"When it comes to client-side package managers, I always use NPM. I've also published some libraries there.",
 			},
 		],
 	},
@@ -49,17 +52,17 @@ const TECH_CARD_GROUPS: TechCardGroupProps[] = [
 			{
 				type: "tailwind",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"This is something I've instantly fallen in love with. Tailwind makes it a breeze to create responsive designs using only HTML",
 			},
 			{
 				type: "sass",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"I prefer writing SASS instead of CSS due to a more cleaner and readable code.",
 			},
 			{
 				type: "mui",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"Regarding component libraries I always choose MUI because of its wide range of options and rapid development.",
 			},
 		],
 	},
@@ -69,22 +72,22 @@ const TECH_CARD_GROUPS: TechCardGroupProps[] = [
 			{
 				type: "heroku",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"When it comes to personal projects, I prefer using Heroku as my cloud platform as a service. It allows for a quick setup and deployment-ready applications.",
 			},
 			{
 				type: "jenkins",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"I prefer using Jenkins as my pipeline build and management tool. Been using Jenkins since the beginning of my professional career in 2021.",
 			},
 			{
 				type: "git",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"I use Git as my primary version control system. Fun fact: I always resolve conflicts through the CLI.",
 			},
 			{
 				type: "github",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"When it comes to personal projects, I prefer using GitHub as my primary Git repository hosting service.",
 			},
 		],
 	},
@@ -93,13 +96,12 @@ const TECH_CARD_GROUPS: TechCardGroupProps[] = [
 		cards: [
 			{
 				type: "sonarqube",
-				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+				description: PLACEHOLDER,
 			},
 			{
 				type: "jira",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"When it comes to managing tasks and sprints, I prefer using JIRA since I find it elegant and easy to use. Been using JIRA since the beginning of my profesional career.",
 			},
 		],
 	},
@@ -109,7 +111,7 @@ const TECH_CARD_GROUPS: TechCardGroupProps[] = [
 			{
 				type: "mongodb",
 				description:
-					"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.",
+					"As per the database choice, I like using MongoDB in a Spring Boot eco-system. This is a NoSQL database which I'm still learning and improving knowledge on.",
 			},
 		],
 	},
