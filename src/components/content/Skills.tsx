@@ -2,9 +2,6 @@ import TechCardList from "../ui/TechCardList";
 import Section from "./../ui/Section";
 import { TechCardGroupProps } from "./../ui/TechCardGroup";
 
-const PLACEHOLDER =
-	"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos neque laudantium dicta. Fugiat, quaerat.";
-
 const TECH_CARD_GROUPS: TechCardGroupProps[] = [
 	{
 		name: "Backend",
@@ -96,7 +93,8 @@ const TECH_CARD_GROUPS: TechCardGroupProps[] = [
 		cards: [
 			{
 				type: "sonarqube",
-				description: PLACEHOLDER,
+				description:
+					"I use SonarQube to ensure top code quality and to help me use best practices while writing.",
 			},
 			{
 				type: "jira",
