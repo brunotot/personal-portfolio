@@ -108,7 +108,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
       aria-roledescription="carousel"
       aria-label="Selected work"
       onKeyDown={handleKeyDown}
-      className="relative"
+      className="relative flex flex-col"
     >
       <ul
         ref={trackRef}
@@ -126,7 +126,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
         ))}
       </ul>
 
-      <div className="mt-6 flex items-center justify-between gap-4">
+      <div className="order-first mb-6 flex items-center justify-between gap-4 lg:order-last lg:mb-0 lg:mt-6">
         <div
           className="flex items-center gap-3"
           role="tablist"

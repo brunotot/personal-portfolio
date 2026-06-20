@@ -40,7 +40,7 @@ export const projects: Project[] = [
     companies: [RGO],
     role: "Frontend lead, fullstack",
     summary:
-      "A production RGO web application where I led the frontend implementation from zero and worked across the stack during the initial development phase.",
+      "A cross-border web platform supporting wildfire prevention and response, bringing operational data and coordination tools together for teams working across regional boundaries.",
     stack: ["React", "TypeScript", "Java", "Spring Boot"],
     highlights: [
       "Implemented the frontend from scratch.",
@@ -97,7 +97,7 @@ export const projects: Project[] = [
     companies: [RGO],
     role: "Frontend developer",
     summary:
-      "A production web application where I contributed to feature development, UI implementation and backend integration after joining the project mid-stream.",
+      "A production web platform for European river-port operations, bringing domain workflows, data management and reporting together in a single application.",
     stack: ["React", "TypeScript", "Java", "Spring Boot"],
     highlights: [
       "Worked mostly on React + TypeScript frontend implementation.",
@@ -116,7 +116,7 @@ export const projects: Project[] = [
     companies: [RGO],
     role: "Frontend maintenance",
     summary:
-      "Maintenance and support work on an existing Angular application, focused on keeping a legacy production project stable and functional.",
+      "A cross-border reporting platform supporting structured data collection and reporting across participating organizations.",
     stack: ["Angular", "TypeScript"],
     highlights: [
       "Maintained and adjusted an older Angular codebase.",

@@ -18,7 +18,7 @@ export default function Section({
   className,
 }: SectionProps) {
   return (
-    <section id={id} className={cn("px-6 py-20 sm:px-8 lg:px-12", className)}>
+    <section id={id} className={cn("px-6 py-12 sm:px-8 sm:py-20 lg:px-12", className)}>
       <div className="mx-auto max-w-6xl">
         {(eyebrow || title || description) && (
           <header className="mb-10 max-w-3xl" data-aos="fade-up">

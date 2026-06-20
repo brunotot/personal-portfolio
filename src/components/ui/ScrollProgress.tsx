@@ -29,7 +29,7 @@ export default function ScrollProgress() {
   return (
     <div
       aria-hidden
-      className="fixed inset-x-0 top-16 z-[1100] h-0.5 bg-transparent"
+      className="fixed inset-x-0 top-14 z-[1100] h-0.5 bg-transparent min-[600px]:top-16"
     >
       <div
         className="h-full origin-left bg-primary-base"

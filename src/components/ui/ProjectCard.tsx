@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Project, ProjectVisibility } from "../../data/projects";
 import cn from "../../utils/cn";
 
@@ -32,6 +33,21 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
     visibility,
     ribbon,
   } = project;
+
+  const [highlightsOpen, setHighlightsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!highlightsOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setHighlightsOpen(false);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [highlightsOpen]);
 
   return (
     <article
@@ -77,17 +93,17 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
       <p className="mt-4 text-sm leading-7 text-slate-300">{summary}</p>
 
       <dl className="mt-5 space-y-2 text-sm">
-        <div className="flex flex-col gap-0.5 sm:flex-row sm:items-center sm:gap-2">
+        <div className="flex flex-row items-center justify-between gap-2 sm:justify-start">
           <dt className="font-semibold text-slate-400 sm:w-20 sm:flex-none">
             Role
           </dt>
-          <dd className="text-slate-300">{role}</dd>
+          <dd className="text-right text-slate-300 sm:text-left">{role}</dd>
         </div>
-        <div className="flex flex-col gap-0.5 sm:flex-row sm:items-center sm:gap-2">
+        <div className="flex flex-row items-center justify-between gap-2 sm:justify-start">
           <dt className="font-semibold text-slate-400 sm:w-20 sm:flex-none">
             Company
           </dt>
-          <dd className="text-slate-300">
+          <dd className="text-right text-slate-300 sm:text-left">
             {companies.map((company, index) => (
               <span key={company.name}>
                 {index > 0 && <span className="text-slate-500"> &amp; </span>}
@@ -108,11 +124,11 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           </dd>
         </div>
         {period && (
-          <div className="flex flex-col gap-0.5 sm:flex-row sm:items-center sm:gap-2">
+          <div className="flex flex-row items-center justify-between gap-2 sm:justify-start">
             <dt className="font-semibold text-slate-400 sm:w-20 sm:flex-none">
               Duration
             </dt>
-            <dd className="text-slate-300">{period}</dd>
+            <dd className="text-right text-slate-300 sm:text-left">{period}</dd>
           </div>
         )}
       </dl>
@@ -128,7 +144,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         ))}
       </ul>
 
-      <ul className="mt-5 space-y-2 text-sm leading-6 text-slate-300">
+      <ul className="mt-5 hidden space-y-2 text-sm leading-6 text-slate-300 sm:block">
         {highlights.map((highlight) => (
           <li key={highlight} className="flex gap-2">
             <span
@@ -139,6 +155,15 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           </li>
         ))}
       </ul>
+
+      <button
+        type="button"
+        onClick={() => setHighlightsOpen(true)}
+        className="mt-5 inline-flex w-fit items-center gap-2 rounded-lg border border-white/15 px-4 py-2 text-sm font-semibold text-slate-200 transition-colors hover:border-white/30 hover:text-white sm:hidden"
+      >
+        View highlights
+        <span aria-hidden>→</span>
+      </button>
 
       <div className="mt-6 pt-2">
         {url ? (
@@ -157,6 +182,48 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           </p>
         )}
       </div>
+
+      {highlightsOpen && (
+        <div className="fixed inset-0 z-[1300] flex items-center justify-center p-4 sm:hidden">
+          <div
+            onClick={() => setHighlightsOpen(false)}
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+          />
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${name} highlights`}
+            className="surface relative z-10 max-h-[80vh] w-full max-w-sm overflow-y-auto rounded-2xl border border-white/10 bg-secondary-darker p-6 shadow-2xl"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <h4 className="text-base font-bold tracking-tight text-white">
+                {name} — highlights
+              </h4>
+              <button
+                type="button"
+                onClick={() => setHighlightsOpen(false)}
+                aria-label="Close"
+                className="flex h-8 w-8 flex-none items-center justify-center rounded-lg border border-white/10 text-slate-300 transition-colors hover:border-white/30 hover:text-white"
+              >
+                <span aria-hidden className="text-lg leading-none">
+                  ×
+                </span>
+              </button>
+            </div>
+            <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-300">
+              {highlights.map((highlight) => (
+                <li key={highlight} className="flex gap-2">
+                  <span
+                    aria-hidden
+                    className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-primary-base"
+                  />
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
     </article>
   );
 }
