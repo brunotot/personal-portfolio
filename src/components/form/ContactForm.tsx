@@ -1,14 +1,13 @@
 import SendIcon from "@mui/icons-material/Send";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import EmailService from "../../services/EmailService";
 import ToastService from "../../services/ToastService";
 import TextField from "./TextField";
 
-const EMAIL_SUCCESS_MSG = "Email sent successfully!";
-const EMAIL_ERROR_MSG = "Email failed to send! Please try again later...";
-
 export default function ContactForm() {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const form = useRef<any>();
 
@@ -17,10 +16,10 @@ export default function ContactForm() {
     setLoading(true);
     try {
       await EmailService.send(form.current);
-      ToastService.success(EMAIL_SUCCESS_MSG);
+      ToastService.success(t("contact.form.success"));
       form.current.reset();
     } catch (error) {
-      ToastService.error(EMAIL_ERROR_MSG);
+      ToastService.error(t("contact.form.error"));
     } finally {
       setLoading(false);
     }
@@ -37,34 +36,34 @@ export default function ContactForm() {
           fullWidth
           name="user_name"
           type="text"
-          label="Name"
+          label={t("contact.form.name")}
           variant="outlined"
-          placeholder="John Doe"
+          placeholder={t("contact.form.namePlaceholder")}
         />
         <TextField
           fullWidth
           name="user_email"
           type="email"
-          label="Email"
+          label={t("contact.form.email")}
           variant="outlined"
-          placeholder="john.doe@mail.com"
+          placeholder={t("contact.form.emailPlaceholder")}
         />
       </div>
       <TextField
         fullWidth
         name="user_subject"
         type="text"
-        label="Subject"
+        label={t("contact.form.subject")}
         variant="outlined"
-        placeholder="Collaboration wanted ..."
+        placeholder={t("contact.form.subjectPlaceholder")}
       />
       <TextField
         fullWidth
         name="user_message"
         type="text"
-        label="Message"
+        label={t("contact.form.message")}
         variant="outlined"
-        placeholder="I need ..."
+        placeholder={t("contact.form.messagePlaceholder")}
         multiline
         rows={4}
       />
@@ -82,7 +81,7 @@ export default function ContactForm() {
             : "!bg-primary-base !text-tertiary-darker"
         }`}
       >
-        <span>Send</span>
+        <span>{t("contact.form.send")}</span>
       </LoadingButton>
     </form>
   );

@@ -23,7 +23,7 @@ export default function NavLink(props: NavLinkProps) {
     <a
       ref={ref}
       className={
-        "uppercase font-jost text-tertiary-light transition-colors hover:text-white" +
+        "uppercase font-jost text-content-secondary transition-colors hover:text-content" +
         (className ? ` ${className}` : "")
       }
       download={download}

@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import { education, experience } from "../../data/experience";
+import { useTranslation } from "react-i18next";
+import { educationIds, experienceIds } from "../../data/experience";
 import { personal } from "../../data/personal";
 import { projects } from "../../data/projects";
 import { skillGroups } from "../../data/skills";
@@ -23,11 +24,15 @@ function ResumeSection({
 
 /**
  * Print-only résumé. Hidden on screen, rendered on `window.print()` / Ctrl+P.
- * Sourced entirely from the shared data files so it never drifts from the site.
+ * Structure comes from the shared data files; all text comes from i18n so the
+ * résumé follows the selected language.
  */
 export default function ResumeDocument() {
-  const { name, title, location, email, phone, linkedin, github, summary } =
-    personal;
+  const { t } = useTranslation();
+  const { name, email, phone, linkedin, github } = personal;
+  const personalLanguages = t("resume.personal.languages", {
+    returnObjects: true,
+  }) as string[];
 
   return (
     <div className="hidden bg-white text-slate-800 print:block">
@@ -37,9 +42,11 @@ export default function ResumeDocument() {
           <h1 className="text-3xl font-bold tracking-tight text-slate-900">
             {name}
           </h1>
-          <p className="mt-0.5 text-base font-medium text-slate-600">{title}</p>
+          <p className="mt-0.5 text-base font-medium text-slate-600">
+            {t("resume.personal.title")}
+          </p>
           <p className="mt-2 flex flex-wrap gap-x-2 gap-y-0.5 text-[11.5px] text-slate-600">
-            <span>{location}</span>
+            <span>{t("resume.personal.location")}</span>
             <span aria-hidden>·</span>
             <a href={`mailto:${email}`} className="text-slate-700">
               {email}
@@ -58,75 +65,89 @@ export default function ResumeDocument() {
         </header>
 
         {/* Profile */}
-        <ResumeSection title="Profile">
-          <p className="text-slate-700">{summary}</p>
+        <ResumeSection title={t("resume.profile")}>
+          <p className="text-slate-700">{t("resume.personal.summary")}</p>
         </ResumeSection>
 
         {/* Experience */}
-        <ResumeSection title="Experience">
+        <ResumeSection title={t("resume.experience")}>
           <div className="space-y-3">
-            {experience.map((item) => (
-              <div key={item.id} className="break-inside-avoid">
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="font-semibold text-slate-900">
-                    {item.title}
-                    <span className="font-normal text-slate-600">
-                      {" "}
-                      — {item.company}
-                    </span>
-                  </h3>
-                  {item.period && (
-                    <span className="whitespace-nowrap text-[11px] text-slate-500">
-                      {item.period}
-                    </span>
-                  )}
+            {experienceIds.map((id) => {
+              const period = t(`experience.items.${id}.period`);
+              const highlights = t(`experience.items.${id}.highlights`, {
+                returnObjects: true,
+              }) as string[];
+              return (
+                <div key={id} className="break-inside-avoid">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-semibold text-slate-900">
+                      {t(`experience.items.${id}.title`)}
+                      <span className="font-normal text-slate-600">
+                        {" "}
+                        — {t(`experience.items.${id}.company`)}
+                      </span>
+                    </h3>
+                    {period && (
+                      <span className="whitespace-nowrap text-[11px] text-slate-500">
+                        {period}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-0.5 text-slate-700">
+                    {t(`experience.items.${id}.summary`)}
+                  </p>
+                  <ul className="mt-1 list-disc space-y-0.5 pl-5 text-slate-700 marker:text-slate-400">
+                    {highlights.map((highlight) => (
+                      <li key={highlight}>{highlight}</li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="mt-0.5 text-slate-700">{item.summary}</p>
-                <ul className="mt-1 list-disc space-y-0.5 pl-5 text-slate-700 marker:text-slate-400">
-                  {item.highlights.map((highlight) => (
-                    <li key={highlight}>{highlight}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </ResumeSection>
 
         {/* Selected projects */}
-        <ResumeSection title="Selected Projects">
+        <ResumeSection title={t("resume.selectedProjects")}>
           <div className="space-y-2.5">
-            {projects.map((project) => (
-              <div key={project.id} className="break-inside-avoid">
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="font-semibold text-slate-900">
-                    {project.name}
-                    <span className="font-normal text-slate-600">
-                      {" "}
-                      — {project.role}
-                    </span>
-                  </h3>
-                  {project.period && (
-                    <span className="whitespace-nowrap text-[11px] text-slate-500">
-                      {project.period}
-                    </span>
-                  )}
+            {projects.map((project) => {
+              const base = `projects.items.${project.id}`;
+              const period = t(`${base}.period`);
+              return (
+                <div key={project.id} className="break-inside-avoid">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-semibold text-slate-900">
+                      {project.name}
+                      <span className="font-normal text-slate-600">
+                        {" "}
+                        — {t(`${base}.role`)}
+                      </span>
+                    </h3>
+                    {period && (
+                      <span className="whitespace-nowrap text-[11px] text-slate-500">
+                        {period}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-0.5 text-slate-700">
+                    {t(`${base}.summary`)}
+                  </p>
+                  <p className="mt-0.5 text-[11px] text-slate-500">
+                    {project.stack.join(" · ")}
+                  </p>
                 </div>
-                <p className="mt-0.5 text-slate-700">{project.summary}</p>
-                <p className="mt-0.5 text-[11px] text-slate-500">
-                  {project.stack.join(" · ")}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </ResumeSection>
 
         {/* Skills */}
-        <ResumeSection title="Skills">
+        <ResumeSection title={t("resume.skills")}>
           <div className="space-y-1">
             {skillGroups.map((group) => (
-              <p key={group.name} className="text-slate-700">
+              <p key={group.id} className="text-slate-700">
                 <span className="font-semibold text-slate-900">
-                  {group.name}:
+                  {t(`skills.groups.${group.id}`)}:
                 </span>{" "}
                 {group.skills.join(", ")}
               </p>
@@ -135,33 +156,36 @@ export default function ResumeDocument() {
         </ResumeSection>
 
         {/* Education */}
-        <ResumeSection title="Education">
+        <ResumeSection title={t("resume.education")}>
           <div className="space-y-1.5">
-            {education.map((item) => (
-              <div
-                key={item.id}
-                className="flex items-baseline justify-between gap-4 break-inside-avoid"
-              >
-                <h3 className="font-semibold text-slate-900">
-                  {item.title}
-                  <span className="font-normal text-slate-600">
-                    {" "}
-                    — {item.school}
-                  </span>
-                </h3>
-                {item.period && (
-                  <span className="whitespace-nowrap text-[11px] text-slate-500">
-                    {item.period}
-                  </span>
-                )}
-              </div>
-            ))}
+            {educationIds.map((id) => {
+              const period = t(`experience.education.${id}.period`);
+              return (
+                <div
+                  key={id}
+                  className="flex items-baseline justify-between gap-4 break-inside-avoid"
+                >
+                  <h3 className="font-semibold text-slate-900">
+                    {t(`experience.education.${id}.title`)}
+                    <span className="font-normal text-slate-600">
+                      {" "}
+                      — {t(`experience.education.${id}.school`)}
+                    </span>
+                  </h3>
+                  {period && (
+                    <span className="whitespace-nowrap text-[11px] text-slate-500">
+                      {period}
+                    </span>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </ResumeSection>
 
         {/* Languages */}
-        <ResumeSection title="Languages">
-          <p className="text-slate-700">{personal.languages.join("   ·   ")}</p>
+        <ResumeSection title={t("resume.languages")}>
+          <p className="text-slate-700">{personalLanguages.join("   ·   ")}</p>
         </ResumeSection>
       </div>
     </div>

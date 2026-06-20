@@ -17,6 +17,51 @@
   --color-tertiary-base: rgb(148 163 184);
   --color-tertiary-dark: rgb(51 65 85);
   --color-tertiary-darker: rgb(15 23 42);
+
+  /* Semantic theme tokens — DARK (default). Channels are space-separated
+     so Tailwind can apply opacity modifiers; surfaces/lines bake in alpha. */
+  --canvas: 7 11 20;
+  --canvas-raised: 11 16 32;
+
+  --content: 255 255 255;
+  --content-secondary: 203 213 225;
+  --content-muted: 148 163 184;
+  --content-faint: 100 116 139;
+
+  --surface: rgb(255 255 255 / 0.03);
+  --surface-subtle: rgb(255 255 255 / 0.04);
+  --surface-hover: rgb(255 255 255 / 0.06);
+  --line: rgb(255 255 255 / 0.1);
+  --line-strong: rgb(255 255 255 / 0.16);
+
+  /* Tunable accent colors for the dot-grid + hero glow. */
+  --dot-color: rgb(34 211 238 / 0.18);
+  --glow-opacity: 0.3;
+}
+
+[data-theme="light"] {
+  /* A darker cyan keeps accent text/links readable on light surfaces. */
+  --color-primary-light: rgb(103 232 249);
+  --color-primary-base: rgb(8 145 178);
+  --color-primary-dark: rgb(14 116 144);
+  --color-primary-darker: rgb(21 94 117);
+
+  --canvas: 255 255 255;
+  --canvas-raised: 241 245 249;
+
+  --content: 15 23 42;
+  --content-secondary: 51 65 85;
+  --content-muted: 71 85 105;
+  --content-faint: 100 116 139;
+
+  --surface: rgb(15 23 42 / 0.02);
+  --surface-subtle: rgb(15 23 42 / 0.035);
+  --surface-hover: rgb(15 23 42 / 0.06);
+  --line: rgb(15 23 42 / 0.1);
+  --line-strong: rgb(15 23 42 / 0.18);
+
+  --dot-color: rgb(8 145 178 / 0.12);
+  --glow-opacity: 0.16;
 }
 
 .profile-image {
@@ -38,8 +83,8 @@ html {
 }
 
 body {
-  background: rgb(7 11 20);
-  color: rgb(226 232 240);
+  background: rgb(var(--canvas));
+  color: rgb(var(--content));
   overflow-x: hidden;
 }
 
@@ -113,10 +158,7 @@ html {
 /* Signature dot-grid texture (engineer-meets-designer). Fades out
    toward the edges so it never shows a hard boundary. */
 .dot-grid {
-  background-image: radial-gradient(
-    rgba(34, 211, 238, 0.18) 1px,
-    transparent 1px
-  );
+  background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
   background-size: 22px 22px;
   -webkit-mask-image: radial-gradient(
     ellipse 75% 70% at 50% 35%,

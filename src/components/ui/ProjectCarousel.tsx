@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Project } from "../../data/projects";
 import cn from "../../utils/cn";
 import ProjectCard from "./ProjectCard";
@@ -8,6 +9,7 @@ export type ProjectCarouselProps = {
 };
 
 export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
+  const { t } = useTranslation();
   const trackRef = useRef<HTMLUListElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   // While a programmatic (button/dot/key) scroll animates, suppress the
@@ -106,7 +108,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
     <div
       role="group"
       aria-roledescription="carousel"
-      aria-label="Selected work"
+      aria-label={t("projects.eyebrow")}
       onKeyDown={handleKeyDown}
       className="relative flex flex-col"
     >
@@ -144,7 +146,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
                 "h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-base focus-visible:ring-offset-2 focus-visible:ring-offset-secondary-darker",
                 index === activeIndex
                   ? "w-8 bg-primary-base"
-                  : "w-2 bg-white/20 hover:bg-white/40",
+                  : "w-2 bg-content/20 hover:bg-content/40",
               )}
             />
           ))}
@@ -155,8 +157,8 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
             type="button"
             onClick={goPrev}
             disabled={atStart}
-            aria-label="Previous project"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-slate-200 transition hover:border-primary-base/60 hover:bg-white/[0.08] disabled:cursor-not-allowed disabled:opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-base focus-visible:ring-offset-2 focus-visible:ring-offset-secondary-darker"
+            aria-label={t("projects.prevLabel")}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface-subtle text-content-secondary transition hover:border-primary-base/60 hover:bg-surface-hover disabled:cursor-not-allowed disabled:opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-base focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
           >
             <span aria-hidden className="text-lg">
               ‹
@@ -166,8 +168,8 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
             type="button"
             onClick={goNext}
             disabled={atEnd}
-            aria-label="Next project"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-slate-200 transition hover:border-primary-base/60 hover:bg-white/[0.08] disabled:cursor-not-allowed disabled:opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-base focus-visible:ring-offset-2 focus-visible:ring-offset-secondary-darker"
+            aria-label={t("projects.nextLabel")}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface-subtle text-content-secondary transition hover:border-primary-base/60 hover:bg-surface-hover disabled:cursor-not-allowed disabled:opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-base focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
           >
             <span aria-hidden className="text-lg">
               ›

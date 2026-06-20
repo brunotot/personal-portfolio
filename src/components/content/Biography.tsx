@@ -1,27 +1,16 @@
+import { useTranslation } from "react-i18next";
 import ProfilePhoto from "../images/ProfileImage";
 import Image from "../ui/Image";
 import Link from "../ui/Link";
 
-const HERO = {
-  eyebrow: "Fullstack Developer • TypeScript React / Java Spring Boot",
-  title: "I build production web apps with a frontend edge.",
-  description:
-    "I'm Bruno Tot, a fullstack developer from Zagreb focused on React, TypeScript and Java Spring Boot. I work on domain-heavy business applications, polished frontend flows, reusable UI systems and backend integrations that need to stay maintainable in production.",
-};
-
-const CHIPS = [
-  "4+ years professional experience",
-  "React + TypeScript frontend",
-  "Java Spring Boot backend",
-  "Production business systems",
-  "Frontend architecture",
-];
-
 export default function Biography() {
+  const { t } = useTranslation();
+  const chips = t("hero.chips", { returnObjects: true }) as string[];
+
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-secondary-dark px-6 pt-12 sm:px-8 lg:px-12 lg:pt-20"
+      className="relative overflow-hidden bg-canvas-raised px-6 pt-12 sm:px-8 lg:px-12 lg:pt-20"
     >
       <div
         aria-hidden
@@ -29,7 +18,8 @@ export default function Biography() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-32 right-[-15%] h-[560px] w-[560px] rounded-full bg-primary-base/30 blur-[130px] lg:right-[0%]"
+        className="pointer-events-none absolute -top-32 right-[-15%] h-[560px] w-[560px] rounded-full bg-primary-base blur-[130px] lg:right-[0%]"
+        style={{ opacity: "var(--glow-opacity)" }}
       />
       <div className="relative mx-auto grid max-w-6xl items-stretch gap-12 lg:grid-cols-[1.15fr_0.85fr]">
         <div data-aos="fade-up" className="min-w-0">
@@ -38,13 +28,13 @@ export default function Biography() {
               aria-hidden
               className="h-px w-8 flex-none bg-primary-base/60"
             />
-            {HERO.eyebrow}
+            {t("hero.eyebrow")}
           </p>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            {HERO.title}
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-content sm:text-5xl lg:text-6xl">
+            {t("hero.title")}
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-            {HERO.description}
+          <p className="mt-6 max-w-2xl text-base leading-8 text-content-secondary sm:text-lg">
+            {t("hero.description")}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -52,21 +42,21 @@ export default function Biography() {
               href="#work"
               className="inline-flex items-center justify-center rounded-lg bg-primary-base px-5 py-2.5 text-sm font-semibold text-secondary-darker transition-colors hover:bg-primary-light"
             >
-              View selected work
+              {t("hero.ctaWork")}
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center rounded-lg border border-white/15 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-primary-base/60 hover:text-primary-base"
+              className="inline-flex items-center justify-center rounded-lg border border-line-strong px-5 py-2.5 text-sm font-semibold text-content transition-colors hover:border-primary-base/60 hover:text-primary-base"
             >
-              Contact me
+              {t("hero.ctaContact")}
             </a>
           </div>
 
           <ul className="mt-8 flex flex-wrap gap-2">
-            {CHIPS.map((chip) => (
+            {chips.map((chip) => (
               <li
                 key={chip}
-                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-slate-300"
+                className="rounded-full border border-line bg-surface-subtle px-3 py-1 text-xs font-medium text-content-secondary"
               >
                 {chip}
               </li>

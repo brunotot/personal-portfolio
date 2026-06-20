@@ -21,7 +21,7 @@ export default function NavContainer(props: NavContainerProps) {
     <AppBar
       component="nav"
       elevation={0}
-      className="!transition-all !bg-secondary-darker border-b border-white/10"
+      className="!transition-all !bg-canvas border-b border-line"
     >
       <Toolbar>
         <NavDesktop handleDrawerToggle={handleDrawerToggle} />
@@ -35,7 +35,7 @@ export default function NavContainer(props: NavContainerProps) {
       {desktopDrawer}
       <NavMobile open={mobileOpen} onClose={closeMenu} />
       <Box component="main" sx={{ width: "100%" }}>
-        <Toolbar className="!bg-secondary-dark" />
+        <Toolbar className="!bg-canvas-raised" />
         {children}
       </Box>
     </Box>

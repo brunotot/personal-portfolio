@@ -1,15 +1,17 @@
+import { useTranslation } from "react-i18next";
 import { projects } from "../../data/projects";
 import ProjectCarousel from "../ui/ProjectCarousel";
 import Section from "../ui/Section";
 
 export default function Projects() {
+  const { t } = useTranslation();
   return (
     <Section
       id="work"
-      eyebrow="Selected work"
-      title="Production apps I've worked on"
-      description="A selection of professional projects across public systems, internal tools and legacy maintenance — focused on real, maintainable software rather than demos."
-      className="bg-secondary-darker"
+      eyebrow={t("projects.eyebrow")}
+      title={t("projects.title")}
+      description={t("projects.description")}
+      className="bg-canvas"
     >
       <div data-aos="fade-up">
         <ProjectCarousel projects={projects} />

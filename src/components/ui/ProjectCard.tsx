@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Project, ProjectVisibility } from "../../data/projects";
 import cn from "../../utils/cn";
 
@@ -8,51 +9,30 @@ const VISIBILITY_STYLES: Record<ProjectVisibility, string> = {
   internal: "border-sky-400/30 bg-sky-400/10 text-sky-300",
 };
 
-const VISIBILITY_LABELS: Record<ProjectVisibility, string> = {
-  public: "Public",
-  private: "Private",
-  internal: "Internal",
-};
-
 export type ProjectCardProps = {
   project: Project;
   className?: string;
 };
 
 export default function ProjectCard({ project, className }: ProjectCardProps) {
-  const {
-    name,
-    url,
-    statusLabel,
-    companies,
-    role,
-    period,
-    summary,
-    stack,
-    highlights,
-    visibility,
-    ribbon,
-  } = project;
+  const { id, name, url, companies, stack, visibility, ribbon } = project;
+  const { t } = useTranslation();
 
-  const [highlightsOpen, setHighlightsOpen] = useState(false);
+  const base = `projects.items.${id}`;
+  const statusLabel = t(`${base}.statusLabel`);
+  const role = t(`${base}.role`);
+  const period = t(`${base}.period`);
+  const summary = t(`${base}.summary`);
+  const highlights = t(`${base}.highlights`, {
+    returnObjects: true,
+  }) as string[];
 
-  useEffect(() => {
-    if (!highlightsOpen) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setHighlightsOpen(false);
-    };
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [highlightsOpen]);
+  const [detailsOpen, setDetailsOpen] = useState(false);
 
   return (
     <article
       className={cn(
-        "group surface relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-sm transition hover:border-primary-base/60 hover:bg-white/[0.05]",
+        "group surface relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface p-6 shadow-sm transition hover:border-primary-base/60 hover:bg-surface-hover",
         className,
       )}
     >
@@ -67,14 +47,32 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         </div>
       )}
       <div className="flex flex-col gap-3">
-        <h3
+        <div
           className={cn(
-            "text-xl font-bold tracking-tight text-white",
+            "flex flex-wrap items-center gap-x-3 gap-y-1",
             Boolean(ribbon) && "pr-14",
           )}
         >
-          {name}
-        </h3>
+          <h3 className="text-xl font-bold tracking-tight text-content">
+            {name}
+          </h3>
+          {url && (
+            <>
+              <span aria-hidden className="text-content-faint">
+                •
+              </span>
+              <a
+                href={url}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-sm font-semibold text-primary-base transition-colors hover:text-primary-light"
+              >
+                {t("projects.visit")}
+                <span aria-hidden>↗</span>
+              </a>
+            </>
+          )}
+        </div>
         <div className="flex flex-wrap items-center gap-2">
           <span
             className={cn(
@@ -82,37 +80,51 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
               VISIBILITY_STYLES[visibility],
             )}
           >
-            {VISIBILITY_LABELS[visibility]}
+            {t(`projects.visibility.${visibility}`)}
           </span>
-          <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-slate-300">
+          <span className="rounded-full border border-line bg-surface-subtle px-3 py-1 text-xs font-medium text-content-secondary">
             {statusLabel}
           </span>
         </div>
       </div>
 
-      <p className="mt-4 text-sm leading-7 text-slate-300">{summary}</p>
+      <ul className="mt-5 space-y-2 text-sm leading-6 text-content-secondary">
+        {highlights.map((highlight) => (
+          <li key={highlight} className="flex gap-2">
+            <span
+              aria-hidden
+              className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-primary-base"
+            />
+            <span>{highlight}</span>
+          </li>
+        ))}
+      </ul>
 
       <dl className="mt-5 space-y-2 text-sm">
         <div className="flex flex-row items-center justify-between gap-2 sm:justify-start">
-          <dt className="font-semibold text-slate-400 sm:w-20 sm:flex-none">
-            Role
+          <dt className="font-semibold text-content-muted sm:w-20 sm:flex-none">
+            {t("projects.fields.role")}
           </dt>
-          <dd className="text-right text-slate-300 sm:text-left">{role}</dd>
+          <dd className="text-right text-content-secondary sm:text-left">
+            {role}
+          </dd>
         </div>
         <div className="flex flex-row items-center justify-between gap-2 sm:justify-start">
-          <dt className="font-semibold text-slate-400 sm:w-20 sm:flex-none">
-            Company
+          <dt className="font-semibold text-content-muted sm:w-20 sm:flex-none">
+            {t("projects.fields.company")}
           </dt>
-          <dd className="text-right text-slate-300 sm:text-left">
+          <dd className="text-right text-content-secondary sm:text-left">
             {companies.map((company, index) => (
               <span key={company.name}>
-                {index > 0 && <span className="text-slate-500"> &amp; </span>}
+                {index > 0 && (
+                  <span className="text-content-faint"> &amp; </span>
+                )}
                 {company.url ? (
                   <a
                     href={company.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="font-medium text-slate-200 underline decoration-white/20 underline-offset-2 transition-colors hover:text-primary-base hover:decoration-primary-base/60"
+                    className="font-medium text-content-secondary underline decoration-content/20 underline-offset-2 transition-colors hover:text-primary-base hover:decoration-primary-base/60"
                   >
                     {company.name}
                   </a>
@@ -125,10 +137,12 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         </div>
         {period && (
           <div className="flex flex-row items-center justify-between gap-2 sm:justify-start">
-            <dt className="font-semibold text-slate-400 sm:w-20 sm:flex-none">
-              Duration
+            <dt className="font-semibold text-content-muted sm:w-20 sm:flex-none">
+              {t("projects.fields.duration")}
             </dt>
-            <dd className="text-right text-slate-300 sm:text-left">{period}</dd>
+            <dd className="text-right text-content-secondary sm:text-left">
+              {period}
+            </dd>
           </div>
         )}
       </dl>
@@ -137,93 +151,49 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         {stack.map((tech) => (
           <li
             key={tech}
-            className="rounded-md border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs font-medium text-slate-200"
+            className="rounded-md border border-line bg-surface-subtle px-2.5 py-1 text-xs font-medium text-content-secondary"
           >
             {tech}
           </li>
         ))}
       </ul>
 
-      <ul className="mt-5 hidden space-y-2 text-sm leading-6 text-slate-300 sm:block">
-        {highlights.map((highlight) => (
-          <li key={highlight} className="flex gap-2">
-            <span
-              aria-hidden
-              className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-primary-base"
-            />
-            <span>{highlight}</span>
-          </li>
-        ))}
-      </ul>
-
-      <button
-        type="button"
-        onClick={() => setHighlightsOpen(true)}
-        className="mt-5 inline-flex w-fit items-center gap-2 rounded-lg border border-white/15 px-4 py-2 text-sm font-semibold text-slate-200 transition-colors hover:border-white/30 hover:text-white sm:hidden"
-      >
-        View highlights
-        <span aria-hidden>→</span>
-      </button>
-
-      <div className="mt-6 pt-2">
-        {url ? (
-          <a
-            href={url}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary-base transition-colors hover:text-primary-light"
+      <div className="mt-6">
+        <button
+          type="button"
+          onClick={() => setDetailsOpen((open) => !open)}
+          aria-expanded={detailsOpen}
+          aria-controls={`project-details-${id}`}
+          className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-line-strong px-4 py-2 text-sm font-semibold text-content-secondary transition-colors hover:border-line-strong hover:text-content sm:w-fit"
+        >
+          {detailsOpen ? t("projects.hideDetails") : t("projects.viewDetails")}
+          <span
+            aria-hidden
+            className={cn(
+              "transition-transform duration-300",
+              detailsOpen && "rotate-180",
+            )}
           >
-            Visit project
-            <span aria-hidden>↗</span>
-          </a>
-        ) : (
-          <p className="text-sm font-medium text-slate-400">
-            Private project — details limited due to project privacy.
-          </p>
-        )}
-      </div>
+            ▾
+          </span>
+        </button>
 
-      {highlightsOpen && (
-        <div className="fixed inset-0 z-[1300] flex items-center justify-center p-4 sm:hidden">
-          <div
-            onClick={() => setHighlightsOpen(false)}
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-          />
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-label={`${name} highlights`}
-            className="surface relative z-10 max-h-[80vh] w-full max-w-sm overflow-y-auto rounded-2xl border border-white/10 bg-secondary-darker p-6 shadow-2xl"
-          >
-            <div className="flex items-start justify-between gap-4">
-              <h4 className="text-base font-bold tracking-tight text-white">
-                {name} — highlights
-              </h4>
-              <button
-                type="button"
-                onClick={() => setHighlightsOpen(false)}
-                aria-label="Close"
-                className="flex h-8 w-8 flex-none items-center justify-center rounded-lg border border-white/10 text-slate-300 transition-colors hover:border-white/30 hover:text-white"
-              >
-                <span aria-hidden className="text-lg leading-none">
-                  ×
-                </span>
-              </button>
-            </div>
-            <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-300">
-              {highlights.map((highlight) => (
-                <li key={highlight} className="flex gap-2">
-                  <span
-                    aria-hidden
-                    className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-primary-base"
-                  />
-                  <span>{highlight}</span>
-                </li>
-              ))}
-            </ul>
+        <div
+          id={`project-details-${id}`}
+          className={cn(
+            "grid transition-all duration-300 ease-out",
+            detailsOpen
+              ? "mt-4 grid-rows-[1fr] opacity-100"
+              : "grid-rows-[0fr] opacity-0",
+          )}
+        >
+          <div className="overflow-hidden">
+            <p className="text-sm leading-7 text-content-secondary">
+              {summary}
+            </p>
           </div>
         </div>
-      )}
+      </div>
     </article>
   );
 }

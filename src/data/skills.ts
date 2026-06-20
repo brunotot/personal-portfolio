@@ -1,16 +1,16 @@
+/**
+ * Structural skills registry. Group display names and strength text live in
+ * the i18n resources (`skills.groups.<id>`, `skills.strengths.<id>`); the tech
+ * names themselves are not translated.
+ */
 export type SkillGroup = {
-  name: string;
+  id: string;
   skills: string[];
-};
-
-export type Strength = {
-  title: string;
-  description: string;
 };
 
 export const skillGroups: SkillGroup[] = [
   {
-    name: "Frontend",
+    id: "frontend",
     skills: [
       "React",
       "TypeScript",
@@ -23,33 +23,17 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
-    name: "Backend",
+    id: "backend",
     skills: ["Java", "Spring Boot", "REST APIs", "JSP", "Gradle"],
   },
   {
-    name: "Delivery",
+    id: "delivery",
     skills: ["Git", "GitHub", "Jenkins", "SonarQube", "CI/CD", "Jira"],
   },
   {
-    name: "Database / Infra",
+    id: "infra",
     skills: ["MongoDB", "SQL", "Heroku", "Linux"],
   },
 ];
 
-export const strengths: Strength[] = [
-  {
-    title: "Frontend architecture",
-    description:
-      "Reusable components, complex forms, stateful workflows and production UI consistency.",
-  },
-  {
-    title: "Fullstack delivery",
-    description:
-      "React/TypeScript frontends integrated with Java Spring Boot APIs.",
-  },
-  {
-    title: "Legacy and production systems",
-    description:
-      "Comfortable maintaining older systems while also building new apps from scratch.",
-  },
-];
+export const strengthIds = ["frontendArch", "fullstack", "legacy"] as const;

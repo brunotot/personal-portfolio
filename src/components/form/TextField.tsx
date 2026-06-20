@@ -10,31 +10,31 @@ export default function TextField(props: TextFieldPropsGroup) {
       {...rest}
       sx={{
         "& .MuiInputBase-root": {
-          backgroundColor: "var(--color-secondary-darker)",
+          backgroundColor: "rgb(var(--canvas))",
         },
         "& .MuiInputBase-root:hover, & .MuiInputBase-root:has(input:focus, textarea:focus)":
           {
-            backgroundColor: "var(--color-tertiary-darker)",
+            backgroundColor: "var(--surface-hover)",
           },
         "& .MuiOutlinedInput-notchedOutline": {
-          borderColor: "rgb(255 255 255 / 0.12)",
+          borderColor: "var(--line)",
         },
         "& .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline": {
-          borderColor: "rgb(255 255 255 / 0.25) !important",
+          borderColor: "var(--line-strong) !important",
         },
         "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
           {
-            borderColor: "rgb(255 255 255 / 0.4) !important",
+            borderColor: "var(--color-primary-base) !important",
           },
       }}
       InputLabelProps={{
         classes: {
-          root: "!text-slate-400",
+          root: "!text-content-muted",
         },
       }}
       InputProps={{
         classes: {
-          root: "!text-slate-100",
+          root: "!text-content",
         },
       }}
     />
