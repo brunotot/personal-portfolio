@@ -1,22 +1,46 @@
+import cn from "../../utils/cn";
+
 export type SectionProps = {
-	id: string;
-	title: string;
-	children: React.ReactNode;
-	containerClassName?: string;
+  id?: string;
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  children: React.ReactNode;
+  className?: string;
 };
 
 export default function Section({
-	id,
-	children,
-	title,
-	containerClassName,
+  id,
+  eyebrow,
+  title,
+  description,
+  children,
+  className,
 }: SectionProps) {
-	return (
-		<div id={id} className={containerClassName}>
-			<div className="container mx-auto px-8 py-16 text-tertiary-light">
-				<h1 className="uppercase font-bold text-[2rem] mb-4">{title}</h1>
-				<div className="flex justify-center gap-8 flex-wrap">{children}</div>
-			</div>
-		</div>
-	);
+  return (
+    <section id={id} className={cn("px-6 py-20 sm:px-8 lg:px-12", className)}>
+      <div className="mx-auto max-w-6xl">
+        {(eyebrow || title || description) && (
+          <header className="mb-10 max-w-3xl">
+            {eyebrow && (
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary-base">
+                {eyebrow}
+              </p>
+            )}
+            {title && (
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                {title}
+              </h2>
+            )}
+            {description && (
+              <p className="mt-4 text-base leading-7 text-slate-300">
+                {description}
+              </p>
+            )}
+          </header>
+        )}
+        {children}
+      </div>
+    </section>
+  );
 }

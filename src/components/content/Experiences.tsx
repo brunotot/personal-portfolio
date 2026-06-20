@@ -1,67 +1,61 @@
-import ExperienceFragment from "./../ui/ExperienceFragment";
-import notchLogo from "./../../assets/img/notch-logo.png";
-import amplexorLogo from "./../../assets/img/amplexor-logo.jpeg";
+import { education, experience } from "../../data/experience";
 import Section from "./../ui/Section";
 
 export default function Experiences() {
-	return (
-		<Section
-			id="experience"
-			title="Experience"
-			containerClassName="bg-secondary-dark text-secondary-light"
-		>
-			<ExperienceFragment
-				aos="zoom-in"
-				dateFrom="2019"
-				dateTo="2020"
-				companyName="Amplexor"
-				companyCity="Zagreb"
-				companyCountry="Croatia"
-				companyLogoSrc={amplexorLogo}
-				jobTitle="Junior Java Software Developer"
-				jobSkills={[
-					"javascript",
-					"java",
-					"css",
-					"html",
-					"sql",
-					"bootstrap",
-					"jira",
-					"eclipse",
-					"jsp",
-					"tomcat",
-				]}
-				jobDescription="Developing Life Sciences Solutions application in a team of 5. 
-				Mainly worked on backend with code analysis and bugfixing. Developed skills of source control in CVS with tasks management in Jira."
-			/>
-			<ExperienceFragment
-				aos="zoom-in"
-				dateFrom="2021"
-				companyName="Notch"
-				companyCity="Zagreb"
-				companyCountry="Croatia"
-				companyLogoSrc={notchLogo}
-				jobTitle="Fullstack Software Developer"
-				jobSkills={[
-					"javascript",
-					"springboot",
-					"java",
-					"sass",
-					"css",
-					"html",
-					"sql",
-					"bootstrap",
-					"jira",
-					"vsc",
-					"intellij",
-					"jquery",
-					"thymeleaf",
-					"gitlab",
-					"mybatis",
-				]}
-				jobDescription="Developing Science Information System application in a team of 8. 
-Developed strong skills including Vanilla JavaScript, jQuery, Thymeleaf, MyBatis and Java Spring Boot. My position was an all-rounder with having both front-end and back-end features to implement including debugging and bugfixing."
-			/>
-		</Section>
-	);
+  return (
+    <Section
+      id="experience"
+      eyebrow="Experience snapshot"
+      title="Where I've delivered production work"
+      description="Over 4+ years across long-running public systems and active product development, working close to real business domains."
+      className="bg-secondary-dark"
+    >
+      <div className="space-y-6">
+        {experience.map((item) => (
+          <article
+            key={item.id}
+            className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <h3 className="text-lg font-bold text-white">{item.title}</h3>
+              <p className="text-sm font-medium text-primary-base">
+                {item.company}
+              </p>
+            </div>
+            <p className="mt-3 text-sm leading-7 text-slate-300">
+              {item.summary}
+            </p>
+            <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-300">
+              {item.highlights.map((highlight) => (
+                <li key={highlight} className="flex gap-2">
+                  <span
+                    aria-hidden
+                    className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-primary-base"
+                  />
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+
+      <div className="mt-10">
+        <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">
+          Education
+        </h3>
+        <ul className="mt-4 grid gap-4 sm:grid-cols-2">
+          {education.map((item) => (
+            <li
+              key={item.id}
+              className="rounded-xl border border-white/10 bg-white/[0.03] p-4"
+            >
+              <p className="text-sm font-semibold text-white">{item.title}</p>
+              <p className="mt-1 text-sm text-slate-400">{item.school}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Section>
+  );
 }

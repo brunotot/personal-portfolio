@@ -1,62 +1,92 @@
 import ProfilePhoto from "../images/ProfileImage";
-import Link from "../ui/Link";
 import Image from "../ui/Image";
+import Link from "../ui/Link";
+
+const HERO = {
+  eyebrow: "Fullstack Developer • TypeScript React / Java Spring Boot",
+  title: "I build production web apps with a frontend edge.",
+  description:
+    "I'm Bruno Tot, a fullstack developer from Zagreb focused on React, TypeScript and Java Spring Boot. I work on domain-heavy business applications, polished frontend flows, reusable UI systems and backend integrations that need to stay maintainable in production.",
+};
+
+const CHIPS = [
+  "4+ years professional experience",
+  "React + TypeScript frontend",
+  "Java Spring Boot backend",
+  "Production business systems",
+  "Frontend architecture",
+];
 
 export default function Biography() {
-	return (
-		<div className="bg-secondary-dark flex items-center flex-col lg:flex-row gap-4 pt-12">
-			<div className="w-auto flex lg:self-end">
-				<ProfilePhoto />
-			</div>
-			<div className="my-0 mx-auto text-center lg:text-left pb-12 px-8">
-				<p
-					className="text-3xl lg:text-4xl font-extralight text-primary-dark"
-					data-aos="zoom-in"
-				>
-					Hi, I'm Bruno 👋
-				</p>
-				<p
-					className="text-primary-base font-jost tracking-wide font-bold text-3xl lg:text-5xl mt-4"
-					data-aos="zoom-in"
-				>
-					Fullstack Web Developer
-				</p>
-				<p
-					className="text-primary-light font-jost tracking-wide text-lg mt-2"
-					data-aos="zoom-in"
-				>
-					with a passion for building web apps and automatization
-				</p>
-				<p
-					className="text-primary-light text-md mt-9 lg:max-w-xl"
-					data-aos="zoom-in"
-				>
-					Software development attracted me after finishing High school and only
-					proceeded to fall in love with it at Zagreb University of Applied
-					Sciences. I focus in delivering high quality web apps and reusable
-					component libraries with 3 years of professional experience in Java,
-					Spring Boot, Thymeleaf and JavaScript/jQuery.
-					<br />
-					<br />
-					Outside developer walls I play chess and save the world :)
-				</p>
-				<div className="flex gap-3 mt-5 justify-center lg:justify-start">
-					<Link
-						href="https://www.linkedin.com/in/btot/"
-						classNameAppend="bg-white rounded-md"
-					>
-						<Image name="linkedin" />
-					</Link>
+  return (
+    <section
+      id="home"
+      className="bg-secondary-dark px-6 pt-12 sm:px-8 lg:px-12 lg:pt-20"
+    >
+      <div className="mx-auto grid max-w-6xl items-stretch gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+        <div data-aos="fade-up" className="min-w-0">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary-base">
+            {HERO.eyebrow}
+          </p>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            {HERO.title}
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+            {HERO.description}
+          </p>
 
-					<Link href="https://stackoverflow.com/users/14260355/brunot">
-						<Image name="stackoverflow" />
-					</Link>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="#work"
+              className="inline-flex items-center justify-center rounded-lg bg-primary-base px-5 py-2.5 text-sm font-semibold text-secondary-darker transition-colors hover:bg-primary-light"
+            >
+              View selected work
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center rounded-lg border border-white/15 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-primary-base/60 hover:text-primary-base"
+            >
+              Contact me
+            </a>
+          </div>
 
-					<Link href="https://github.com/brunotot">
-						<Image name="github" />
-					</Link>
-				</div>
-			</div>
-		</div>
-	);
+          <ul className="mt-8 flex flex-wrap gap-2">
+            {CHIPS.map((chip) => (
+              <li
+                key={chip}
+                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-slate-300"
+              >
+                {chip}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 flex gap-3 lg:mb-20">
+            <Link
+              href="https://www.linkedin.com/in/btot/"
+              classNameAppend="bg-white rounded-md"
+            >
+              <Image name="linkedin" />
+            </Link>
+
+            <Link href="https://stackoverflow.com/users/14260355/brunot">
+              <Image name="stackoverflow" />
+            </Link>
+
+            <Link href="https://github.com/brunotot">
+              <Image name="github" />
+            </Link>
+          </div>
+        </div>
+
+        <div
+          className="flex min-w-0 justify-center mb-20 lg:mb-0 lg:justify-end"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <ProfilePhoto />
+        </div>
+      </div>
+    </section>
+  );
 }

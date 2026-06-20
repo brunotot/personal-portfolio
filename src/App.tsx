@@ -1,36 +1,38 @@
+import "./assets/scss/scrollbar.scss";
+import Biography from "./components/content/Biography";
+import Contact from "./components/content/Contact";
+import Experiences from "./components/content/Experiences";
+import Projects from "./components/content/Projects";
+import ResumeDocument from "./components/content/ResumeDocument";
+import Skills from "./components/content/Skills";
 import Footer from "./components/layout/Footer";
 import NavContainer from "./components/layout/NavContainer";
-import Biography from "./components/content/Biography";
-import Slogan from "./components/content/Slogan";
-import Experiences from "./components/content/Experiences";
-import Educations from "./components/content/Educations";
-import Contact from "./components/content/Contact";
-import Projects from "./components/content/Projects";
-import Skills from "./components/content/Skills";
-import useAos from "./hooks/useAos";
+import ScrollToTop from "./components/ui/ScrollToTop";
 import ToastContainer from "./components/ui/ToastContainer";
-import "./assets/scss/scrollbar.scss";
+import useAos from "./hooks/useAos";
 
 function App() {
-	useAos();
+  useAos();
 
-	return (
-		<>
-			<NavContainer>
-				<div className="flex flex-col w-full">
-					<Biography />
-					<Slogan />
-					<Experiences />
-					<Educations />
-					<Projects />
-					<Skills />
-					<Contact />
-					<Footer />
-				</div>
-			</NavContainer>
-			<ToastContainer />
-		</>
-	);
+  return (
+    <>
+      <div className="print:hidden">
+        <NavContainer>
+          <div className="flex flex-col w-full">
+            <Biography />
+            <Projects />
+            <Experiences />
+            <Skills />
+            <Contact />
+            <Footer />
+          </div>
+        </NavContainer>
+        <ScrollToTop />
+        <ToastContainer />
+      </div>
+      <ResumeDocument />
+    </>
+  );
 }
 
 export default App;

@@ -1,128 +1,49 @@
-import TechCardList from "../ui/TechCardList";
+import { skillGroups, strengths } from "../../data/skills";
 import Section from "./../ui/Section";
-import { TechCardGroupProps } from "./../ui/TechCardGroup";
-
-const TECH_CARD_GROUPS: TechCardGroupProps[] = [
-	{
-		name: "Backend",
-		cards: [
-			{
-				type: "java",
-				description:
-					"I use Java 17+ as my primary backend language. I also like to use it when coding web scrapers and crawlers.",
-			},
-			{
-				type: "gradle",
-				description:
-					"I use Gradle as my primary Java build tool. It is excellent at building production-ready code.",
-			},
-			{
-				type: "springboot",
-				description:
-					"I use Spring Boot 3 as my primary backend server container.",
-			},
-		],
-	},
-	{
-		name: "Frontend",
-		cards: [
-			{
-				type: "react",
-				description:
-					"I use React 18+ as my primary frontend framework and live in its environment since 2022.",
-			},
-			{
-				type: "typescript",
-				description:
-					"When it comes to JavaScript, I always use TypeScript to ensure type safety and clean code aesthetics.",
-			},
-			{
-				type: "npm",
-				description:
-					"When it comes to client-side package managers, I always use NPM. I've also published some libraries there.",
-			},
-		],
-	},
-	{
-		name: "Styling",
-		cards: [
-			{
-				type: "tailwind",
-				description:
-					"This is something I've instantly fallen in love with. Tailwind makes it a breeze to create responsive designs using only HTML",
-			},
-			{
-				type: "sass",
-				description:
-					"I prefer writing SASS instead of CSS due to a more cleaner and readable code.",
-			},
-			{
-				type: "mui",
-				description:
-					"Regarding component libraries I always choose MUI because of its wide range of options and rapid development.",
-			},
-		],
-	},
-	{
-		name: "CI / CD",
-		cards: [
-			{
-				type: "heroku",
-				description:
-					"When it comes to personal projects, I prefer using Heroku as my cloud platform as a service. It allows for a quick setup and deployment-ready applications.",
-			},
-			{
-				type: "jenkins",
-				description:
-					"I prefer using Jenkins as my pipeline build and management tool. Been using Jenkins since the beginning of my professional career in 2021.",
-			},
-			{
-				type: "git",
-				description:
-					"I use Git as my primary version control system. Fun fact: I always resolve conflicts through the CLI.",
-			},
-			{
-				type: "github",
-				description:
-					"When it comes to personal projects, I prefer using GitHub as my primary Git repository hosting service.",
-			},
-		],
-	},
-	{
-		name: "Team",
-		cards: [
-			{
-				type: "sonarqube",
-				description:
-					"I use SonarQube to ensure top code quality and to help me use best practices while writing.",
-			},
-			{
-				type: "jira",
-				description:
-					"When it comes to managing tasks and sprints, I prefer using JIRA since I find it elegant and easy to use. Been using JIRA since the beginning of my profesional career.",
-			},
-		],
-	},
-	{
-		name: "Database",
-		cards: [
-			{
-				type: "mongodb",
-				description:
-					"As per the database choice, I like using MongoDB in a Spring Boot eco-system. This is a NoSQL database which I'm still learning and improving knowledge on.",
-			},
-		],
-	},
-];
 
 export default function Skills() {
-	return (
-		<Section
-			title="Skills"
-			id="skills"
-			containerClassName="bg-secondary-darker text-secondary-light"
-		>
-			<TechCardList groups={TECH_CARD_GROUPS} />
-		</Section>
-	);
+  return (
+    <Section
+      id="skills"
+      eyebrow="Technical strengths"
+      title="Skills and how I apply them"
+      description="A frontend-leaning fullstack toolkit, used to ship and maintain real production applications."
+      className="bg-secondary-darker"
+    >
+      <div className="flex flex-wrap justify-center gap-4">
+        {strengths.map((strength) => (
+          <div
+            key={strength.title}
+            className="w-full max-w-sm rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:max-w-none sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]"
+          >
+            <h3 className="text-base font-semibold text-white">
+              {strength.title}
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-slate-300">
+              {strength.description}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <ul className="mt-10 space-y-3">
+        {skillGroups.map((group) => (
+          <li
+            key={group.name}
+            className="flex gap-2 text-sm leading-7 text-slate-300"
+          >
+            <span
+              aria-hidden
+              className="mt-3 h-1.5 w-1.5 flex-none rounded-full bg-primary-base"
+            />
+            <span>
+              <span className="font-semibold text-white">{group.name}</span>
+              <span className="text-slate-500"> — </span>
+              {group.skills.join(", ")}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </Section>
+  );
 }
