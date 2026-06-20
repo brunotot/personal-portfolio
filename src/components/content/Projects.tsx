@@ -11,7 +11,9 @@ export default function Projects() {
       description="A selection of professional projects across public systems, internal tools and legacy maintenance — focused on real, maintainable software rather than demos."
       className="bg-secondary-darker"
     >
-      <ProjectCarousel projects={projects} />
+      <div data-aos="fade-up">
+        <ProjectCarousel projects={projects} />
+      </div>
     </Section>
   );
 }

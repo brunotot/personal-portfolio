@@ -11,10 +11,12 @@ export default function Skills() {
       className="bg-secondary-darker"
     >
       <div className="flex flex-wrap justify-center gap-4">
-        {strengths.map((strength) => (
+        {strengths.map((strength, index) => (
           <div
             key={strength.title}
-            className="w-full max-w-sm rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:max-w-none sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]"
+            data-aos="fade-up"
+            data-aos-delay={index * 80}
+            className="surface w-full max-w-sm rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:max-w-none sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]"
           >
             <h3 className="text-base font-semibold text-white">
               {strength.title}

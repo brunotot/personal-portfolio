@@ -21,11 +21,23 @@ export default function Biography() {
   return (
     <section
       id="home"
-      className="bg-secondary-dark px-6 pt-12 sm:px-8 lg:px-12 lg:pt-20"
+      className="relative overflow-hidden bg-secondary-dark px-6 pt-12 sm:px-8 lg:px-12 lg:pt-20"
     >
-      <div className="mx-auto grid max-w-6xl items-stretch gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+      <div
+        aria-hidden
+        className="dot-grid pointer-events-none absolute inset-0"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 right-[-15%] h-[560px] w-[560px] rounded-full bg-primary-base/30 blur-[130px] lg:right-[0%]"
+      />
+      <div className="relative mx-auto grid max-w-6xl items-stretch gap-12 lg:grid-cols-[1.15fr_0.85fr]">
         <div data-aos="fade-up" className="min-w-0">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary-base">
+          <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary-base">
+            <span
+              aria-hidden
+              className="h-px w-8 flex-none bg-primary-base/60"
+            />
             {HERO.eyebrow}
           </p>
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">

@@ -11,10 +11,12 @@ export default function Experiences() {
       className="bg-secondary-dark"
     >
       <div className="space-y-6">
-        {experience.map((item) => (
+        {experience.map((item, index) => (
           <article
             key={item.id}
-            className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+            data-aos="fade-up"
+            data-aos-delay={index * 80}
+            className="surface rounded-2xl border border-white/10 bg-white/[0.03] p-6"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
               <h3 className="text-lg font-bold text-white">{item.title}</h3>
@@ -45,10 +47,12 @@ export default function Experiences() {
           Education
         </h3>
         <ul className="mt-4 grid gap-4 sm:grid-cols-2">
-          {education.map((item) => (
+          {education.map((item, index) => (
             <li
               key={item.id}
-              className="rounded-xl border border-white/10 bg-white/[0.03] p-4"
+              data-aos="fade-up"
+              data-aos-delay={index * 80}
+              className="surface rounded-xl border border-white/10 bg-white/[0.03] p-4"
             >
               <p className="text-sm font-semibold text-white">{item.title}</p>
               <p className="mt-1 text-sm text-slate-400">{item.school}</p>

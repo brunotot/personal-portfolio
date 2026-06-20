@@ -19,7 +19,7 @@ export default function Contact() {
         <div className="flex flex-col gap-6">
           <a
             href={`mailto:${EMAIL}`}
-            className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-colors hover:border-white/25"
+            className="group surface flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-colors hover:border-white/25"
           >
             <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-white/5 text-slate-300 transition-colors group-hover:text-white">
               <FontAwesomeIcon icon={faEnvelope} />
@@ -64,7 +64,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-white/[0.03]">
+        <div className="surface rounded-2xl border border-white/10 bg-white/[0.03]">
           <ContactForm />
         </div>
       </div>

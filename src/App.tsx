@@ -7,6 +7,7 @@ import ResumeDocument from "./components/content/ResumeDocument";
 import Skills from "./components/content/Skills";
 import Footer from "./components/layout/Footer";
 import NavContainer from "./components/layout/NavContainer";
+import ScrollProgress from "./components/ui/ScrollProgress";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import ToastContainer from "./components/ui/ToastContainer";
 import useAos from "./hooks/useAos";
@@ -27,6 +28,7 @@ function App() {
             <Footer />
           </div>
         </NavContainer>
+        <ScrollProgress />
         <ScrollToTop />
         <ToastContainer />
       </div>
