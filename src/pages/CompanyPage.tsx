@@ -1,0 +1,477 @@
+import {
+  faGithub,
+  faLinkedinIn,
+} from "@fortawesome/free-brands-svg-icons";
+import {
+  faArrowRight,
+  faBullseye,
+  faComments,
+  faDumbbell,
+  faEnvelope,
+  faGears,
+  faGraduationCap,
+  faHandshake,
+  faIndustry,
+  faLaptopCode,
+  faLifeRing,
+  faLocationDot,
+  faScrewdriverWrench,
+  faShieldHalved,
+  faTableCells,
+  faUmbrellaBeach,
+  type IconDefinition,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import CompanyHeader from "../components/company/CompanyHeader";
+import Section from "../components/ui/Section";
+import { COMPANY } from "../data/company";
+import useAos from "../hooks/useAos";
+
+type TitledItem = { title: string; description: string };
+
+const SERVICE_ICONS: IconDefinition[] = [faLaptopCode, faGears, faLifeRing];
+
+const WHY_ICONS: IconDefinition[] = [
+  faComments,
+  faHandshake,
+  faShieldHalved,
+  faBullseye,
+];
+
+const INDUSTRY_ICONS: IconDefinition[] = [
+  faDumbbell,
+  faScrewdriverWrench,
+  faGraduationCap,
+  faUmbrellaBeach,
+  faIndustry,
+  faTableCells,
+];
+
+function Hero() {
+  const { t } = useTranslation();
+  const chips = t("company.hero.chips", { returnObjects: true }) as string[];
+
+  return (
+    <section
+      id="home"
+      className="relative flex min-h-[92vh] items-center overflow-hidden bg-canvas-raised px-6 pb-24 pt-28 sm:px-8 lg:px-12 lg:pb-32 lg:pt-36"
+    >
+      <div
+        aria-hidden
+        className="dot-grid pointer-events-none absolute inset-0"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-40 right-[-15%] h-[720px] w-[720px] rounded-full bg-primary-base blur-[150px] lg:right-[0%]"
+        style={{ opacity: "var(--glow-opacity)" }}
+      />
+      <div
+        className="relative mx-auto max-w-5xl text-center"
+        data-aos="fade-up"
+      >
+        <p className="flex items-center justify-center gap-3 text-sm font-semibold uppercase tracking-[0.25em] text-primary-base sm:text-base">
+          <span aria-hidden className="h-px w-10 flex-none bg-primary-base/60" />
+          {t("company.hero.eyebrow")}
+          <span aria-hidden className="h-px w-10 flex-none bg-primary-base/60" />
+        </p>
+        <h1 className="mt-7 text-5xl font-bold leading-[1.05] tracking-tight text-content sm:text-7xl lg:text-8xl">
+          {t("company.hero.title")}
+        </h1>
+        <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-content-secondary sm:text-xl lg:text-2xl">
+          {t("company.hero.description")}
+        </p>
+
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-base px-7 py-3.5 text-base font-semibold text-secondary-darker transition-colors hover:bg-primary-light"
+          >
+            {t("company.hero.ctaPrimary")}
+            <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
+          </a>
+          <a
+            href="#process"
+            className="inline-flex items-center justify-center rounded-lg border border-line-strong px-7 py-3.5 text-base font-semibold text-content transition-colors hover:border-primary-base/60 hover:text-primary-base"
+          >
+            {t("company.hero.ctaSecondary")}
+          </a>
+        </div>
+
+        <ul className="mt-12 flex flex-wrap justify-center gap-2.5">
+          {chips.map((chip) => (
+            <li
+              key={chip}
+              className="rounded-full border border-line bg-surface-subtle px-4 py-1.5 text-sm font-medium text-content-secondary"
+            >
+              {chip}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+function Services() {
+  const { t } = useTranslation();
+  const items = t("company.services.items", {
+    returnObjects: true,
+  }) as TitledItem[];
+
+  return (
+    <Section
+      id="services"
+      spacious
+      eyebrow={t("company.services.eyebrow")}
+      title={t("company.services.title")}
+      description={t("company.services.description")}
+    >
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((item, index) => (
+          <div
+            key={item.title}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
+            className="surface flex flex-col gap-5 rounded-2xl border border-line bg-surface p-8 transition-colors hover:border-line-strong"
+          >
+            <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-surface-hover text-xl text-primary-base">
+              <FontAwesomeIcon icon={SERVICE_ICONS[index]} />
+            </span>
+            <h3 className="text-xl font-semibold text-content">{item.title}</h3>
+            <p className="text-base leading-7 text-content-secondary">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+function Process() {
+  const { t } = useTranslation();
+  const steps = t("company.process.steps", {
+    returnObjects: true,
+  }) as TitledItem[];
+
+  return (
+    <Section
+      id="process"
+      spacious
+      eyebrow={t("company.process.eyebrow")}
+      title={t("company.process.title")}
+      description={t("company.process.description")}
+      className="bg-canvas-raised"
+    >
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {steps.map((step, index) => (
+          <div
+            key={step.title}
+            data-aos="fade-up"
+            data-aos-delay={(index % 3) * 100}
+            className="surface relative flex flex-col gap-4 rounded-2xl border border-line bg-surface p-8"
+          >
+            <span className="flex h-12 w-12 items-center justify-center rounded-lg border border-primary-base/40 text-base font-bold text-primary-base">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3 className="text-lg font-semibold text-content">
+              {step.title}
+            </h3>
+            <p className="text-base leading-7 text-content-secondary">
+              {step.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+function Industries() {
+  const { t } = useTranslation();
+  const items = t("company.industries.items", {
+    returnObjects: true,
+  }) as string[];
+
+  return (
+    <Section
+      id="industries"
+      spacious
+      eyebrow={t("company.industries.eyebrow")}
+      title={t("company.industries.title")}
+      description={t("company.industries.description")}
+    >
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((item, index) => (
+          <div
+            key={item}
+            data-aos="fade-up"
+            data-aos-delay={(index % 3) * 100}
+            className="flex items-center gap-5 rounded-xl border border-line bg-surface-subtle px-6 py-6"
+          >
+            <span className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-surface-hover text-lg text-primary-base">
+              <FontAwesomeIcon icon={INDUSTRY_ICONS[index % INDUSTRY_ICONS.length]} />
+            </span>
+            <span className="text-base font-medium text-content">{item}</span>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+function WhyUs() {
+  const { t } = useTranslation();
+  const items = t("company.why.items", {
+    returnObjects: true,
+  }) as TitledItem[];
+
+  return (
+    <Section
+      id="why"
+      spacious
+      eyebrow={t("company.why.eyebrow")}
+      title={t("company.why.title")}
+      description={t("company.why.description")}
+      className="bg-canvas-raised"
+    >
+      <div className="grid gap-8 sm:grid-cols-2">
+        {items.map((item, index) => (
+          <div
+            key={item.title}
+            data-aos="fade-up"
+            data-aos-delay={(index % 2) * 100}
+            className="surface flex gap-5 rounded-2xl border border-line bg-surface p-8"
+          >
+            <span className="flex h-14 w-14 flex-none items-center justify-center rounded-xl bg-surface-hover text-xl text-primary-base">
+              <FontAwesomeIcon icon={WHY_ICONS[index]} />
+            </span>
+            <div className="flex flex-col gap-3">
+              <h3 className="text-xl font-semibold text-content">
+                {item.title}
+              </h3>
+              <p className="text-base leading-7 text-content-secondary">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+function Work() {
+  const { t } = useTranslation();
+
+  return (
+    <Section
+      id="work"
+      spacious
+      eyebrow={t("company.work.eyebrow")}
+      title={t("company.work.title")}
+      description={t("company.work.description")}
+    >
+      <div
+        data-aos="fade-up"
+        className="surface flex flex-col items-center gap-4 rounded-2xl border border-dashed border-line-strong bg-surface px-6 py-24 text-center"
+      >
+        <span className="flex h-16 w-16 items-center justify-center rounded-xl bg-surface-hover text-2xl text-primary-base">
+          <FontAwesomeIcon icon={faLaptopCode} />
+        </span>
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-content-muted">
+          {t("company.work.badge")}
+        </p>
+      </div>
+    </Section>
+  );
+}
+
+function About() {
+  const { t } = useTranslation();
+  const members = ["marin", "bruno"] as const;
+
+  return (
+    <Section
+      id="about"
+      spacious
+      eyebrow={t("company.about.eyebrow")}
+      title={t("company.about.title")}
+      description={t("company.about.description")}
+      className="bg-canvas-raised"
+    >
+      <div className="grid gap-8 sm:grid-cols-2">
+        {members.map((member, index) => (
+          <div
+            key={member}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
+            className="surface flex flex-col gap-4 rounded-2xl border border-line bg-surface p-8"
+          >
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary-base text-xl font-bold text-secondary-darker">
+              {(t(`company.about.members.${member}.name`) as string).charAt(0)}
+            </span>
+            <h3 className="text-xl font-semibold text-content">
+              {t(`company.about.members.${member}.name`)}
+            </h3>
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary-base">
+              {t(`company.about.members.${member}.role`)}
+            </p>
+            <p className="text-base leading-7 text-content-secondary">
+              {t(`company.about.members.${member}.description`)}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+function Contact() {
+  const { t } = useTranslation();
+
+  return (
+    <Section
+      id="contact"
+      spacious
+      eyebrow={t("company.contact.eyebrow")}
+      title={t("company.contact.title")}
+      description={t("company.contact.description")}
+    >
+      <div className="grid gap-6 lg:grid-cols-2">
+        <a
+          href={`mailto:${COMPANY.email}`}
+          className="group surface flex items-center gap-4 rounded-2xl border border-line bg-surface p-5 transition-colors hover:border-line-strong"
+        >
+          <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-surface-hover text-content-secondary transition-colors group-hover:text-primary-base">
+            <FontAwesomeIcon icon={faEnvelope} />
+          </span>
+          <span className="flex flex-col">
+            <span className="text-xs uppercase tracking-wide text-content-faint">
+              {t("company.contact.emailLabel")}
+            </span>
+            <span className="text-sm font-medium text-content">
+              {COMPANY.email}
+            </span>
+          </span>
+        </a>
+
+        <div className="surface flex items-center gap-4 rounded-2xl border border-line bg-surface p-5">
+          <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-surface-hover text-content-secondary">
+            <FontAwesomeIcon icon={faLocationDot} />
+          </span>
+          <span className="flex flex-col">
+            <span className="text-xs uppercase tracking-wide text-content-faint">
+              {t("company.contact.locationLabel")}
+            </span>
+            <span className="text-sm font-medium text-content">
+              {COMPANY.location}
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div className="mt-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-wrap gap-3">
+          <a
+            href={`mailto:${COMPANY.email}`}
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-base px-5 py-2.5 text-sm font-semibold text-secondary-darker transition-colors hover:bg-primary-light"
+          >
+            <FontAwesomeIcon icon={faEnvelope} />
+            {t("company.contact.cta")}
+          </a>
+          {COMPANY.links.linkedin && (
+            <a
+              href={COMPANY.links.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-line-strong px-4 py-2.5 text-sm font-medium text-content-secondary transition-colors hover:border-primary-base/60 hover:text-content"
+            >
+              <FontAwesomeIcon icon={faLinkedinIn} />
+              LinkedIn
+            </a>
+          )}
+          {COMPANY.links.github && (
+            <a
+              href={COMPANY.links.github}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-line-strong px-4 py-2.5 text-sm font-medium text-content-secondary transition-colors hover:border-primary-base/60 hover:text-content"
+            >
+              <FontAwesomeIcon icon={faGithub} />
+              GitHub
+            </a>
+          )}
+        </div>
+
+        <p className="flex items-center gap-2 text-sm text-content-muted">
+          <span className="h-2 w-2 flex-none rounded-full bg-emerald-400" />
+          {t("company.contact.availability")}
+        </p>
+      </div>
+    </Section>
+  );
+}
+
+function CompanyFooter() {
+  const { t } = useTranslation();
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="border-t border-line bg-canvas px-6 py-10 sm:px-8 lg:px-12">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 text-center">
+        <span className="font-jost text-lg font-bold tracking-tight text-content">
+          {COMPANY.name}
+        </span>
+        <p className="max-w-md text-sm text-content-secondary">
+          {t("company.footer.tagline")}
+        </p>
+        <p className="text-xs text-content-faint">
+          {t("company.footer.copyright", { year: currentYear })}
+        </p>
+      </div>
+    </footer>
+  );
+}
+
+export default function CompanyPage() {
+  const { t, i18n } = useTranslation();
+
+  useAos();
+
+  // Keep the company landing page private: set its title and ask search
+  // engines not to index it. Restores the previous state on unmount.
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = t("company.meta.title");
+
+    const robots = document.createElement("meta");
+    robots.name = "robots";
+    robots.content = "noindex, nofollow";
+    document.head.appendChild(robots);
+
+    return () => {
+      document.title = previousTitle;
+      robots.remove();
+    };
+  }, [t, i18n.language]);
+
+  return (
+    <div className="min-h-screen bg-canvas text-content">
+      <CompanyHeader />
+      <main>
+        <Hero />
+        <Services />
+        <Process />
+        <Industries />
+        <WhyUs />
+        <Work />
+        <About />
+        <Contact />
+      </main>
+      <CompanyFooter />
+    </div>
+  );
+}

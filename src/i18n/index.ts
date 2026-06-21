@@ -1,6 +1,7 @@
 import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
+import { COMPANY } from "../data/company";
 import en from "./locales/en";
 import hr from "./locales/hr";
 
@@ -19,6 +20,9 @@ i18n
     supportedLngs: SUPPORTED_LANGUAGES as unknown as string[],
     interpolation: {
       escapeValue: false,
+      defaultVariables: {
+        company: COMPANY.name,
+      },
     },
     detection: {
       order: ["localStorage", "navigator"],

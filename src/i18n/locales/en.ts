@@ -319,6 +319,181 @@ const en = {
       languages: ["Croatian — native", "English — fluent"],
     },
   },
+  company: {
+    meta: {
+      title: "{{company}} — Custom Web Applications",
+      description:
+        "{{company}} builds and maintains custom web applications for small and medium businesses — automating manual processes and replacing spreadsheets with reliable software.",
+    },
+    nav: {
+      services: "Services",
+      process: "Process",
+      industries: "Industries",
+      about: "About",
+      contact: "Contact",
+      cta: "Start a project",
+      backToPortfolio: "Portfolio",
+    },
+    hero: {
+      eyebrow: "Custom web application studio",
+      title: "We turn manual business processes into reliable web applications.",
+      description:
+        "{{company}} helps small and medium businesses replace spreadsheets and repetitive manual work with custom web applications — designed around your real workflow, built to last, and supported after launch.",
+      ctaPrimary: "Start a project",
+      ctaSecondary: "See how we work",
+      chips: [
+        "Custom web apps",
+        "Process automation",
+        "Maintenance & support",
+        "Small & medium businesses",
+      ],
+    },
+    services: {
+      eyebrow: "What we do",
+      title: "Three ways we help your business",
+      description:
+        "From the first idea to long-term support, we cover the full lifecycle of a web application.",
+      items: [
+        {
+          title: "Custom web applications",
+          description:
+            "Tailor-made web apps designed around your workflow — admin panels, dashboards, bookings, orders and internal tools.",
+        },
+        {
+          title: "Process automation",
+          description:
+            "We replace repetitive manual work and scattered spreadsheets with clear, automated workflows that save time and reduce mistakes.",
+        },
+        {
+          title: "Maintenance & support",
+          description:
+            "We keep your application running — bug fixes, improvements, dependency and security updates, and a clear support process.",
+        },
+      ],
+    },
+    process: {
+      eyebrow: "How we work",
+      title: "A clear process, from idea to delivery",
+      description:
+        "We keep things transparent and written down, so you always know what you're getting and when.",
+      steps: [
+        {
+          title: "Discovery",
+          description:
+            "We listen to your problem, understand your users and define what the application really needs to do.",
+        },
+        {
+          title: "Specification",
+          description:
+            "We turn the conversation into a clear scope and an MVP, so expectations are set before development starts.",
+        },
+        {
+          title: "Design",
+          description:
+            "We design simple, usable screens and flows that fit how your team actually works.",
+        },
+        {
+          title: "Development",
+          description:
+            "We build the application with maintainable, production-grade code — frontend, backend and integrations.",
+        },
+        {
+          title: "Testing",
+          description:
+            "We test the core flows from a real user's perspective before anything reaches you.",
+        },
+        {
+          title: "Delivery & maintenance",
+          description:
+            "We deploy, hand over and keep supporting the application after launch.",
+        },
+      ],
+    },
+    industries: {
+      eyebrow: "Who we help",
+      title: "Built for businesses that still run on spreadsheets",
+      description:
+        "If your team relies on manual processes or Excel for something important, there's probably a simpler way.",
+      items: [
+        "Gyms & fitness centers",
+        "Small services & crafts",
+        "Schools & courses",
+        "Rentals & tourism",
+        "Small manufacturers",
+        "Any Excel-heavy process",
+      ],
+    },
+    why: {
+      eyebrow: "Why {{company}}",
+      title: "A small team that takes ownership",
+      description:
+        "You work directly with the people who build and support your application — no layers, no hand-offs.",
+      items: [
+        {
+          title: "Direct communication",
+          description:
+            "You talk to the founders, not a call center. Clear answers, no jargon.",
+        },
+        {
+          title: "Honest scope",
+          description:
+            "We won't promise the impossible. Everything is checked technically and written down.",
+        },
+        {
+          title: "Built to last",
+          description:
+            "Maintainable code and a real support process, so your app keeps working after launch.",
+        },
+        {
+          title: "Focused on your problem",
+          description:
+            "We care about saving you time and reducing mistakes — not selling you technology.",
+        },
+      ],
+    },
+    work: {
+      eyebrow: "Our work",
+      title: "Case studies coming soon",
+      description:
+        "We're a freshly started studio. Our first client case studies will appear here — in the meantime, we're happy to walk you through our process and past experience.",
+      badge: "First projects in progress",
+    },
+    about: {
+      eyebrow: "Who we are",
+      title: "Two partners, one focused team",
+      description:
+        "We started {{company}} to build the kind of software we'd want to use ourselves — practical, reliable and well supported.",
+      members: {
+        marin: {
+          name: "Marin",
+          role: "Client & Product",
+          description:
+            "Marin leads client communication, discovery and product scope — making sure we build the right thing and keep you in the loop from the first call through support.",
+        },
+        bruno: {
+          name: "Bruno Tot",
+          role: "Technical Delivery",
+          description:
+            "Bruno leads technical delivery — frontend, backend, infrastructure and quality — turning the agreed scope into a maintainable, production-ready application.",
+        },
+      },
+    },
+    contact: {
+      eyebrow: "Contact",
+      title: "Let's solve your problem",
+      description:
+        "Tell us about the process you'd like to improve. We'll get back to you with next steps — no obligation.",
+      emailLabel: "Email",
+      locationLabel: "Based in",
+      cta: "Email us",
+      availability: "Open to new projects",
+    },
+    footer: {
+      tagline: "Custom web applications for small and medium businesses.",
+      copyright: "© {{year}} {{company}}. All rights reserved.",
+      builtBy: "Built by Bruno Tot",
+    },
+  },
 };
 
 export default en;

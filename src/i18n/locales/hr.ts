@@ -321,6 +321,181 @@ const hr: Resources = {
       languages: ["Hrvatski — materinski", "Engleski — tečno"],
     },
   },
+  company: {
+    meta: {
+      title: "{{company}} — Web aplikacije po mjeri",
+      description:
+        "{{company}} izrađuje i održava web aplikacije po mjeri za male i srednje firme — automatizira ručne procese i zamjenjuje tablice pouzdanim softverom.",
+    },
+    nav: {
+      services: "Usluge",
+      process: "Proces",
+      industries: "Djelatnosti",
+      about: "O nama",
+      contact: "Kontakt",
+      cta: "Pokreni projekt",
+      backToPortfolio: "Portfolio",
+    },
+    hero: {
+      eyebrow: "Studio za web aplikacije po mjeri",
+      title: "Pretvaramo ručne poslovne procese u pouzdane web aplikacije.",
+      description:
+        "{{company}} pomaže malim i srednjim firmama da zamijene Excel tablice i ponavljajući ručni rad web aplikacijama po mjeri — osmišljenima prema vašem stvarnom procesu, izrađenima da traju i uz podršku nakon isporuke.",
+      ctaPrimary: "Pokreni projekt",
+      ctaSecondary: "Pogledaj kako radimo",
+      chips: [
+        "Web aplikacije po mjeri",
+        "Automatizacija procesa",
+        "Održavanje i podrška",
+        "Male i srednje firme",
+      ],
+    },
+    services: {
+      eyebrow: "Čime se bavimo",
+      title: "Tri načina na koja pomažemo vašem poslovanju",
+      description:
+        "Od prve ideje do dugoročne podrške pokrivamo cijeli životni ciklus web aplikacije.",
+      items: [
+        {
+          title: "Web aplikacije po mjeri",
+          description:
+            "Aplikacije po mjeri osmišljene prema vašem procesu — administracijski paneli, nadzorne ploče, rezervacije, narudžbe i interni alati.",
+        },
+        {
+          title: "Automatizacija procesa",
+          description:
+            "Zamjenjujemo ponavljajući ručni rad i razbacane tablice jasnim, automatiziranim procesima koji štede vrijeme i smanjuju greške.",
+        },
+        {
+          title: "Održavanje i podrška",
+          description:
+            "Brinemo da vaša aplikacija radi — ispravci grešaka, poboljšanja, nadogradnje ovisnosti i sigurnosne zakrpe te jasan proces podrške.",
+        },
+      ],
+    },
+    process: {
+      eyebrow: "Kako radimo",
+      title: "Jasan proces, od ideje do isporuke",
+      description:
+        "Sve držimo transparentnim i zapisanim, tako da uvijek znate što dobivate i kada.",
+      steps: [
+        {
+          title: "Otkrivanje",
+          description:
+            "Slušamo vaš problem, razumijemo vaše korisnike i definiramo što aplikacija stvarno treba raditi.",
+        },
+        {
+          title: "Specifikacija",
+          description:
+            "Razgovor pretvaramo u jasan opseg i MVP, kako bi očekivanja bila postavljena prije početka razvoja.",
+        },
+        {
+          title: "Dizajn",
+          description:
+            "Dizajniramo jednostavne, upotrebljive ekrane i tokove koji odgovaraju načinu na koji vaš tim stvarno radi.",
+        },
+        {
+          title: "Razvoj",
+          description:
+            "Gradimo aplikaciju održivim, produkcijskim kodom — frontend, backend i integracije.",
+        },
+        {
+          title: "Testiranje",
+          description:
+            "Testiramo ključne tokove iz perspektive stvarnog korisnika prije nego što išta dođe do vas.",
+        },
+        {
+          title: "Isporuka i održavanje",
+          description:
+            "Postavljamo aplikaciju u rad, predajemo je i nastavljamo s podrškom nakon isporuke.",
+        },
+      ],
+    },
+    industries: {
+      eyebrow: "Kome pomažemo",
+      title: "Za firme koje još uvijek posluju kroz tablice",
+      description:
+        "Ako se vaš tim oslanja na ručne procese ili Excel za nešto važno, vjerojatno postoji jednostavniji način.",
+      items: [
+        "Teretane i fitness centri",
+        "Mali servisi i obrti",
+        "Škole i tečajevi",
+        "Najam i turizam",
+        "Mali proizvođači",
+        "Bilo koji proces ovisan o Excelu",
+      ],
+    },
+    why: {
+      eyebrow: "Zašto {{company}}",
+      title: "Mali tim koji preuzima odgovornost",
+      description:
+        "Radite izravno s ljudima koji grade i održavaju vašu aplikaciju — bez posrednika i prebacivanja.",
+      items: [
+        {
+          title: "Izravna komunikacija",
+          description:
+            "Razgovarate s osnivačima, a ne s pozivnim centrom. Jasni odgovori, bez žargona.",
+        },
+        {
+          title: "Pošten opseg",
+          description:
+            "Nećemo obećati nemoguće. Sve se tehnički provjerava i zapisuje.",
+        },
+        {
+          title: "Izrađeno da traje",
+          description:
+            "Održiv kod i stvaran proces podrške, kako bi vaša aplikacija radila i nakon isporuke.",
+        },
+        {
+          title: "Usmjereni na vaš problem",
+          description:
+            "Stalo nam je do toga da vam uštedimo vrijeme i smanjimo greške — ne do prodaje tehnologije.",
+        },
+      ],
+    },
+    work: {
+      eyebrow: "Naš rad",
+      title: "Studije slučaja uskoro",
+      description:
+        "Tek smo pokrenuli studio. Ovdje će se pojaviti naše prve klijentske studije slučaja — u međuvremenu vas rado provedemo kroz naš proces i dosadašnje iskustvo.",
+      badge: "Prvi projekti u izradi",
+    },
+    about: {
+      eyebrow: "Tko smo mi",
+      title: "Dva partnera, jedan fokusiran tim",
+      description:
+        "{{company}} smo pokrenuli kako bismo gradili softver kakav bismo i sami htjeli koristiti — praktičan, pouzdan i dobro podržan.",
+      members: {
+        marin: {
+          name: "Marin",
+          role: "Klijenti i proizvod",
+          description:
+            "Marin vodi komunikaciju s klijentima, otkrivanje i opseg proizvoda — brine da gradimo pravu stvar i da ste u toku od prvog poziva do podrške.",
+        },
+        bruno: {
+          name: "Bruno Tot",
+          role: "Tehnička isporuka",
+          description:
+            "Bruno vodi tehničku isporuku — frontend, backend, infrastrukturu i kvalitetu — pretvarajući dogovoreni opseg u održivu, produkcijski spremnu aplikaciju.",
+        },
+      },
+    },
+    contact: {
+      eyebrow: "Kontakt",
+      title: "Riješimo vaš problem",
+      description:
+        "Recite nam koji proces želite poboljšati. Javit ćemo vam se sa sljedećim koracima — bez obveze.",
+      emailLabel: "E-pošta",
+      locationLabel: "Sjedište",
+      cta: "Pošaljite nam e-poštu",
+      availability: "Otvoreni za nove projekte",
+    },
+    footer: {
+      tagline: "Web aplikacije po mjeri za male i srednje firme.",
+      copyright: "© {{year}} {{company}}. Sva prava pridržana.",
+      builtBy: "Izradio Bruno Tot",
+    },
+  },
 };
 
 export default hr;
