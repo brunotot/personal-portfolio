@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { projects } from "../../data/projects";
 import ProjectCarousel from "../ui/ProjectCarousel";
 import Section from "../ui/Section";
+import FeaturedProject from "./FeaturedProject";
 
 export default function Projects() {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ export default function Projects() {
       description={t("projects.description")}
       className="bg-canvas"
     >
+      <FeaturedProject />
       <div data-aos="fade-up">
         <ProjectCarousel projects={projects} />
       </div>

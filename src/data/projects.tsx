@@ -19,9 +19,43 @@ export type Project = {
   ribbon?: ReactNode;
 };
 
+/**
+ * A flagship case study presented above the regular project grid. Carries
+ * richer structured content than a standard {@link Project} card; the textual
+ * content (sections, impact, etc.) lives in the i18n `projects.featured`
+ * namespace and is keyed off this {@link FeaturedProject.id}.
+ */
+export type FeaturedProject = {
+  id: string;
+  url?: string;
+  companies: Company[];
+  /** Short chips shown in the flagship header. */
+  stack: string[];
+  visibility: ProjectVisibility;
+};
+
 const RGO: Company = { name: "RGO", url: "https://rgo.hr/" };
 const NOTCH: Company = { name: "Notch", url: "https://wearenotch.com/" };
 const SRCE: Company = { name: "SRCE", url: "https://www.srce.unizg.hr/" };
+
+/**
+ * Flagship project surfaced as a hero case study above the standard grid.
+ * Internal component-library documentation platform.
+ */
+export const featuredProject: FeaturedProject = {
+  id: "ui-library",
+  visibility: "internal",
+  companies: [RGO],
+  stack: [
+    "TypeScript",
+    "React",
+    "Material-UI",
+    "Storybook",
+    "react-hook-form",
+    "Zod",
+    "i18next",
+  ],
+};
 
 export const projects: Project[] = [
   {

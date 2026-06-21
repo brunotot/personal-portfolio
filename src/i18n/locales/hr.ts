@@ -54,6 +54,91 @@ const hr: Resources = {
     visit: "Posjeti projekt",
     prevLabel: "Prethodni projekt",
     nextLabel: "Sljedeći projekt",
+    featured: {
+      badge: "Biblioteka komponenti",
+      label: "Istaknuti projekt",
+      title: "RGO Front UI — Biblioteka komponenti i dokumentacija",
+      subtitle:
+        "Biblioteka komponenti u React + TypeScriptu izgrađena na Material-UI-u, dokumentirana u Storybooku i dijeljena kroz RGO-ove produkcijske aplikacije.",
+      description:
+        "Verzionirana, interno objavljena UI biblioteka (@rgo/front-ui) koja RGO-ovim timovima donosi 41 produkcijski spremnu komponentu, 18 hookova i i18n s 8 jezika — potpuno dokumentirano u Storybooku sa živim, interaktivnim primjerima.",
+      role: "Frontend programer · Dijeljena biblioteka komponenti",
+      cta: "Pogledaj studiju slučaja",
+      close: "Zatvori studiju slučaja",
+      stats: [
+        { value: "41", label: "Produkcijski spremnih komponenti u 7 kategorija" },
+        { value: "18", label: "Ponovno iskoristivih hookova za forme, podatke i UX" },
+        { value: "8", label: "Podržanih jezika od početka" },
+      ],
+      preview: {
+        label: "Pregled Storybook dokumentacije",
+        nav: "Komponente",
+        navItems: ["RgoForm", "RgoInputText", "RgoClientTable", "RgoTabs"],
+        page: "RgoInputText",
+        usage: "Primjena",
+        props: "Svojstva",
+      },
+      sections: {
+        overview: {
+          title: "Pregled",
+          body: "@rgo/front-ui je interna biblioteka komponenti u React + TypeScriptu izgrađena na Material-UI-u, zapakirana kao verzionirana npm ovisnost i dokumentirana u Storybooku. Donosi 41 produkcijski spremnu komponentu u 7 kategorija, 18 specijaliziranih hookova, 7 modularnih providera i 3 uslužna servisa — pretvarajući dijeljeni UI u pregledan, živi izvor istine umjesto obrazaca kopiranih između aplikacija.",
+        },
+        problem: {
+          title: "Poslovni problem",
+          body: "RGO održava nekoliko dugovječnih produkcijskih aplikacija (FRED, LMS, FGKS i druge), a svaka je iste frontend probleme rješavala zasebno.",
+          points: [
+            "Nedosljedan UI kroz proizvode, gdje su se forme, tablice i inputi izrađivali aplikacija po aplikacija.",
+            "Duplicirani Material-UI omotači i logika validacije kopirani između baza koda.",
+            "Bez dijeljene internacionalizacije, pa je svaka aplikacija iznova implementirala vlastito rukovanje jezicima.",
+            "Sporo uvođenje — novi programeri učili su konvencije čitajući izvorni kod drugih aplikacija.",
+            "Bez jedinstvenog izvora istine, ista se komponenta razilazila u različitim smjerovima.",
+          ],
+        },
+        solution: {
+          title: "Rješenje",
+          body: "Jedna verzionirana biblioteka, objavljena na privatni npm registry i dokumentirana u Storybooku, koja UI komplet tretira kao proizvod. Svaka komponenta dolazi s interaktivnim pričama i MDX vodičima kako bi timovi usvajali zajedničke gradivne blokove umjesto da ih iznova izmišljaju.",
+          points: [
+            "Tipovima sigurne, zod-validirane forme putem useRgoForm i potpunog seta RgoInput* kontrola.",
+            "Bogate klijentske i serverske tablice podataka sa sortiranjem, paginacijom i filtriranjem.",
+            "Ugrađena i18next lokalizacija koja od početka pokriva 8 jezika.",
+            "MUI temiranje, uz servise za offline predmemoriju i web workere za zahtjevnije potrebe.",
+            "~70 interaktivnih Storybook priča i 9 MDX vodiča kao kanonska referenca.",
+          ],
+        },
+        stack: {
+          title: "Tehnološki stack",
+          items: [
+            "TypeScript 5.6 — potpuno tipizirani ugovori komponenti i dokumentacija svojstava.",
+            "React 18 + Material-UI 6 — biblioteka komponenti i njezin sloj temiranja.",
+            "Storybook 9 — interaktivne priče, kontrole i MDX vodiči dokumentacije.",
+            "react-hook-form + Zod — shemom validirane forme iza jednog useRgoForm hooka.",
+            "TanStack Query, axios i i18next — asinkroni podaci, HTTP i internacionalizacija na 8 jezika.",
+            "Privatni npm registry + Gitea CI/CD — automatizirani build, objava i Storybook deploy.",
+          ],
+        },
+        responsibilities: {
+          title: "Odgovornosti",
+          points: [
+            "Izradio i dokumentirao ponovno iskoristive komponente, hookove i providere u dijeljenoj biblioteci.",
+            "Napisao Storybook priče sa živim demoima i MDX vodiče (provideri, temiranje, tablice, forme).",
+            "Osmislio strukturu dokumentacije kako bi komponente bilo lako pronaći i usvojiti.",
+            "Implementirao MUI temiranje i provjerio responzivno, pristupačno ponašanje komponenti.",
+            "Održavao bazu koda tipiziranom, lintanom i dosljedno organiziranom kroz ~37 tisuća redaka.",
+          ],
+        },
+        impact: {
+          title: "Učinak",
+          points: [
+            "Jedinstveni izvor istine za UI dijeljen kroz RGO-ove produkcijske aplikacije.",
+            "41 komponenta i 18 hookova ponovno iskorišteni umjesto izrade po projektu.",
+            "Standardizirani, tipovima sigurni obrasci formi i validacije (useRgoForm + Zod).",
+            "Internacionalizacija na 8 jezika dostupna svakom proizvodu besplatno.",
+            "Verzionirana izdanja (trenutno v1.9.9, STABLE) objavljena putem automatiziranog CI/CD-a.",
+            "Brže uvođenje zahvaljujući živim primjerima i pisanim vodičima u Storybooku.",
+          ],
+        },
+      },
+    },
     items: {
       fred: {
         statusLabel: "Prekogranična platforma za požare",
