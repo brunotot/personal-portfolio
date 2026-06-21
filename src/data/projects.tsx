@@ -52,8 +52,7 @@ export const projects: Project[] = [
   {
     id: "fgks",
     name: "FGKS",
-    url: "https://fgks.rpis.eu/",
-    visibility: "public",
+    visibility: "private",
     companies: [RGO],
     stack: ["React", "TypeScript", "Java", "Spring Boot"],
   },
