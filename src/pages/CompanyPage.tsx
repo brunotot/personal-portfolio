@@ -50,10 +50,14 @@ function Hero() {
   const { t } = useTranslation();
   const chips = t("company.hero.chips", { returnObjects: true }) as string[];
 
+  const title = t("company.hero.title");
+  const highlight = t("company.hero.titleHighlight");
+  const [before, after] = highlight ? title.split(highlight) : [title, ""];
+
   return (
     <section
       id="home"
-      className="relative flex min-h-[92vh] items-center overflow-hidden bg-canvas-raised px-6 pb-24 pt-28 sm:px-8 lg:px-12 lg:pb-32 lg:pt-36"
+      className="relative flex min-h-[94vh] items-center overflow-hidden bg-canvas-raised px-6 pb-20 pt-28 sm:px-8 lg:px-12 lg:pb-28 lg:pt-36"
     >
       <div
         aria-hidden
@@ -61,60 +65,114 @@ function Hero() {
       />
       <div
         aria-hidden
-        className="animate-glow pointer-events-none absolute -top-40 right-[-15%] h-[720px] w-[720px] rounded-full bg-primary-base blur-[150px] lg:right-[0%]"
+        className="pointer-events-none absolute -top-40 right-[-20%] h-[760px] w-[760px] rounded-full bg-primary-base blur-[160px] lg:right-[-5%]"
         style={{ opacity: "var(--glow-opacity)" }}
       />
-      <div
-        className="relative mx-auto flex w-full max-w-[88rem] flex-col items-center text-center"
-        data-aos="fade-up"
+      {/* Oversized brand watermark, agency-style */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -bottom-10 left-0 select-none font-jost text-[22vw] font-bold leading-none tracking-tighter text-content opacity-[0.03] sm:-bottom-16 lg:text-[18vw]"
       >
-        <p className="flex items-center justify-center gap-3 text-sm font-semibold uppercase tracking-[0.25em] text-primary-base sm:text-base">
-          <span
-            aria-hidden
-            className="h-px w-10 flex-none bg-primary-base/60"
-          />
-          {t("company.hero.eyebrow")}
-          <span
-            aria-hidden
-            className="h-px w-10 flex-none bg-primary-base/60"
-          />
-        </p>
-        <h1 className="mx-auto mt-7 max-w-6xl text-balance text-4xl font-bold leading-[1.04] tracking-tight text-content sm:text-5xl lg:text-7xl xl:text-8xl">
-          {t("company.hero.title")}
-        </h1>
-        <p className="font-fraunces mx-auto my-20 max-w-4xl text-balance text-2xl font-semibold leading-loose tracking-tight text-primary-base sm:text-3xl sm:leading-loose lg:my-24 lg:text-4xl lg:leading-[1.9]">
-          {t("company.hero.description")}
-        </p>
+        {COMPANY.name}
+      </span>
 
-        <div className="flex w-full max-w-3xl flex-row flex-nowrap justify-center gap-4 sm:gap-6">
-          <a
-            href="#contact"
-            className="sheen group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-2xl bg-primary-base px-10 py-6 text-xl font-bold text-secondary-darker transition-colors hover:bg-primary-light sm:text-2xl lg:px-12 lg:py-7 lg:text-3xl"
-          >
-            {t("company.hero.ctaPrimary")}
-            <FontAwesomeIcon
-              icon={faArrowRight}
-              className="nudge text-lg lg:text-2xl"
-            />
-          </a>
-          <a
-            href="#process"
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-2xl border-2 border-line-strong px-10 py-6 text-xl font-bold text-content transition-colors hover:border-primary-base/60 hover:text-primary-base sm:text-2xl lg:px-12 lg:py-7 lg:text-3xl"
-          >
-            {t("company.hero.ctaSecondary")}
-          </a>
+      <div className="relative mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-12 lg:items-end">
+        <div className="lg:col-span-9" data-aos="fade-up">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/60 px-3.5 py-1.5 text-sm font-medium text-content-secondary backdrop-blur">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              {t("company.hero.status")}
+            </span>
+            <span className="text-sm font-semibold uppercase tracking-[0.25em] text-primary-base">
+              {t("company.hero.eyebrow")}
+            </span>
+          </div>
+
+          <h1 className="mt-7 max-w-5xl text-[2.7rem] font-bold leading-[1.04] tracking-tight text-content sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
+            {before}
+            {after !== "" && (
+              <span className="relative whitespace-pre-wrap text-primary-base">
+                {highlight}
+              </span>
+            )}
+            {after}
+          </h1>
+
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-content-secondary sm:text-xl">
+            {t("company.hero.description")}
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-base px-7 py-3.5 text-base font-semibold text-secondary-darker transition-colors hover:bg-primary-light"
+            >
+              {t("company.hero.ctaPrimary")}
+              <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
+            </a>
+            <a
+              href="#process"
+              className="inline-flex items-center justify-center rounded-lg border border-line-strong px-7 py-3.5 text-base font-semibold text-content transition-colors hover:border-primary-base/60 hover:text-primary-base"
+            >
+              {t("company.hero.ctaSecondary")}
+            </a>
+          </div>
         </div>
 
-        <ul className="mt-16 grid w-full max-w-5xl grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-4">
-          {chips.map((chip) => (
-            <li
-              key={chip}
-              className="lift flex items-center justify-center rounded-2xl border border-line bg-surface-subtle px-8 py-10 text-center text-xl font-medium text-content-secondary hover:border-primary-base/40 hover:text-content sm:text-2xl"
-            >
-              {chip}
-            </li>
-          ))}
-        </ul>
+        {/* Asymmetric meta column */}
+        <div
+          className="lg:col-span-3 lg:pb-2"
+          data-aos="fade-up"
+          data-aos-delay={150}
+        >
+          <ul className="flex flex-col gap-3 border-t border-line pt-6 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+            {chips.map((chip) => (
+              <li
+                key={chip}
+                className="flex items-center gap-3 text-sm font-medium text-content-secondary"
+              >
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  className="text-[0.65rem] text-primary-base"
+                />
+                {chip}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Facts() {
+  const { t } = useTranslation();
+  const items = t("company.facts.items", {
+    returnObjects: true,
+  }) as { value: string; label: string }[];
+
+  return (
+    <section className="border-y border-line bg-canvas px-6 py-14 sm:px-8 lg:px-12 lg:py-20">
+      <div className="mx-auto grid max-w-7xl gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+        {items.map((item, index) => (
+          <div
+            key={item.label}
+            data-aos="fade-up"
+            data-aos-delay={(index % 4) * 80}
+            className="flex flex-col gap-3"
+          >
+            <span className="font-jost text-4xl font-bold tracking-tight text-content lg:text-5xl">
+              {item.value}
+            </span>
+            <span aria-hidden className="h-px w-10 bg-primary-base" />
+            <span className="text-sm leading-6 text-content-secondary">
+              {item.label}
+            </span>
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -134,19 +192,26 @@ function Services() {
       title={t("company.services.title")}
       description={t("company.services.description")}
     >
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="border-t border-line">
         {items.map((item, index) => (
           <div
             key={item.title}
             data-aos="fade-up"
-            data-aos-delay={index * 100}
-            className="surface lift group flex flex-col gap-5 rounded-2xl border border-line bg-surface p-8 hover:border-line-strong"
+            data-aos-delay={index * 80}
+            className="group grid items-baseline gap-x-8 gap-y-5 border-b border-line py-10 transition-colors hover:bg-surface-subtle/40 sm:grid-cols-[auto_1fr] lg:grid-cols-[7rem_1fr_1.1fr] lg:py-12"
           >
-            <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-surface-hover text-xl text-primary-base transition-transform duration-300 group-hover:scale-110">
-              <FontAwesomeIcon icon={SERVICE_ICONS[index]} />
+            <span className="font-jost text-3xl font-bold tabular-nums text-primary-base/70 transition-colors group-hover:text-primary-base lg:text-4xl">
+              {String(index + 1).padStart(2, "0")}
             </span>
-            <h3 className="text-xl font-semibold text-content">{item.title}</h3>
-            <p className="text-base leading-7 text-content-secondary">
+            <div className="flex items-center gap-4">
+              <span className="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-surface-hover text-lg text-primary-base lg:hidden xl:flex">
+                <FontAwesomeIcon icon={SERVICE_ICONS[index]} />
+              </span>
+              <h3 className="text-2xl font-semibold tracking-tight text-content lg:text-3xl">
+                {item.title}
+              </h3>
+            </div>
+            <p className="max-w-xl text-base leading-7 text-content-secondary lg:text-lg">
               {item.description}
             </p>
           </div>
@@ -171,24 +236,35 @@ function Process() {
       description={t("company.process.description")}
       className="bg-canvas-raised"
     >
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <ol className="relative mx-auto max-w-4xl">
         {steps.map((step, index) => (
-          <div
+          <li
             key={step.title}
             data-aos="fade-up"
-            data-aos-delay={(index % 3) * 100}
-            className="surface lift group relative flex flex-col gap-4 rounded-2xl border border-line bg-surface p-8"
+            data-aos-delay={(index % 3) * 80}
+            className="relative grid grid-cols-[2.5rem_1fr] gap-x-5 pb-12 last:pb-0 sm:grid-cols-[4rem_1fr] sm:gap-x-8"
           >
-            <span className="flex h-12 w-12 items-center justify-center rounded-lg border border-primary-base/40 text-base font-bold text-primary-base transition-colors duration-300 group-hover:bg-primary-base/10">
+            {/* Connecting line */}
+            {index < steps.length - 1 && (
+              <span
+                aria-hidden
+                className="absolute left-[1.25rem] top-12 h-[calc(100%-3rem)] w-px bg-line sm:left-8"
+              />
+            )}
+            <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-primary-base/40 bg-canvas-raised font-jost text-sm font-bold text-primary-base sm:h-16 sm:w-16 sm:text-lg">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <h3 className="text-lg font-semibold text-content">{step.title}</h3>
-            <p className="text-base leading-7 text-content-secondary">
-              {step.description}
-            </p>
-          </div>
+            <div className="pt-1.5 sm:pt-4">
+              <h3 className="text-xl font-semibold text-content sm:text-2xl">
+                {step.title}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
+              </h3>
+              <p className="mt-2 max-w-2xl text-base leading-7 text-content-secondary sm:text-lg">
+                {step.description}
+              </p>
+            </div>
+          </li>
         ))}
-      </div>
+      </ol>
     </Section>
   );
 }
@@ -207,20 +283,22 @@ function Industries() {
       title={t("company.industries.title")}
       description={t("company.industries.description")}
     >
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-wrap gap-3 sm:gap-4">
         {items.map((item, index) => (
           <div
             key={item}
             data-aos="fade-up"
-            data-aos-delay={(index % 3) * 100}
-            className="lift group flex items-center gap-5 rounded-xl border border-line bg-surface-subtle px-6 py-6 hover:border-primary-base/40"
+            data-aos-delay={(index % 3) * 80}
+            className="group inline-flex items-center gap-3 rounded-full border border-line bg-surface-subtle py-3 pl-3 pr-6 transition-colors hover:border-primary-base/50 hover:bg-surface"
           >
-            <span className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-surface-hover text-lg text-primary-base transition-transform duration-300 group-hover:scale-110">
+            <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-surface-hover text-primary-base transition-colors group-hover:bg-primary-base group-hover:text-secondary-darker">
               <FontAwesomeIcon
                 icon={INDUSTRY_ICONS[index % INDUSTRY_ICONS.length]}
               />
             </span>
-            <span className="text-base font-medium text-content">{item}</span>
+            <span className="text-base font-medium text-content sm:text-lg">
+              {item}
+            </span>
           </div>
         ))}
       </div>
@@ -243,25 +321,23 @@ function WhyUs() {
       description={t("company.why.description")}
       className="bg-canvas-raised"
     >
-      <div className="grid gap-8 sm:grid-cols-2">
+      <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2">
         {items.map((item, index) => (
           <div
             key={item.title}
             data-aos="fade-up"
             data-aos-delay={(index % 2) * 100}
-            className="surface lift group flex gap-5 rounded-2xl border border-line bg-surface p-8 hover:border-line-strong"
+            className="flex flex-col gap-4 border-t border-line pt-7"
           >
-            <span className="flex h-14 w-14 flex-none items-center justify-center rounded-xl bg-surface-hover text-xl text-primary-base transition-transform duration-300 group-hover:scale-110">
+            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-surface-hover text-xl text-primary-base">
               <FontAwesomeIcon icon={WHY_ICONS[index]} />
             </span>
-            <div className="flex flex-col gap-3">
-              <h3 className="text-xl font-semibold text-content">
-                {item.title}
-              </h3>
-              <p className="text-base leading-7 text-content-secondary">
-                {item.description}
-              </p>
-            </div>
+            <h3 className="text-xl font-semibold text-content lg:text-2xl">
+              {item.title}
+            </h3>
+            <p className="max-w-md text-base leading-7 text-content-secondary">
+              {item.description}
+            </p>
           </div>
         ))}
       </div>
@@ -472,6 +548,7 @@ export default function CompanyPage() {
       <CompanyHeader />
       <main>
         <Hero />
+        <Facts />
         <Services />
         <Process />
         <Industries />
