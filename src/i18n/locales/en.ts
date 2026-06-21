@@ -36,7 +36,7 @@ const en = {
     eyebrow: "Selected work",
     title: "Production apps I've worked on",
     description:
-      "A selection of professional projects across public systems, internal tools and legacy maintenance — focused on real, maintainable software rather than demos.",
+      "Selected production work across public systems, operational tools and legacy maintenance — focused on maintainable software in real business domains.",
     visibility: {
       public: "Public",
       private: "Private",

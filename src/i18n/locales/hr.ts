@@ -38,7 +38,7 @@ const hr: Resources = {
     eyebrow: "Odabrani radovi",
     title: "Produkcijske aplikacije na kojima sam radio",
     description:
-      "Izbor profesionalnih projekata kroz javne sustave, interne alate i održavanje naslijeđenih sustava — usmjeren na stvaran, održiv softver, a ne na demonstracije.",
+      "Izbor profesionalnih projekata kroz javne sustave, operativne alate i održavanje naslijeđenih sustava — usmjeren na održiv softver u stvarnim poslovnim domenama.",
     visibility: {
       public: "Javno",
       private: "Privatno",

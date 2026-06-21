@@ -19,7 +19,7 @@ export type Personal = {
 export const personal: Personal = {
   name: "Bruno Tot",
   email: "brunotot10000@gmail.com",
-  phone: "+385 00 000 0000",
+  phone: "+385 95 201 1696",
   linkedin: {
     label: "linkedin.com/in/btot",
     url: "https://www.linkedin.com/in/btot/",
