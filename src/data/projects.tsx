@@ -31,7 +31,7 @@ export const projects: Project[] = [
     visibility: "public",
     ribbon: <WorkspacePremiumIcon />,
     companies: [RGO],
-    stack: ["React", "TypeScript", "Java", "Spring Boot"],
+    stack: ["TypeScript", "React", "Java", "Spring Boot"],
   },
   {
     id: "lms",
@@ -39,7 +39,7 @@ export const projects: Project[] = [
     visibility: "private",
     ribbon: <WorkspacePremiumIcon />,
     companies: [RGO],
-    stack: ["React", "TypeScript", "Java", "Spring Boot"],
+    stack: ["TypeScript", "React", "Java", "Spring Boot"],
   },
   {
     id: "croris",
@@ -54,7 +54,7 @@ export const projects: Project[] = [
     name: "FGKS",
     visibility: "private",
     companies: [RGO],
-    stack: ["React", "TypeScript", "Java", "Spring Boot"],
+    stack: ["TypeScript", "React", "Java", "Spring Boot"],
   },
   {
     id: "ceeris",
@@ -62,6 +62,6 @@ export const projects: Project[] = [
     url: "https://ceeris.eu/",
     visibility: "public",
     companies: [RGO],
-    stack: ["Angular", "TypeScript"],
+    stack: ["TypeScript", "Angular"],
   },
 ];
