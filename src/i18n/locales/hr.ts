@@ -338,7 +338,9 @@ const hr: Resources = {
     },
     hero: {
       eyebrow: "Studio za web aplikacije po mjeri",
+      status: "Dostupni — primamo nove projekte",
       title: "Pretvaramo ručne poslovne procese u pouzdane web aplikacije.",
+      titleHighlight: "pouzdane web aplikacije",
       description:
         "{{company}} pomaže malim i srednjim firmama da zamijene Excel tablice i ponavljajući ručni rad web aplikacijama po mjeri — osmišljenima prema vašem stvarnom procesu, izrađenima da traju i uz podršku nakon isporuke.",
       ctaPrimary: "Pokreni projekt",
@@ -348,6 +350,26 @@ const hr: Resources = {
         "Automatizacija procesa",
         "Održavanje i podrška",
         "Male i srednje firme",
+      ],
+    },
+    facts: {
+      items: [
+        {
+          value: "2",
+          label: "Osnivača koji grade i održavaju vašu aplikaciju — ne posrednika",
+        },
+        {
+          value: "Cijeli ciklus",
+          label: "Od prvog poziva i otkrivanja do isporuke i podrške",
+        },
+        {
+          value: "2026",
+          label: "Nezavisni studio, tek pokrenut u Hrvatskoj",
+        },
+        {
+          value: "Bez Excela",
+          label: "Zamjenjujemo tablice koje je vaše poslovanje preraslo",
+        },
       ],
     },
     services: {

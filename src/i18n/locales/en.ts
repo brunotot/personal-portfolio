@@ -336,7 +336,9 @@ const en = {
     },
     hero: {
       eyebrow: "Custom web application studio",
+      status: "Available — taking on new projects",
       title: "We turn manual business processes into reliable web applications.",
+      titleHighlight: "reliable web applications",
       description:
         "{{company}} helps small and medium businesses replace spreadsheets and repetitive manual work with custom web applications — designed around your real workflow, built to last, and supported after launch.",
       ctaPrimary: "Start a project",
@@ -346,6 +348,26 @@ const en = {
         "Process automation",
         "Maintenance & support",
         "Small & medium businesses",
+      ],
+    },
+    facts: {
+      items: [
+        {
+          value: "2",
+          label: "Founders who build and support your app — not account managers",
+        },
+        {
+          value: "End-to-end",
+          label: "From the first call and discovery to delivery and support",
+        },
+        {
+          value: "2026",
+          label: "Independent studio, freshly launched in Croatia",
+        },
+        {
+          value: "Excel-free",
+          label: "We replace the spreadsheets your business has outgrown",
+        },
       ],
     },
     services: {
