@@ -144,7 +144,7 @@ const en = {
         company: "Notch / former Agency04 — outsourced for SRCE",
         period: "Jan. 2021 – Jul. 2023",
         summary:
-          "Worked for 3.5 years on CroRIS, a large public information system for the Croatian science and research ecosystem.",
+          "Worked for 2.5 years on CroRIS, a large public information system for the Croatian science and research ecosystem.",
         highlights: [
           "Worked with Java Spring Boot backend.",
           "Implemented server-rendered frontend features with JSP, JavaScript, jQuery and CSS.",

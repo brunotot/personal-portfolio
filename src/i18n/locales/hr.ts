@@ -146,7 +146,7 @@ const hr: Resources = {
         company: "Notch / bivši Agency04 — outsourcan za SRCE",
         period: "Sij. 2021 – Srp. 2023",
         summary:
-          "Radio 3,5 godine na CroRIS-u, velikom javnom informacijskom sustavu za hrvatski znanstveno-istraživački ekosustav.",
+          "Radio 2,5 godine na CroRIS-u, velikom javnom informacijskom sustavu za hrvatski znanstveno-istraživački ekosustav.",
         highlights: [
           "Radio s Java Spring Boot backendom.",
           "Implementirao server-rendered frontend značajke uz JSP, JavaScript, jQuery i CSS.",
