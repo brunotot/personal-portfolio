@@ -66,8 +66,14 @@ const hr: Resources = {
       cta: "Pogledaj studiju slučaja",
       close: "Zatvori studiju slučaja",
       stats: [
-        { value: "41", label: "Produkcijski spremnih komponenti u 7 kategorija" },
-        { value: "18", label: "Ponovno iskoristivih hookova za forme, podatke i UX" },
+        {
+          value: "41",
+          label: "Produkcijski spremnih komponenti u 7 kategorija",
+        },
+        {
+          value: "18",
+          label: "Ponovno iskoristivih hookova za forme, podatke i UX",
+        },
         { value: "8", label: "Podržanih jezika od početka" },
       ],
       preview: {

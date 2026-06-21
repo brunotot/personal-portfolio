@@ -64,7 +64,10 @@ const en = {
       cta: "View case study",
       close: "Close case study",
       stats: [
-        { value: "41", label: "Production-ready components across 7 categories" },
+        {
+          value: "41",
+          label: "Production-ready components across 7 categories",
+        },
         { value: "18", label: "Reusable hooks for forms, data and UX" },
         { value: "8", label: "Locales supported out of the box" },
       ],
@@ -336,7 +339,8 @@ const en = {
     },
     hero: {
       eyebrow: "Custom web application studio",
-      title: "We turn manual business processes into reliable web applications.",
+      title:
+        "We turn manual business processes into reliable web applications.",
       description:
         "{{company}} helps small and medium businesses replace spreadsheets and repetitive manual work with custom web applications — designed around your real workflow, built to last, and supported after launch.",
       ctaPrimary: "Start a project",

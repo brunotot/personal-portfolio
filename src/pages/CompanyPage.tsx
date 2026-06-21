@@ -1,7 +1,4 @@
-import {
-  faGithub,
-  faLinkedinIn,
-} from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import {
   faArrowRight,
   faBullseye,
@@ -64,46 +61,55 @@ function Hero() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 right-[-15%] h-[720px] w-[720px] rounded-full bg-primary-base blur-[150px] lg:right-[0%]"
+        className="animate-glow pointer-events-none absolute -top-40 right-[-15%] h-[720px] w-[720px] rounded-full bg-primary-base blur-[150px] lg:right-[0%]"
         style={{ opacity: "var(--glow-opacity)" }}
       />
       <div
-        className="relative mx-auto max-w-5xl text-center"
+        className="relative mx-auto flex w-full max-w-[88rem] flex-col items-center text-center"
         data-aos="fade-up"
       >
         <p className="flex items-center justify-center gap-3 text-sm font-semibold uppercase tracking-[0.25em] text-primary-base sm:text-base">
-          <span aria-hidden className="h-px w-10 flex-none bg-primary-base/60" />
+          <span
+            aria-hidden
+            className="h-px w-10 flex-none bg-primary-base/60"
+          />
           {t("company.hero.eyebrow")}
-          <span aria-hidden className="h-px w-10 flex-none bg-primary-base/60" />
+          <span
+            aria-hidden
+            className="h-px w-10 flex-none bg-primary-base/60"
+          />
         </p>
-        <h1 className="mt-7 text-5xl font-bold leading-[1.05] tracking-tight text-content sm:text-7xl lg:text-8xl">
+        <h1 className="mx-auto mt-7 max-w-6xl text-balance text-4xl font-bold leading-[1.04] tracking-tight text-content sm:text-5xl lg:text-7xl xl:text-8xl">
           {t("company.hero.title")}
         </h1>
-        <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-content-secondary sm:text-xl lg:text-2xl">
+        <p className="font-fraunces mx-auto my-20 max-w-4xl text-balance text-2xl font-semibold leading-loose tracking-tight text-primary-base sm:text-3xl sm:leading-loose lg:my-24 lg:text-4xl lg:leading-[1.9]">
           {t("company.hero.description")}
         </p>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <div className="flex w-full max-w-3xl flex-row flex-nowrap justify-center gap-4 sm:gap-6">
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-base px-7 py-3.5 text-base font-semibold text-secondary-darker transition-colors hover:bg-primary-light"
+            className="sheen group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-2xl bg-primary-base px-10 py-6 text-xl font-bold text-secondary-darker transition-colors hover:bg-primary-light sm:text-2xl lg:px-12 lg:py-7 lg:text-3xl"
           >
             {t("company.hero.ctaPrimary")}
-            <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              className="nudge text-lg lg:text-2xl"
+            />
           </a>
           <a
             href="#process"
-            className="inline-flex items-center justify-center rounded-lg border border-line-strong px-7 py-3.5 text-base font-semibold text-content transition-colors hover:border-primary-base/60 hover:text-primary-base"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-2xl border-2 border-line-strong px-10 py-6 text-xl font-bold text-content transition-colors hover:border-primary-base/60 hover:text-primary-base sm:text-2xl lg:px-12 lg:py-7 lg:text-3xl"
           >
             {t("company.hero.ctaSecondary")}
           </a>
         </div>
 
-        <ul className="mt-12 flex flex-wrap justify-center gap-2.5">
+        <ul className="mt-16 grid w-full max-w-5xl grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-4">
           {chips.map((chip) => (
             <li
               key={chip}
-              className="rounded-full border border-line bg-surface-subtle px-4 py-1.5 text-sm font-medium text-content-secondary"
+              className="lift flex items-center justify-center rounded-2xl border border-line bg-surface-subtle px-8 py-10 text-center text-xl font-medium text-content-secondary hover:border-primary-base/40 hover:text-content sm:text-2xl"
             >
               {chip}
             </li>
@@ -134,9 +140,9 @@ function Services() {
             key={item.title}
             data-aos="fade-up"
             data-aos-delay={index * 100}
-            className="surface flex flex-col gap-5 rounded-2xl border border-line bg-surface p-8 transition-colors hover:border-line-strong"
+            className="surface lift group flex flex-col gap-5 rounded-2xl border border-line bg-surface p-8 hover:border-line-strong"
           >
-            <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-surface-hover text-xl text-primary-base">
+            <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-surface-hover text-xl text-primary-base transition-transform duration-300 group-hover:scale-110">
               <FontAwesomeIcon icon={SERVICE_ICONS[index]} />
             </span>
             <h3 className="text-xl font-semibold text-content">{item.title}</h3>
@@ -171,14 +177,12 @@ function Process() {
             key={step.title}
             data-aos="fade-up"
             data-aos-delay={(index % 3) * 100}
-            className="surface relative flex flex-col gap-4 rounded-2xl border border-line bg-surface p-8"
+            className="surface lift group relative flex flex-col gap-4 rounded-2xl border border-line bg-surface p-8"
           >
-            <span className="flex h-12 w-12 items-center justify-center rounded-lg border border-primary-base/40 text-base font-bold text-primary-base">
+            <span className="flex h-12 w-12 items-center justify-center rounded-lg border border-primary-base/40 text-base font-bold text-primary-base transition-colors duration-300 group-hover:bg-primary-base/10">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <h3 className="text-lg font-semibold text-content">
-              {step.title}
-            </h3>
+            <h3 className="text-lg font-semibold text-content">{step.title}</h3>
             <p className="text-base leading-7 text-content-secondary">
               {step.description}
             </p>
@@ -209,10 +213,12 @@ function Industries() {
             key={item}
             data-aos="fade-up"
             data-aos-delay={(index % 3) * 100}
-            className="flex items-center gap-5 rounded-xl border border-line bg-surface-subtle px-6 py-6"
+            className="lift group flex items-center gap-5 rounded-xl border border-line bg-surface-subtle px-6 py-6 hover:border-primary-base/40"
           >
-            <span className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-surface-hover text-lg text-primary-base">
-              <FontAwesomeIcon icon={INDUSTRY_ICONS[index % INDUSTRY_ICONS.length]} />
+            <span className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-surface-hover text-lg text-primary-base transition-transform duration-300 group-hover:scale-110">
+              <FontAwesomeIcon
+                icon={INDUSTRY_ICONS[index % INDUSTRY_ICONS.length]}
+              />
             </span>
             <span className="text-base font-medium text-content">{item}</span>
           </div>
@@ -243,9 +249,9 @@ function WhyUs() {
             key={item.title}
             data-aos="fade-up"
             data-aos-delay={(index % 2) * 100}
-            className="surface flex gap-5 rounded-2xl border border-line bg-surface p-8"
+            className="surface lift group flex gap-5 rounded-2xl border border-line bg-surface p-8 hover:border-line-strong"
           >
-            <span className="flex h-14 w-14 flex-none items-center justify-center rounded-xl bg-surface-hover text-xl text-primary-base">
+            <span className="flex h-14 w-14 flex-none items-center justify-center rounded-xl bg-surface-hover text-xl text-primary-base transition-transform duration-300 group-hover:scale-110">
               <FontAwesomeIcon icon={WHY_ICONS[index]} />
             </span>
             <div className="flex flex-col gap-3">
@@ -308,7 +314,7 @@ function About() {
             key={member}
             data-aos="fade-up"
             data-aos-delay={index * 100}
-            className="surface flex flex-col gap-4 rounded-2xl border border-line bg-surface p-8"
+            className="surface lift flex flex-col gap-4 rounded-2xl border border-line bg-surface p-8 hover:border-line-strong"
           >
             <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary-base text-xl font-bold text-secondary-darker">
               {(t(`company.about.members.${member}.name`) as string).charAt(0)}
@@ -343,7 +349,7 @@ function Contact() {
       <div className="grid gap-6 lg:grid-cols-2">
         <a
           href={`mailto:${COMPANY.email}`}
-          className="group surface flex items-center gap-4 rounded-2xl border border-line bg-surface p-5 transition-colors hover:border-line-strong"
+          className="group surface lift flex items-center gap-4 rounded-2xl border border-line bg-surface p-5 hover:border-line-strong"
         >
           <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-surface-hover text-content-secondary transition-colors group-hover:text-primary-base">
             <FontAwesomeIcon icon={faEnvelope} />
@@ -377,7 +383,7 @@ function Contact() {
         <div className="flex flex-wrap gap-3">
           <a
             href={`mailto:${COMPANY.email}`}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-base px-5 py-2.5 text-sm font-semibold text-secondary-darker transition-colors hover:bg-primary-light"
+            className="sheen group inline-flex items-center justify-center gap-2 rounded-lg bg-primary-base px-5 py-2.5 text-sm font-semibold text-secondary-darker transition-colors hover:bg-primary-light"
           >
             <FontAwesomeIcon icon={faEnvelope} />
             {t("company.contact.cta")}
@@ -407,7 +413,10 @@ function Contact() {
         </div>
 
         <p className="flex items-center gap-2 text-sm text-content-muted">
-          <span className="h-2 w-2 flex-none rounded-full bg-emerald-400" />
+          <span className="relative flex h-2 w-2 flex-none">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+          </span>
           {t("company.contact.availability")}
         </p>
       </div>

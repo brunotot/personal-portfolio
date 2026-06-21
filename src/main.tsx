@@ -1,12 +1,9 @@
 import ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
-import CompanyPage from "./pages/CompanyPage";
 import "./i18n";
 import "./index.scss";
+import CompanyPage from "./pages/CompanyPage";
 import ThemeProvider from "./theme/ThemeProvider";
 
 const router = createBrowserRouter(

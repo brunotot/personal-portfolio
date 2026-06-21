@@ -33,7 +33,7 @@ export default function Section({
         className,
       )}
     >
-      <div className={cn("mx-auto", spacious ? "max-w-7xl" : "max-w-6xl")}>
+      <div className={cn("mx-auto", spacious ? "max-w-[88rem]" : "max-w-6xl")}>
         {(eyebrow || title || description) && (
           <header
             className={cn(
