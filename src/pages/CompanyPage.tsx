@@ -256,7 +256,7 @@ function Process() {
             </span>
             <div className="pt-1.5 sm:pt-4">
               <h3 className="text-xl font-semibold text-content sm:text-2xl">
-                {step.title}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
+                {step.title}
               </h3>
               <p className="mt-2 max-w-2xl text-base leading-7 text-content-secondary sm:text-lg">
                 {step.description}
