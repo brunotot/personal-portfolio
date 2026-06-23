@@ -150,7 +150,7 @@ export default function NavMobile({ open, onClose }: NavMobileProps) {
               onClose();
               window.print();
             }}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary-base px-5 py-2.5 text-sm font-semibold text-secondary-darker transition-colors hover:bg-primary-light"
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary-base px-5 py-2.5 text-sm font-semibold text-on-primary transition-colors hover:bg-primary-light"
           >
             {t("nav.resume")}
             <PrintIcon fontSize="small" />

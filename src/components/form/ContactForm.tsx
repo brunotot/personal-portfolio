@@ -78,7 +78,7 @@ export default function ContactForm() {
         className={`font-jost mt-2 !w-full ${
           loading
             ? "!bg-primary-darker !text-tertiary-light"
-            : "!bg-primary-base !text-tertiary-darker"
+            : "!bg-primary-base !text-on-primary"
         }`}
       >
         <span>{t("contact.form.send")}</span>

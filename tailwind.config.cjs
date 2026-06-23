@@ -27,6 +27,7 @@ module.exports = {
           DEFAULT: "rgb(var(--canvas) / <alpha-value>)",
           raised: "rgb(var(--canvas-raised) / <alpha-value>)",
         },
+        "on-primary": "rgb(var(--on-primary) / <alpha-value>)",
         content: {
           DEFAULT: "rgb(var(--content) / <alpha-value>)",
           secondary: "rgb(var(--content-secondary) / <alpha-value>)",

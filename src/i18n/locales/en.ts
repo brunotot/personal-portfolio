@@ -26,7 +26,7 @@ const en = {
     ctaContact: "Contact me",
     chips: [
       "4+ years professional experience",
-      "React + TypeScript frontend",
+      "TypeScript React frontend",
       "Java Spring Boot backend",
       "Production business systems",
       "Frontend architecture",
@@ -62,6 +62,7 @@ const en = {
         "A versioned, internally published UI library (@rgo/front-ui) that gives RGO product teams 41 production-ready components, 18 hooks and 8-locale i18n — fully documented in Storybook with live, interactive examples.",
       role: "Frontend engineer · Shared component library",
       cta: "View case study",
+      docs: "View live docs",
       close: "Close case study",
       stats: [
         {
@@ -75,7 +76,7 @@ const en = {
         label: "Storybook documentation preview",
         nav: "Components",
         navItems: ["RgoForm", "RgoInputText", "RgoClientTable", "RgoTabs"],
-        page: "RgoInputText",
+        page: "RgoForm",
         usage: "Usage",
         props: "Props",
       },
@@ -186,7 +187,7 @@ const en = {
         summary:
           "A production web platform for European river-port operations, bringing domain workflows, data management and reporting together in a single application.",
         highlights: [
-          "Worked mostly on React + TypeScript frontend implementation.",
+          "Worked mostly on TypeScript React frontend implementation.",
           "Contributed to backend functionality in Java Spring Boot when needed.",
           "Helped continue and stabilize an existing project instead of only working from a blank slate.",
           "Worked on production-oriented features, integration points and UI flows.",
@@ -218,7 +219,7 @@ const en = {
         company: "RGO Communications",
         period: "Jul. 2023 – present",
         summary:
-          "Working on active production web applications with a focus on React + TypeScript frontend development and Java Spring Boot backend work.",
+          "Working on active production web applications with a focus on TypeScript React frontend development and Java Spring Boot backend work.",
         highlights: [
           "Built FRED frontend from scratch.",
           "Implemented LMS frontend end-to-end.",

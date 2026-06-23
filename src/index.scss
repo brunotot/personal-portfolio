@@ -23,6 +23,9 @@
   --canvas: 7 11 20;
   --canvas-raised: 11 16 32;
 
+  /* Text color for content sitting on a solid primary surface. */
+  --on-primary: 7 11 20;
+
   --content: 255 255 255;
   --content-secondary: 203 213 225;
   --content-muted: 148 163 184;
@@ -48,6 +51,9 @@
 
   --canvas: 255 255 255;
   --canvas-raised: 241 245 249;
+
+  /* On light surfaces the primary cyan is darker, so white text reads best. */
+  --on-primary: 255 255 255;
 
   --content: 15 23 42;
   --content-secondary: 51 65 85;
@@ -80,6 +86,7 @@ body,
 html {
   margin: 0;
   padding: 0;
+  font-size: 17px;
 }
 
 body {

@@ -41,7 +41,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           className="pointer-events-none absolute right-0 top-0 h-24 w-24 overflow-hidden"
           aria-hidden="true"
         >
-          <span className="absolute right-[-42px] top-[20px] w-[150px] rotate-45 bg-primary-base py-1 text-center text-xs font-bold tracking-wide text-secondary-darker shadow-md">
+          <span className="absolute right-[-42px] top-[20px] w-[150px] rotate-45 bg-primary-base py-1 text-center text-xs font-bold tracking-wide text-on-primary shadow-md">
             {ribbon}
           </span>
         </div>

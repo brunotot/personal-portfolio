@@ -88,11 +88,20 @@ export default function FeaturedProject() {
             <button
               type="button"
               onClick={() => setCaseStudyOpen(true)}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-base px-5 py-2.5 text-sm font-semibold text-secondary-darker shadow-sm transition hover:bg-primary-light focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-base focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-base px-5 py-2.5 text-sm font-semibold text-on-primary shadow-sm transition hover:bg-primary-light focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-base focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             >
               {t(`${base}.cta`)}
               <span aria-hidden>→</span>
             </button>
+            <a
+              href="http://88.198.9.184/rgo-front-ui"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-line-strong px-5 py-2.5 text-sm font-semibold text-content-secondary transition hover:border-primary-base/60 hover:text-primary-base focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-base focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+            >
+              {t(`${base}.docs`)}
+              <span aria-hidden>↗</span>
+            </a>
             <span className="text-sm font-medium text-content-muted">
               {t(`${base}.role`)}
             </span>

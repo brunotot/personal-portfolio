@@ -33,7 +33,7 @@ export default function Section({
         className,
       )}
     >
-      <div className={cn("mx-auto", spacious ? "max-w-[88rem]" : "max-w-6xl")}>
+      <div className={cn("mx-auto", spacious ? "max-w-[88rem]" : "max-w-7xl")}>
         {(eyebrow || title || description) && (
           <header
             className={cn(
@@ -44,17 +44,10 @@ export default function Section({
             {eyebrow && (
               <p
                 className={cn(
-                  "flex items-center gap-3 font-semibold uppercase tracking-[0.2em] text-primary-base",
+                  "font-semibold uppercase tracking-[0.2em] text-primary-base",
                   spacious ? "text-sm sm:text-base" : "text-sm",
                 )}
               >
-                <span
-                  aria-hidden
-                  className={cn(
-                    "h-px flex-none bg-primary-base/60",
-                    spacious ? "w-10" : "w-8",
-                  )}
-                />
                 {eyebrow}
               </p>
             )}
