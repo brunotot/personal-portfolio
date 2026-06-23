@@ -21,13 +21,9 @@ export default function Biography() {
         className="pointer-events-none absolute -top-32 right-[-15%] h-[560px] w-[560px] rounded-full bg-primary-base blur-[130px] lg:right-[0%]"
         style={{ opacity: "var(--glow-opacity)" }}
       />
-      <div className="relative mx-auto grid max-w-6xl items-stretch gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="relative mx-auto grid max-w-7xl items-stretch gap-12 lg:grid-cols-[1.15fr_0.85fr]">
         <div data-aos="fade-up" className="min-w-0">
-          <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary-base">
-            <span
-              aria-hidden
-              className="h-px w-8 flex-none bg-primary-base/60"
-            />
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary-base">
             {t("hero.eyebrow")}
           </p>
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-content sm:text-5xl lg:text-6xl">
@@ -40,23 +36,23 @@ export default function Biography() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#work"
-              className="inline-flex items-center justify-center rounded-lg bg-primary-base px-5 py-2.5 text-sm font-semibold text-secondary-darker transition-colors hover:bg-primary-light"
+              className="inline-flex items-center justify-center rounded-lg bg-primary-base px-6 py-3 text-base font-semibold text-on-primary transition-colors hover:bg-primary-light sm:text-lg"
             >
               {t("hero.ctaWork")}
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center rounded-lg border border-line-strong px-5 py-2.5 text-sm font-semibold text-content transition-colors hover:border-primary-base/60 hover:text-primary-base"
+              className="inline-flex items-center justify-center rounded-lg border border-line-strong px-6 py-3 text-base font-semibold text-content transition-colors hover:border-primary-base/60 hover:text-primary-base sm:text-lg"
             >
               {t("hero.ctaContact")}
             </a>
           </div>
 
-          <ul className="mt-8 flex flex-wrap gap-2">
+          <ul className="mt-8 flex flex-wrap gap-2.5">
             {chips.map((chip) => (
               <li
                 key={chip}
-                className="rounded-full border border-line bg-surface-subtle px-3 py-1 text-xs font-medium text-content-secondary"
+                className="rounded-full border border-line bg-surface-subtle px-4 py-2 text-sm font-medium text-content-secondary"
               >
                 {chip}
               </li>

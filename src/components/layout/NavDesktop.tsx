@@ -112,7 +112,7 @@ export default function NavDesktop({ handleDrawerToggle }: NavDesktopProps) {
             variant="contained"
             endIcon={<PrintIcon />}
             onClick={() => window.print()}
-            className="!bg-primary-base !text-secondary-darker font-jost"
+            className="!bg-primary-base !text-on-primary font-jost"
           >
             {t("nav.resume")}
           </Button>

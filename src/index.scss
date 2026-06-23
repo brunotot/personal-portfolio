@@ -23,6 +23,9 @@
   --canvas: 7 11 20;
   --canvas-raised: 11 16 32;
 
+  /* Text color for content sitting on a solid primary surface. */
+  --on-primary: 7 11 20;
+
   --content: 255 255 255;
   --content-secondary: 203 213 225;
   --content-muted: 148 163 184;
@@ -48,6 +51,9 @@
 
   --canvas: 255 255 255;
   --canvas-raised: 241 245 249;
+
+  /* On light surfaces the primary cyan is darker, so white text reads best. */
+  --on-primary: 255 255 255;
 
   --content: 15 23 42;
   --content-secondary: 51 65 85;
@@ -80,6 +86,7 @@ body,
 html {
   margin: 0;
   padding: 0;
+  font-size: 17px;
 }
 
 body {
@@ -140,6 +147,11 @@ html {
   font-family: "Jost", sans-serif !important;
 }
 
+.font-fraunces {
+  font-family: "JetBrains Mono", "SFMono-Regular", "Menlo", monospace;
+  font-optical-sizing: auto;
+}
+
 .card-shadow {
   box-shadow:
     0px 8px 10px rgba(0, 0, 0, 0.14),
@@ -170,6 +182,103 @@ html {
     #000 0%,
     transparent 75%
   );
+}
+
+/* ───────────────────────────────────────────────────────────
+   Subtle, "clean" micro-interactions (Helius-style)
+   ─────────────────────────────────────────────────────────── */
+
+/* Slow breathing glow for the hero accent blob. */
+@keyframes glow-breathe {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: calc(var(--glow-opacity) * 0.85);
+  }
+  50% {
+    transform: translate3d(0, -2.5%, 0) scale(1.08);
+    opacity: var(--glow-opacity);
+  }
+}
+
+.animate-glow {
+  animation: glow-breathe 9s ease-in-out infinite;
+}
+
+/* Light sweep that crosses a surface on hover (buttons, cards). */
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.sheen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 75%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  pointer-events: none;
+  transition: none;
+}
+
+.sheen:hover::after {
+  animation: sheen-sweep 0.85s ease;
+}
+
+@keyframes sheen-sweep {
+  from {
+    left: -150%;
+  }
+  to {
+    left: 150%;
+  }
+}
+
+/* Gentle lift + accent ring on hover, shared by interactive cards. */
+.lift {
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    color 0.3s ease;
+  will-change: transform;
+}
+
+.lift:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 30px -12px rgb(var(--canvas) / 0.7),
+    0 0 0 1px rgb(34 211 238 / 0.18),
+    0 0 28px -6px rgb(34 211 238 / 0.25);
+}
+
+/* Arrow nudges forward when its parent button/link is hovered. */
+.nudge {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .nudge,
+a:hover > .nudge {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-glow,
+  .sheen:hover::after {
+    animation: none !important;
+  }
+
+  .lift:hover {
+    transform: none;
+  }
 }
 
 @media print {

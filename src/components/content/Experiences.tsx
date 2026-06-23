@@ -1,5 +1,9 @@
 import { useTranslation } from "react-i18next";
-import { educationIds, experienceIds } from "../../data/experience";
+import {
+  educationIds,
+  experienceIds,
+  experienceUrls,
+} from "../../data/experience";
 import Section from "./../ui/Section";
 
 export default function Experiences() {
@@ -28,9 +32,14 @@ export default function Experiences() {
                 <h3 className="text-lg font-bold text-content">
                   {t(`experience.items.${id}.title`)}
                 </h3>
-                <p className="text-sm font-medium text-primary-base">
+                <a
+                  href={experienceUrls[id]}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm font-medium text-primary-base underline-offset-4 transition-colors hover:text-primary-light hover:underline"
+                >
                   {t(`experience.items.${id}.company`)}
-                </p>
+                </a>
               </div>
               <p className="mt-3 text-sm leading-7 text-content-secondary">
                 {t(`experience.items.${id}.summary`)}

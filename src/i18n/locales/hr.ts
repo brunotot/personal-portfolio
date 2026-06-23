@@ -28,7 +28,7 @@ const hr: Resources = {
     ctaContact: "Kontaktiraj me",
     chips: [
       "4+ godine profesionalnog iskustva",
-      "React + TypeScript frontend",
+      "TypeScript React frontend",
       "Java Spring Boot backend",
       "Produkcijski poslovni sustavi",
       "Frontend arhitektura",
@@ -64,17 +64,24 @@ const hr: Resources = {
         "Verzionirana, interno objavljena UI biblioteka (@rgo/front-ui) koja RGO-ovim timovima donosi 41 produkcijski spremnu komponentu, 18 hookova i i18n s 8 jezika — potpuno dokumentirano u Storybooku sa živim, interaktivnim primjerima.",
       role: "Frontend programer · Dijeljena biblioteka komponenti",
       cta: "Pogledaj studiju slučaja",
+      docs: "Pogledaj dokumentaciju",
       close: "Zatvori studiju slučaja",
       stats: [
-        { value: "41", label: "Produkcijski spremnih komponenti u 7 kategorija" },
-        { value: "18", label: "Ponovno iskoristivih hookova za forme, podatke i UX" },
+        {
+          value: "41",
+          label: "Produkcijski spremnih komponenti u 7 kategorija",
+        },
+        {
+          value: "18",
+          label: "Ponovno iskoristivih hookova za forme, podatke i UX",
+        },
         { value: "8", label: "Podržanih jezika od početka" },
       ],
       preview: {
         label: "Pregled Storybook dokumentacije",
         nav: "Komponente",
         navItems: ["RgoForm", "RgoInputText", "RgoClientTable", "RgoTabs"],
-        page: "RgoInputText",
+        page: "RgoForm",
         usage: "Primjena",
         props: "Svojstva",
       },
@@ -185,7 +192,7 @@ const hr: Resources = {
         summary:
           "Produkcijska web platforma za poslovanje europskih riječnih luka, koja objedinjuje domenske tokove, upravljanje podacima i izvještavanje u jednoj aplikaciji.",
         highlights: [
-          "Radio uglavnom na React + TypeScript frontend implementaciji.",
+          "Radio uglavnom na TypeScript React frontend implementaciji.",
           "Doprinosio backend funkcionalnostima u Java Spring Bootu kada je bilo potrebno.",
           "Pomogao nastaviti i stabilizirati postojeći projekt, a ne raditi samo od nule.",
           "Radio na produkcijski usmjerenim značajkama, integracijskim točkama i UI tokovima.",
@@ -217,7 +224,7 @@ const hr: Resources = {
         company: "RGO Communications",
         period: "Srp. 2023 – danas",
         summary:
-          "Rad na aktivnim produkcijskim web aplikacijama s naglaskom na React + TypeScript frontend razvoj i Java Spring Boot backend rad.",
+          "Rad na aktivnim produkcijskim web aplikacijama s naglaskom na TypeScript React frontend razvoj i Java Spring Boot backend rad.",
         highlights: [
           "Izradio FRED frontend od nule.",
           "Implementirao LMS frontend od početka do kraja.",
@@ -356,7 +363,8 @@ const hr: Resources = {
       items: [
         {
           value: "2",
-          label: "Osnivača koji grade i održavaju vašu aplikaciju — ne posrednika",
+          label:
+            "Osnivača koji grade i održavaju vašu aplikaciju — ne posrednika",
         },
         {
           value: "Cijeli ciklus",

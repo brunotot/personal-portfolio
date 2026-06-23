@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import cn from "../../utils/cn";
 import DocsPreview from "./DocsPreview";
@@ -101,7 +102,7 @@ export default function CaseStudyModal({
 
   if (!open) return null;
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[60] flex items-end justify-center sm:items-center"
       role="presentation"
@@ -175,6 +176,18 @@ export default function CaseStudyModal({
             <DocsPreview />
           </div>
 
+          <div className="mt-4 flex justify-center">
+            <a
+              href="http://88.198.9.184/rgo-front-ui"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-line-strong px-5 py-2.5 text-sm font-semibold text-content-secondary transition hover:border-primary-base/60 hover:text-primary-base focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-base focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+            >
+              {t(`${base}.docs`)}
+              <span aria-hidden>↗</span>
+            </a>
+          </div>
+
           <Section title={t(`${sections}.overview.title`)}>
             <p className="text-sm leading-7 text-content-secondary">
               {overviewBody}
@@ -208,7 +221,8 @@ export default function CaseStudyModal({
           </Section>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
